@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -8,15 +8,15 @@ const config: Config = {
   ],
   theme: {
     container: {
-      padding: '2rem'
+      padding: '2rem',
     },
     extend: {
       colors: {
         transparent: 'transparent',
-        dark: '#191919'
-      }
-    }
+        dark: '#191919',
+      },
+    },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
