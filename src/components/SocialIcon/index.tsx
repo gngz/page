@@ -19,7 +19,7 @@ export default function SocialIcon({
 }: Props) {
   const icon = getIconComponent(socialNetwork);
   return (
-    <a href={href} {...other}>
+    <a href={href} target='_blank' {...other}>
       {icon}
     </a>
   );
