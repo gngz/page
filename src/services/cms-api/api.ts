@@ -36,7 +36,6 @@ export class CMSApi {
       if (tags) {
         requestInit = {
           ...init,
-          cache: 'no-cache',
           next: {
             tags: tags,
           },
