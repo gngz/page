@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 
 type Props = {
   socialNetwork: 'github' | 'linkedin' | 'x';
-} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+} & React.HTMLProps<HTMLAnchorElement>;
 
 function getIconComponent(network: Props['socialNetwork'], size = 24) {
   if (network === 'github') return React.createElement(FaGithub, { size });
@@ -12,14 +12,22 @@ function getIconComponent(network: Props['socialNetwork'], size = 24) {
   if (network === 'x') return React.createElement(FaXTwitter, { size });
 }
 
+function generateTitle(network: Props['socialNetwork']) {
+  if (network === 'github') return 'GitHub';
+  if (network === 'linkedin') return 'LinkedIn';
+  if (network === 'x') return 'X';
+}
+
 export default function SocialIcon({
   socialNetwork,
   href = '#',
   ...other
 }: Props) {
   const icon = getIconComponent(socialNetwork);
+  const title = generateTitle(socialNetwork);
+
   return (
-    <a href={href} target='_blank' {...other}>
+    <a href={href} alt={title} title={title} target='_blank' {...other}>
       {icon}
     </a>
   );

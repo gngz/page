@@ -1,3 +1,4 @@
+import SocialIcon from '@/components/SocialIcon';
 import React from 'react';
 
 type Props = {};
@@ -10,8 +11,13 @@ export function Footer({}: Props) {
       <div className='container mx-auto'>
         <div className='flex flex-col justify-between border-b border-zinc-500/30 py-11 md:flex-row'>
           <h1 className='text-center text-4xl md:text-left'>DiogoPassos.pt</h1>
-          <div className='flex flex-row items-center justify-center'>
-            Social Links
+          <div className='flex flex-row items-center justify-center gap-4'>
+            <SocialIcon socialNetwork='github' href='https://github.com/gngz' />
+            <SocialIcon
+              socialNetwork='linkedin'
+              href='https://www.linkedin.com/in/gdfpassos/'
+            />
+            <SocialIcon socialNetwork='x' href='https://x.com/gdfpassos' />
           </div>
         </div>
         <div className='flex flex-col py-14 lg:flex-row'>
