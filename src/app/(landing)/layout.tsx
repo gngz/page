@@ -1,15 +1,18 @@
 import React from 'react';
 import { Footer } from './sections/Footer';
+import { getSocialNetworks } from '@/services/cms-api';
 
-export default function RootLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const socialNetworks = await getSocialNetworks();
+
   return (
     <React.Fragment>
       {children}
-      <Footer />
+      <Footer socialNetworks={socialNetworks} />
     </React.Fragment>
   );
 }
