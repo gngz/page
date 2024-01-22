@@ -1,10 +1,10 @@
 export type TextProps =
   | ({
-      as: 'p';
+      as?: 'p';
     } & React.ComponentPropsWithoutRef<'p'>)
   | ({
-      as: 'span';
+      as?: 'span';
     } & React.ComponentPropsWithoutRef<'span'>)
   | ({
-      as: 'div';
+      as?: 'div';
     } & React.ComponentPropsWithoutRef<'div'>);
