@@ -1,4 +1,4 @@
-import SocialIcon from '@/components/SocialIcon';
+import SocialIcon from '@/components/social-icon';
 import { SocialNetworkModel } from '@/services/cms-api/models/social-network';
 import React from 'react';
 
