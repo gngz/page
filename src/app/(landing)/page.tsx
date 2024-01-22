@@ -1,4 +1,6 @@
 import { getSeoData } from '@/services/cms-api/apis/seo';
+import { Text } from '@/components/ui/text';
+import { Heading } from '@/components/ui/heading';
 
 export async function generateMetadata() {
   const seo = await getSeoData();
@@ -11,5 +13,5 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  return <>Page Under Construction</>;
+  return <Text>Page Under Construction</Text>;
 }
