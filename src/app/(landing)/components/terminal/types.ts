@@ -1,5 +1,5 @@
 import { TextProps } from '@/components/ui/text/types';
-import { ComponentProps, PropsWithChildren, ReactElement } from 'react';
+import { ComponentProps, ReactElement } from 'react';
 
 type MaybeArray<T> = T | T[];
 

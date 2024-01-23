@@ -1,6 +1,6 @@
-import { RevalidateRequestSchema } from './revalidate-request';
 import { revalidateTag } from 'next/cache';
 import { NextRequest } from 'next/server';
+import { RevalidateRequestSchema } from './revalidate-request';
 
 /**
  * Parses a bearer token by removing the 'Bearer ' prefix.

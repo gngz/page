@@ -1,7 +1,5 @@
-import { Terminal, TerminalBlink, TerminalLine } from './components/terminal';
-import { Hero } from './sections/hero';
-import { Text } from '@/components/ui/text';
 import { getSeoData } from '@/services/cms-api/apis/seo';
+import { Hero } from './sections/hero';
 
 export async function generateMetadata() {
   const seo = await getSeoData();

@@ -1,4 +1,4 @@
-import { createDirectus, staticToken, graphql } from '@directus/sdk';
+import { createDirectus, graphql, staticToken } from '@directus/sdk';
 
 type Tags = string | string[];
 
