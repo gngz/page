@@ -1,6 +1,6 @@
+import '@/styles/global.scss';
 import type { Metadata, Viewport } from 'next';
 import { League_Spartan } from 'next/font/google';
-import '@/styles/global.scss';
 
 const font = League_Spartan({ subsets: ['latin'] });
 

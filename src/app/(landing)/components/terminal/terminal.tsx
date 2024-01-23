@@ -1,6 +1,6 @@
+import { TerminalLineProps, TerminalProps } from './types';
 import { Shape } from '@/components/ui/shape';
 import React, { PropsWithChildren } from 'react';
-import { TerminalLineProps, TerminalProps } from './types';
 
 export function TerminalLine({ children }: Readonly<TerminalLineProps>) {
   return <div className='flex items-center text-sm'>{children}</div>;

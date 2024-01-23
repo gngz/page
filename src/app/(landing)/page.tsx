@@ -1,9 +1,7 @@
-import { getSeoData } from '@/services/cms-api/apis/seo';
-
 import { Terminal, TerminalBlink, TerminalLine } from './components/terminal';
-
-import { Text } from '@/components/ui/text';
 import { Hero } from './sections/hero';
+import { Text } from '@/components/ui/text';
+import { getSeoData } from '@/services/cms-api/apis/seo';
 
 export async function generateMetadata() {
   const seo = await getSeoData();

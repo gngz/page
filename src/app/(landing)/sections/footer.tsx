@@ -1,7 +1,7 @@
-import SocialIcon from '@/components/social-icon';
-import React from 'react';
-import Image from 'next/image';
 import { getSocialNetworksData } from '../actions/social-networks';
+import SocialIcon from '@/components/social-icon';
+import Image from 'next/image';
+import React from 'react';
 
 export async function Footer() {
   const year = new Date().getFullYear();

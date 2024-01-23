@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import { ShapeProps } from './types';
+import { cn } from '@/lib/utils';
 
 function shapeVariantsClass(props: ShapeProps) {
   if (props.variant === 'circle') {

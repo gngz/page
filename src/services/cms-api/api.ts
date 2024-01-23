@@ -1,4 +1,5 @@
 import { createDirectus, staticToken, graphql } from '@directus/sdk';
+
 type Tags = string | string[];
 
 export class CMSApi {

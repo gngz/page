@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function Navbar() {
   return (
@@ -15,7 +15,7 @@ export function Navbar() {
         </div>
         <div className='flex gap-2'>
           <Link href={'#'}>Home</Link>
-          <Link href={'#'}>About</Link>
+          <Link href={'#'}>About M</Link>
           <Link href={'#'}>Technologies</Link>
           <Link href={'#'}>Projects</Link>
           <Link href={'#'}>Contact</Link>
