@@ -21,11 +21,21 @@ export function Navbar() {
           </Button>
         </div>
         <div className='hidden md:flex gap-2'>
-          <Link href={'#'}>Home</Link>
-          <Link href={'#'}>About Me</Link>
-          <Link href={'#'}>Technologies</Link>
-          <Link href={'#'}>Projects</Link>
-          <Link href={'#'}>Contact</Link>
+          <Button variant={'link'} asChild>
+            <Link href={'#'}>Home</Link>
+          </Button>
+          <Button variant={'link'} asChild>
+            <Link href={'#'}>About Me</Link>
+          </Button>
+          <Button variant={'link'} asChild>
+            <Link href={'#'}>Technologies</Link>
+          </Button>
+          <Button variant={'link'} asChild>
+            <Link href={'#'}>Projects</Link>
+          </Button>
+          <Button variant={'link'} asChild>
+            <Link href={'#'}>Contact</Link>
+          </Button>
         </div>
       </div>
     </nav>
