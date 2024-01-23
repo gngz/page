@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="bg-gray-100 ">
-      <div className="grid grid-rows-[1fr_auto] grid-cols-1 min-h-screen ">
+      <div className="grid grid-rows-[1fr_auto] grid-cols-1 min-h-svh">
         <div className="h-full flex justify-center items-center container mx-auto">
           <div className="w-full h-5/6 flex flex-col items-center py-8 px-4">
             <Image
