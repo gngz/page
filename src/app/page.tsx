@@ -6,19 +6,19 @@ export default function Home() {
     <main className="bg-gray-100 ">
       <div className="grid grid-rows-[1fr_auto] grid-cols-1 h-screen ">
         <div className="h-full flex justify-center items-center container mx-auto">
-          <div className="w-full h-5/6   flex flex-col items-center py-8">
+          <div className="w-full h-5/6   flex flex-col items-center py-8 px-4">
             <Image
               src="/logo.svg"
               alt="Diogo Passos Logo"
-              width={"280"}
-              height={"38"}
+              width={"352"}
+              height={"48"}
               priority
               className="mb-16"
             />
-            <h1 className="text-5xl font-bold text-center">
-              New Personal Page Coming Soon
+            <h1 className="text-5xl font-bold text-center text-zinc-800">
+              🚀 New Personal Page Coming Soon
             </h1>
-            <h2 className="text-3xl font-light text-center">
+            <h2 className="text-3xl font-light text-center text-zinc-500">
               The new page is under construction!
             </h2>
           </div>
