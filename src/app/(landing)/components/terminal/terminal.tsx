@@ -51,7 +51,7 @@ export function Terminal({
   title = 'terminal',
 }: Readonly<TerminalProps>) {
   return (
-    <div className=' flex w-full min-w-[600px] flex-col overflow-hidden rounded-sm border-[1.5px] border-zinc-950'>
+    <div className='flex w-full md:min-w-[600px] flex-col overflow-hidden rounded-sm border-[1.5px] border-zinc-950'>
       <TerminalTitleBar title={title} />
       <div className='flex-col bg-zinc-900 bg-opacity-90 p-2 font-mono text-[#EDECEE] filter backdrop-blur-xl'>
         {children}

@@ -35,7 +35,7 @@ const ConsoleTerminal = (
 export function Hero() {
   return (
     <section>
-      <main className='container grid grid-cols-[1fr_auto]  py-4'>
+      <main className='container grid grid-cols-1 md:grid-cols-[1fr_auto] py-4'>
         <div>
           <Heading className='text-2xl font-bold'>Who am i?</Heading>
           <Heading as='h2' className='text-lg font-bold'>
