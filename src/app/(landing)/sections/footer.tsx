@@ -10,7 +10,7 @@ export async function Footer() {
     <footer className='bg-zinc-900 text-lg text-zinc-300'>
       <div className='container mx-auto'>
         <div className='flex flex-col justify-between border-b border-zinc-500/30 py-11 md:flex-row'>
-          <h1 className='text-center text-4xl md:text-left'>
+          <h1 className='flex items-center justify-center md:justify-start'>
             <Image
               src={'/logo-white.svg'}
               alt={'Diogo Passos'}
@@ -19,7 +19,7 @@ export async function Footer() {
             ></Image>
           </h1>
           {socialNetworks && (
-            <div className='flex flex-row items-center justify-center gap-4'>
+            <div className='flex flex-row items-center justify-center gap-4 mt-4 md:mt-0'>
               {socialNetworks.map((network) => {
                 return (
                   <SocialIcon

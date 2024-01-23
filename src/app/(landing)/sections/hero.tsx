@@ -1,5 +1,6 @@
-import { Terminal, TerminalBlink, TerminalLine } from '../components/terminal';
+import { Heading } from '@/components/ui/heading';
 import { Text } from '@/components/ui/text';
+import { Terminal, TerminalBlink, TerminalLine } from '../components/terminal';
 
 const ConsoleTerminal = (
   <Terminal title='bash'>
@@ -33,9 +34,14 @@ const ConsoleTerminal = (
 );
 export function Hero() {
   return (
-    <section className=''>
-      <main className='container grid grid-cols-[1fr_auto] py-4'>
-        <div></div>
+    <section>
+      <main className='container grid grid-cols-[1fr_auto]  py-4'>
+        <div>
+          <Heading className='text-2xl font-bold'>Who am i?</Heading>
+          <Heading as='h2' className='text-lg font-bold'>
+            Ask to the terminal!
+          </Heading>
+        </div>
         <div>{ConsoleTerminal}</div>
       </main>
     </section>
