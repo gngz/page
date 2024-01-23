@@ -16,7 +16,7 @@ export function Navbar() {
           ></Image>
         </div>
         <div className='md:hidden'>
-          <Button variant={'ghost'}>
+          <Button variant={'ghost'} aria-label='Toggle navigation'>
             <FaBars size={20} />
           </Button>
         </div>
