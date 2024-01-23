@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer } from './sections/Footer';
+import { Footer } from './sections/footer';
 import { getSocialNetworks } from '@/services/cms-api';
 import { Navbar } from './sections/navbar';
 

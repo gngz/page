@@ -1,19 +1,27 @@
 import SocialIcon from '@/components/social-icon';
 import { SocialNetworkModel } from '@/services/cms-api/models/social-network';
 import React from 'react';
+import Image from 'next/image';
 
 type Props = {
   socialNetworks?: SocialNetworkModel[];
 };
 
-export function Footer({ socialNetworks }: Props) {
+export function Footer({ socialNetworks }: Readonly<Props>) {
   const year = new Date().getFullYear();
 
   return (
     <footer className='bg-zinc-900 text-lg text-zinc-300'>
       <div className='container mx-auto'>
         <div className='flex flex-col justify-between border-b border-zinc-500/30 py-11 md:flex-row'>
-          <h1 className='text-center text-4xl md:text-left'>DiogoPassos.pt</h1>
+          <h1 className='text-center text-4xl md:text-left'>
+            <Image
+              src={'/logo-white.svg'}
+              alt={'Diogo Passos'}
+              width={'224'}
+              height={'30'}
+            ></Image>
+          </h1>
           {socialNetworks && (
             <div className='flex flex-row items-center justify-center gap-4'>
               {socialNetworks.map((network) => {
