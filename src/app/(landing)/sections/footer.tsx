@@ -1,14 +1,11 @@
 import SocialIcon from '@/components/social-icon';
-import { SocialNetworkModel } from '@/services/cms-api/models/social-network';
 import React from 'react';
 import Image from 'next/image';
+import { getSocialNetworksData } from '../actions/social-networks';
 
-type Props = {
-  socialNetworks?: SocialNetworkModel[];
-};
-
-export function Footer({ socialNetworks }: Readonly<Props>) {
+export async function Footer() {
   const year = new Date().getFullYear();
+  const socialNetworks = await getSocialNetworksData();
 
   return (
     <footer className='bg-zinc-900 text-lg text-zinc-300'>

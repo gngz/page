@@ -14,7 +14,7 @@ export default async function Layout({
     <React.Fragment>
       <Navbar />
       {children}
-      <Footer socialNetworks={socialNetworks} />
+      <Footer />
     </React.Fragment>
   );
 }
