@@ -1,6 +1,9 @@
 import { getSeoData } from '@/services/cms-api/apis/seo';
+
+import { Terminal, TerminalBlink, TerminalLine } from './components/terminal';
+
 import { Text } from '@/components/ui/text';
-import { Heading } from '@/components/ui/heading';
+import { Hero } from './sections/hero';
 
 export async function generateMetadata() {
   const seo = await getSeoData();
@@ -13,5 +16,10 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  return <Text>Page Under Construction</Text>;
+  return (
+    <>
+      <Hero />
+      <div></div>
+    </>
+  );
 }
