@@ -36,7 +36,7 @@ export async function Footer() {
         <div className='flex flex-col py-14 lg:flex-row'>
           <div className='flex flex-auto flex-col flex-wrap gap-x-12 lg:flex-row'>
             <a href='#'>Home</a>
-            <a href='#'>About</a>
+            <a href='#'>About Me</a>
             <a href='#'>Technologies</a>
             <a href='#'>Projects</a>
             <a href='#'>Contact</a>

@@ -1,10 +1,12 @@
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaBars } from 'react-icons/fa6';
 
 export function Navbar() {
   return (
-    <nav>
-      <div className='container flex justify-between py-2'>
+    <nav className='bg-slate-100 py-4'>
+      <div className='container flex items-center justify-between'>
         <div>
           <Image
             src={'/logo.svg'}
@@ -13,9 +15,14 @@ export function Navbar() {
             height={'30'}
           ></Image>
         </div>
-        <div className='flex gap-2'>
+        <div className='md:hidden'>
+          <Button variant={'ghost'}>
+            <FaBars size={20} />
+          </Button>
+        </div>
+        <div className='hidden md:flex gap-2'>
           <Link href={'#'}>Home</Link>
-          <Link href={'#'}>About M</Link>
+          <Link href={'#'}>About Me</Link>
           <Link href={'#'}>Technologies</Link>
           <Link href={'#'}>Projects</Link>
           <Link href={'#'}>Contact</Link>
