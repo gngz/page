@@ -35,7 +35,7 @@ export function ContactEmail(data: ContactEmailProps) {
         <Body className="bg-white my-auto mx-auto font-sans px-2 pt-8">
           <Container className="border border-solid border-[#eaeaea] rounded-lg px-4 bg-zinc-50">
             <Img
-              src="http://localhost:3000/logo.png"
+              src="https://diogopassos.pt/logo.png"
               alt="Diogo Passos"
               className="my-0 mx-auto mt-6"
             />
