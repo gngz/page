@@ -16,7 +16,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { ContactFormSchema, ContactFormType } from "./schemas";
 import { FaSpinner } from "react-icons/fa6";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { sendMail } from "./action/send-mail";
+import { sendMailAction } from "./action/send-mail";
 
 const RequiredSign = () => {
   return <span className="text-red-600">*</span>;
@@ -40,7 +40,7 @@ export function ContactForm() {
   const canSubmit = isDirty && isValid;
 
   const onSubmit: SubmitHandler<ContactFormType> = async (data) => {
-    await sendMail(data);
+    await sendMailAction(data);
   };
 
   return (
