@@ -40,7 +40,11 @@ export function ContactForm() {
   const canSubmit = isDirty && isValid;
 
   const onSubmit: SubmitHandler<ContactFormType> = async (data) => {
-    await sendMailAction(data);
+    try {
+      await sendMailAction(data);
+    } catch {
+      console.error("Error sending email");
+    }
   };
 
   return (

@@ -22,7 +22,7 @@ const sendEmail = async (request: EmailRequest) => {
     secure: process.env.SMTP_SECURE === "true",
   });
 
-  transport.sendMail({
+  await transport.sendMail({
     to: process.env.CONTACT_FORM_TO,
     subject: request.subject,
     from: request.from,
@@ -44,9 +44,10 @@ export async function sendMailAction(data: ContactFormType) {
       country: country ?? "none",
     })
   );
+
   await sendEmail({
     from: data.email,
-    subject: "Contact Form Submission",
+    subject: `[Contact Form Submission] ${data.subject}`,
     body: email,
   });
 }
