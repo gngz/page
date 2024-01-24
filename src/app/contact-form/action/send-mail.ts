@@ -25,7 +25,8 @@ const sendEmail = async (request: EmailRequest) => {
   await transport.sendMail({
     to: process.env.CONTACT_FORM_TO,
     subject: request.subject,
-    from: request.from,
+    from: process.env.CONTACT_FORM_FROM,
+    replyTo: request.from,
     html: request.body,
   });
 };
