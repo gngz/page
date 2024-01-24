@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { League_Spartan } from "next/font/google";
 import "@/styles/global.scss";
+import { Toaster } from "@/components/ui/toaster";
 
 const font = League_Spartan({ subsets: ["latin"] });
 
@@ -36,7 +37,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

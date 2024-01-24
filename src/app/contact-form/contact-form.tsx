@@ -17,6 +17,7 @@ import { ContactFormSchema, ContactFormType } from "./schemas";
 import { FaSpinner } from "react-icons/fa6";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { sendMailAction } from "./action/send-mail";
+import { toast } from "@/components/ui/use-toast";
 
 const RequiredSign = () => {
   return <span className="text-red-600">*</span>;
@@ -30,6 +31,7 @@ export function ContactForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { isDirty, isValid, isSubmitting, errors },
   } = useForm<ContactFormType>({
     mode: "onTouched",
@@ -42,8 +44,18 @@ export function ContactForm() {
   const onSubmit: SubmitHandler<ContactFormType> = async (data) => {
     try {
       await sendMailAction(data);
+      toast({
+        title: "Contact Form Submitted",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
     } catch {
-      console.error("Error sending email");
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong",
+        description: "Please try again later.",
+      });
+    } finally {
+      reset();
     }
   };
 
