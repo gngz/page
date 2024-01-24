@@ -33,8 +33,9 @@ const sendEmail = async (request: EmailRequest) => {
 export async function sendMailAction(data: ContactFormType) {
   const headerList = headers();
 
-  const country = headerList.get("CF-IPCountry");
-  const ip = headerList.get("CF-Connecting-IP");
+  const country =
+    headerList.get("CF-IPCountry") ?? headerList.get("x-vercel-ip-country");
+  const ip = headerList.get("CF-Connecting-IP") ?? headerList.get("x-real-ip");
   const ipv6 = headerList.get("CF-Connecting-IPv6");
 
   const email = render(
