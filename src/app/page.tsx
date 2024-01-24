@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ContactForm } from "./contact-form";
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
             <h2 className="text-3xl font-light text-center text-zinc-600 mt-4">
               The new page is under construction!
             </h2>
+            <section className="mb-8 mt-16 w-full">
+              <ContactForm />
+            </section>
           </div>
         </div>
         <div className="border-t border-gray-300 bg-gray-200">
