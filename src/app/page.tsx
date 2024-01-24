@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="bg-gray-100 ">
       <div className="grid grid-rows-[1fr_auto] grid-cols-1 min-h-svh">
-        <div className="h-full flex justify-center items-center lg:items-start lg:pt-12 container mx-auto">
+        <div className="h-full flex justify-center pt-12 container mx-auto">
           <div className="w-full flex flex-col items-center px-4">
             <Image
               src="/logo.svg"

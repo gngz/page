@@ -113,7 +113,7 @@ export function ContactForm() {
       <CardFooter>
         <Button
           className="ml-auto"
-          disabled={!canSubmit}
+          disabled={isLoading || !canSubmit}
           type="submit"
           form="contact-form"
         >
