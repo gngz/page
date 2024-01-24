@@ -12,10 +12,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { ContactFormSchema, ContactFormType } from "./schemas";
 import { FaSpinner } from "react-icons/fa6";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { sendMail } from "./action/send-mail";
 
 const RequiredSign = () => {
   return <span className="text-red-600">*</span>;
@@ -38,7 +39,9 @@ export function ContactForm() {
   const isLoading = isSubmitting;
   const canSubmit = isDirty && isValid;
 
-  const onSubmit: SubmitHandler<ContactFormType> = (data) => {};
+  const onSubmit: SubmitHandler<ContactFormType> = async (data) => {
+    await sendMail(data);
+  };
 
   return (
     <Card className="w-full md:w-2/4 mx-auto">
@@ -48,6 +51,7 @@ export function ContactForm() {
       </CardHeader>
       <CardContent>
         <form
+          id="contact-form"
           className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-3"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -91,7 +95,12 @@ export function ContactForm() {
         </form>
       </CardContent>
       <CardFooter>
-        <Button className="ml-auto" disabled={!canSubmit}>
+        <Button
+          className="ml-auto"
+          disabled={!canSubmit}
+          type="submit"
+          form="contact-form"
+        >
           {isLoading && <FaSpinner className="mr-2 h-4 w-4 animate-spin" />}
           Send
         </Button>
