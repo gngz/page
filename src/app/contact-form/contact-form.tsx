@@ -21,13 +21,17 @@ const RequiredSign = () => {
   return <span className="text-red-600">*</span>;
 };
 
+const ErrorMessage = ({ message }: { message?: string }) => {
+  return message ? <p className="text-red-600 mt-1">{message}</p> : undefined;
+};
+
 export function ContactForm() {
   const {
     register,
     handleSubmit,
     formState: { isDirty, isValid, isSubmitting, errors },
   } = useForm<ContactFormType>({
-    mode: "onBlur",
+    mode: "onTouched",
     resolver: zodResolver(ContactFormSchema),
   });
 
@@ -53,6 +57,7 @@ export function ContactForm() {
               <RequiredSign />
             </Label>
             <Input type="text" {...register("name")} />
+            <ErrorMessage message={errors.name?.message} />
           </div>
           <div className="">
             <Label>
@@ -60,11 +65,12 @@ export function ContactForm() {
               <RequiredSign />
             </Label>
             <Input type="email" {...register("email")} />
-            <p className="text-red-600 mt-1">{errors.email?.message}</p>
+            <ErrorMessage message={errors.email?.message} />
           </div>
           <div className="">
             <Label>Phone Number</Label>
             <Input type="tel" {...register("phone")} />
+            <ErrorMessage message={errors.phone?.message} />
           </div>
           <div className="md:col-span-2">
             <Label>
@@ -72,6 +78,7 @@ export function ContactForm() {
               <RequiredSign />
             </Label>
             <Input type="text" {...register("subject")} />
+            <ErrorMessage message={errors.subject?.message} />
           </div>
           <div className="md:col-span-2">
             <Label>
@@ -79,6 +86,7 @@ export function ContactForm() {
               <RequiredSign />
             </Label>
             <Textarea {...register("message")} />
+            <ErrorMessage message={errors.message?.message} />
           </div>
         </form>
       </CardContent>
