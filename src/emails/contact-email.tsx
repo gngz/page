@@ -54,7 +54,7 @@ export function ContactEmail(data: ContactEmailProps) {
               </Text>
             )}
             <Text>
-              <span className="font-semibold">Subject:</span> {data.name}
+              <span className="font-semibold">Subject:</span> {data.subject}
             </Text>
             <Text>
               <span className="font-semibold">Message:</span>
