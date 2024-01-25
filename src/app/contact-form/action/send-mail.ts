@@ -5,6 +5,7 @@ import { ContactFormType } from "../schemas";
 import { ContactEmail } from "@/emails/contact-email";
 import nodemailer from "nodemailer";
 import { headers } from "next/headers";
+import sanitizeHtml from "sanitize-html";
 
 type EmailRequest = {
   from: string;
@@ -31,18 +32,27 @@ const sendEmail = async (request: EmailRequest) => {
   });
 };
 
+function cleanMessage(message: string) {
+  message = message.replace(/\n/g, "<br/>");
+
+  return sanitizeHtml(message, {
+    allowedTags: ["br"],
+  });
+}
+
 export async function sendMailAction(data: ContactFormType) {
   const headerList = headers();
 
   const country =
     headerList.get("CF-IPCountry") ?? headerList.get("x-vercel-ip-country");
+
   const ip = headerList.get("CF-Connecting-IP") ?? headerList.get("x-real-ip");
-  const ipv6 = headerList.get("CF-Connecting-IPv6");
 
   const email = render(
     ContactEmail({
       ...data,
-      ip: ip ?? ipv6 ?? "none",
+      message: cleanMessage(data.message),
+      ip: ip ?? "none",
       country: country ?? "none",
     })
   );

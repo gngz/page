@@ -59,7 +59,7 @@ export function ContactEmail(data: ContactEmailProps) {
             <Text>
               <span className="font-semibold">Message:</span>
             </Text>
-            <Text>{data.message}</Text>
+            <Text dangerouslySetInnerHTML={{ __html: data.message }} />
             <Hr className="border border-solid border-[#eaeaea] mt-6 mb-4 mx-0 w-full" />
             <Text className="mt-4 text-sm text-center text-zinc-600">
               This message is sent from the website contact form (IP: {data.ip}{" "}
