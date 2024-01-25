@@ -23,6 +23,15 @@ export const metadata: Metadata = {
     "skills",
     "experience",
   ],
+  metadataBase: new URL("https://diogopassos.pt"),
+  openGraph: {
+    title: "Diogo Passos | Software Engineer",
+    siteName: "Diogo Passos | Software Engineer",
+    description:
+      "Diogo Passos is an experienced software engineer with a passion for developing innovative solutions. Browse the site to learn more about his projects, skills, and professional experiences.",
+    url: "https://diogopassos.pt",
+    type: "website",
+  },
 };
 
 export const viewport: Viewport = {
