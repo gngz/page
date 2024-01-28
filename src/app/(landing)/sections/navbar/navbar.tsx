@@ -15,23 +15,23 @@ export function Navbar() {
             height={'30'}
           ></Image>
         </div>
-        <div className='md:hidden'>
+        <div className='lg:hidden'>
           <NavbarDrawer />
         </div>
-        <div className='hidden md:flex gap-2'>
-          <Button variant={'link'} asChild>
+        <div className='hidden lg:flex gap-2'>
+          <Button className='text-lg' variant={'link'} asChild>
             <Link href={'#'}>Home</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-lg' variant={'link'} asChild>
             <Link href={'#'}>About Me</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-lg' variant={'link'} asChild>
             <Link href={'#'}>Technologies</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-lg' variant={'link'} asChild>
             <Link href={'#'}>Projects</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-lg' variant={'link'} asChild>
             <Link href={'#'}>Contact</Link>
           </Button>
         </div>

@@ -25,19 +25,19 @@ export function NavbarDrawer() {
           <DrawerHeader>
             <DrawerTitle>Navigation</DrawerTitle>
           </DrawerHeader>
-          <Button variant={'link'} asChild>
+          <Button className='text-md' variant={'link'} asChild>
             <Link href={'#'}>Home</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-md' variant={'link'} asChild>
             <Link href={'#'}>About Me</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-md' variant={'link'} asChild>
             <Link href={'#'}>Technologies</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-md' variant={'link'} asChild>
             <Link href={'#'}>Projects</Link>
           </Button>
-          <Button variant={'link'} asChild>
+          <Button className='text-md' variant={'link'} asChild>
             <Link href={'#'}>Contact</Link>
           </Button>
         </DrawerContent>
