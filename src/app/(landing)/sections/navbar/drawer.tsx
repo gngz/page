@@ -1,26 +1,30 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer';
 import Link from 'next/link';
 import { FaBars } from 'react-icons/fa6';
 
-export function Navbar() {
+export function NavbarDrawer() {
   return (
-    <nav className='bg-slate-100 py-4'>
-      <div className='container flex items-center justify-between'>
-        <div>
-          <Image
-            src={'/logo.svg'}
-            alt={'Diogo Passos'}
-            width={'224'}
-            height={'30'}
-          ></Image>
-        </div>
-        <div className='md:hidden'>
-          <Button variant={'ghost'} aria-label='Toggle navigation'>
-            <FaBars size={20} />
-          </Button>
-        </div>
-        <div className='hidden md:flex gap-2'>
+    <Drawer direction='right'>
+      <DrawerTrigger asChild>
+        <Button variant={'ghost'} aria-label='Toggle navigation'>
+          <FaBars size={20} />
+        </Button>
+      </DrawerTrigger>
+      <DrawerPortal>
+        <DrawerContent className='h-screen left-6 p-4'>
+          <DrawerHeader>
+            <DrawerTitle>Navigation</DrawerTitle>
+          </DrawerHeader>
           <Button variant={'link'} asChild>
             <Link href={'#'}>Home</Link>
           </Button>
@@ -36,8 +40,8 @@ export function Navbar() {
           <Button variant={'link'} asChild>
             <Link href={'#'}>Contact</Link>
           </Button>
-        </div>
-      </div>
-    </nav>
+        </DrawerContent>
+      </DrawerPortal>
+    </Drawer>
   );
 }
