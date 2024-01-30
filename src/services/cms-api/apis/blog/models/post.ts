@@ -1,13 +1,12 @@
 import { z } from 'zod';
 
-export const PostSchema = z
-    .object({
-        id: z.string().uuid(),
-        title: z.string(),
-        date_created: z.coerce.date(),
-        slug: z.string(),
-        preview: z.string(),
-        content: z.string()
-    })
+export const PostSchema = z.object({
+  id: z.string().uuid(),
+  title: z.string(),
+  date_created: z.coerce.date(),
+  slug: z.string(),
+  preview: z.string(),
+  content: z.string(),
+});
 
 export type PostModel = z.output<typeof PostSchema>;

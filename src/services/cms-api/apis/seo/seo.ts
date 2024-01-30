@@ -1,5 +1,5 @@
-import { CMSApi } from '../api';
-import { SeoDTO, SeoSchema } from '../models/seo';
+import { CMSApi } from '@/services/cms-api/api';
+import { SeoDTO, SeoSchema } from './models/seo';
 
 type SeoResponse = {
   seo: SeoDTO;

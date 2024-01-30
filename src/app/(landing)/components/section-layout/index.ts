@@ -1,1 +1,1 @@
-export * from './section-layout'
+export * from './section-layout';

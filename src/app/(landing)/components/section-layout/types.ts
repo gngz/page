@@ -1,6 +1,6 @@
-import { PropsWithChildren } from "react"
+import { PropsWithChildren } from 'react';
 
 export type SectionLayoutProps = PropsWithChildren<{
-    title: string,
-    subtitle?: string,
-}>
+  title: string;
+  subtitle?: string;
+}>;
