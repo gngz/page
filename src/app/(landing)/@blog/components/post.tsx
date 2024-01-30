@@ -12,6 +12,13 @@ type Props = {
   post: PostModel;
 };
 
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('pt-PT', {
+    dateStyle: 'short',
+    timeStyle: 'short',
+  }).format(date);
+};
+
 export default function BlogPost({ post }: Readonly<Props>) {
   return (
     <Link href={`/blog/${post.slug}`}>
@@ -21,7 +28,7 @@ export default function BlogPost({ post }: Readonly<Props>) {
         </CardHeader>
         <CardContent>{post.preview}</CardContent>
         <CardFooter className='text-gray-500'>
-          {new Date(post.date_created).toLocaleDateString()}
+          {formatDate(post.date_created)}
         </CardFooter>
       </Card>
     </Link>
