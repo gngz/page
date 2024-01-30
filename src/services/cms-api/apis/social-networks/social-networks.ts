@@ -1,8 +1,8 @@
-import { CMSApi } from '../api';
+import { CMSApi } from '@/services/cms-api/api';
 import {
   SocialNetworkModel,
   SocialNetworkSchema,
-} from '../models/social-network';
+} from './models/social-network';
 
 type SocialNetworksResponse = {
   social_networks: SocialNetworkModel[];
