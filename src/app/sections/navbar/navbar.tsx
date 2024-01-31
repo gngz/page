@@ -8,12 +8,14 @@ export function Navbar() {
     <nav className='bg-slate-100 py-4'>
       <div className='container flex items-center justify-between'>
         <div>
-          <Image
-            src={'/logo.svg'}
-            alt={'Diogo Passos'}
-            width={'224'}
-            height={'30'}
-          ></Image>
+          <Link href={'/'}>
+            <Image
+              src={'/logo.svg'}
+              alt={'Diogo Passos'}
+              width={'224'}
+              height={'30'}
+            />
+          </Link>
         </div>
         <div className='lg:hidden'>
           <NavbarDrawer />

@@ -1,7 +1,7 @@
 import '@/styles/global.scss';
 import type { Metadata, Viewport } from 'next';
 import { League_Spartan } from 'next/font/google';
-import { Footer } from './sections/footer';
+import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
 
 const font = League_Spartan({ subsets: ['latin'] });
