@@ -2,12 +2,13 @@ import { Heading } from '@/components/ui/heading';
 import { SectionLayoutProps } from './types';
 
 export function SectionLayout({
+  id,
   title,
   subtitle,
   children,
 }: Readonly<SectionLayoutProps>) {
   return (
-    <section>
+    <section id={id}>
       <div className='container pb-8'>
         <Heading as='h1' className='text-center text-5xl font-medium'>
           {title}

@@ -1,5 +1,6 @@
 import { Heading } from '@/components/ui/heading';
 import { Text } from '@/components/ui/text';
+import Link from 'next/link';
 import { Terminal, TerminalBlink, TerminalLine } from '../components/terminal';
 
 const ConsoleTerminal = (
@@ -16,7 +17,12 @@ const ConsoleTerminal = (
     </TerminalLine>
     <div className='my-1'>
       <TerminalLine>Name: Diogo Passos</TerminalLine>
-      <TerminalLine>Company: your-company-here</TerminalLine>
+      <TerminalLine>
+        Company:{' '}
+        <Link className='hover:underline ml-1' href={'#contact'}>
+          your-company-here
+        </Link>
+      </TerminalLine>
       <TerminalLine>Role: Frontend Engineer</TerminalLine>
       <TerminalLine>Top Skills: Next.js, React, AWS</TerminalLine>
     </div>
