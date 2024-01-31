@@ -1,6 +1,4 @@
 import React from 'react';
-import { Footer } from './sections/footer';
-import { Navbar } from './sections/navbar';
 
 export default async function Layout({
   children,
@@ -13,11 +11,9 @@ export default async function Layout({
 }>) {
   return (
     <React.Fragment>
-      <Navbar />
       {children}
       {blog}
       {contact}
-      <Footer />
     </React.Fragment>
   );
 }
