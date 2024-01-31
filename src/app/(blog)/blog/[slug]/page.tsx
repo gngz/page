@@ -33,6 +33,7 @@ export async function generateMetadata({ params: { slug } }: Readonly<Props>) {
       authors: post.user_created.name,
       tags: seo.keywords,
       images: [fallbackImage],
+      type: 'article',
     },
     twitter: {
       card: 'summary',
