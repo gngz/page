@@ -40,6 +40,11 @@ export async function getPosts() {
                 preview
                 title
                 content
+                user_created {
+                  first_name
+                  last_name
+                  avatar { id }
+                }
             }
         }
     `;
