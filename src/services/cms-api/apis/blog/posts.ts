@@ -6,13 +6,19 @@ export async function getPost(slug: string) {
     query ($slug: String) {
       blog_posts(filter: { slug: { _eq: $slug } }) {
         id
-        preview
         slug
+        user_created {
+          first_name
+          last_name
+          avatar { id }
+        }
         date_created
+        preview
         title
         content
       }
     }
+  
   `
   const collection = 'blog_posts';
   const result = await CMSApi.getInstance().query<{ blog_posts: PostModel[] }>(
