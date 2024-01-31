@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { getPosts } from '@/services/cms-api/apis/blog';
 import BlogPost from './components/post';
-import { BlogSectionLayout } from './layout';
+import { BlogSectionLayout } from './section-layout';
 
 export default async function Blog() {
   const posts = await getPosts();
