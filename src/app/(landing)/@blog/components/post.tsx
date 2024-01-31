@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -25,7 +26,7 @@ export default function BlogPost({ post }: Readonly<Props>) {
   const fallbackImageSrc = imageFallback(post.title, post.user_created.name);
   return (
     <Link href={`/blog/${post.slug}`}>
-      <Card key={post.slug}>
+      <Card key={post.slug} className='overflow-hidden group'>
         <Image
           src={fallbackImageSrc}
           alt={post.title}
@@ -38,8 +39,14 @@ export default function BlogPost({ post }: Readonly<Props>) {
           <CardTitle>{post.title}</CardTitle>
         </CardHeader>
         <CardContent>{post.preview}</CardContent>
-        <CardFooter className='text-gray-500'>
+        <CardFooter className='text-gray-500 flex justify-between items-center'>
           {formatDate(post.date_created)}
+          <Button
+            variant={'outline'}
+            className='opacity-0 group-hover:opacity-100 pointer-events-none'
+          >
+            Read More
+          </Button>
         </CardFooter>
       </Card>
     </Link>
