@@ -1,6 +1,7 @@
 import SyntaxHighlight from '@/components/syntax-highlight';
 import { Heading } from '@/components/ui/heading';
 import { renderMarkdown } from '@/lib/markdown';
+import { imageFallback } from '@/lib/post-image-fallback';
 import { getSeoData } from '@/services/cms-api';
 import { getPost } from '@/services/cms-api/apis/blog';
 import { Metadata } from 'next';
@@ -16,22 +17,30 @@ export async function generateMetadata({ params: { slug } }: Readonly<Props>) {
   const seo = await getSeoData();
   const post = await getPost(slug);
 
+  if (!post) return;
+
+  const fallbackImage = imageFallback(post.title, post.user_created.name);
+
   return {
     metadataBase: new URL(process.env.WEB_URL ?? 'https://diogopassos.pt'),
-    title: post ? seo.title + ' - ' + post.title : seo.title,
-    description: seo.description,
+    title: seo.title + ' - ' + post.title,
+    description: post.preview,
     keywords: seo.keywords,
-    creator: post?.user_created.name,
+    creator: post.user_created.name,
     openGraph: {
-      title: post ? seo.title + ' - ' + post.title : seo.title,
+      title: seo.title + ' - ' + post.title,
       description: post ? post.preview : seo.description,
+      authors: post.user_created.name,
       tags: seo.keywords,
+      images: [fallbackImage],
     },
     twitter: {
       card: 'summary',
-      title: post ? seo.title + ' - ' + post.title : seo.title,
-      description: post ? post.preview : seo.description,
+      title: seo.title + ' - ' + post.title,
+      authors: post.user_created.name,
+      description: post.preview,
       tags: seo.keywords,
+      images: [fallbackImage],
     },
   } as Metadata;
 }
