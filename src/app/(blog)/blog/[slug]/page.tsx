@@ -28,12 +28,14 @@ export async function generateMetadata({ params: { slug } }: Readonly<Props>) {
     keywords: seo.keywords,
     creator: post.user_created.name,
     openGraph: {
+      type: 'article',
+      url: new URL(`/blog/${slug}`, process.env.WEB_URL).toString(),
       title: seo.title + ' - ' + post.title,
       description: post ? post.preview : seo.description,
       authors: post.user_created.name,
       tags: seo.keywords,
       images: [fallbackImage],
-      type: 'article',
+      locale: 'en-US',
     },
     twitter: {
       card: 'summary',
