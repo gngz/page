@@ -11,6 +11,7 @@ export async function generateMetadata() {
   const seo = await getSeoData();
 
   return {
+    metadataBase: new URL(process.env.WEB_URL ?? 'https://diogopassos.pt'),
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
