@@ -18,7 +18,7 @@ export async function generateMetadata({ params: { slug } }: Readonly<Props>) {
 
   return {
     metadataBase: new URL(process.env.WEB_URL ?? 'https://diogopassos.pt'),
-    title: seo.title,
+    title: post ? seo.title + ' - ' + post.title : seo.title,
     description: seo.description,
     keywords: seo.keywords,
     creator: post?.user_created.name,
