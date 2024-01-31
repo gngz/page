@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>blog</div>;
+  return <main className='container mx-auto'>blog</main>;
 }

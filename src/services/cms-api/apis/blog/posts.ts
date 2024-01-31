@@ -1,7 +1,28 @@
 import { CMSApi } from '@/services/cms-api/api';
 import { PostModel, PostSchema } from './models/post';
 
-export function getPost() {}
+export async function getPost(slug: string) {
+  const query = `
+    query ($slug: String) {
+      blog_posts(filter: { slug: { _eq: $slug } }) {
+        id
+        preview
+        slug
+        date_created
+        title
+        content
+      }
+    }
+  `
+  const collection = 'blog_posts';
+  const result = await CMSApi.getInstance().query<{ blog_posts: PostModel[] }>(
+    query,
+    { slug },
+    ['all', collection],
+  );
+
+  return PostSchema.array().parse(result.blog_posts).at(0);
+}
 
 export async function getPosts() {
   const query = `
@@ -21,7 +42,7 @@ export async function getPosts() {
   const result = await CMSApi.getInstance().query<{ blog_posts: PostModel[] }>(
     query,
     undefined,
-    ['all', collection, `${collection}_translations`],
+    ['all', collection],
   );
 
   return PostSchema.array().parse(result.blog_posts);

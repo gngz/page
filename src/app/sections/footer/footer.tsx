@@ -1,5 +1,6 @@
 import SocialIcon from '@/components/social-icon';
 import Image from 'next/image';
+import Link from 'next/link';
 import { getSocialNetworksData } from '../../(landing)/actions/social-networks';
 
 export async function Footer() {
@@ -11,12 +12,14 @@ export async function Footer() {
       <div className='container mx-auto'>
         <div className='flex flex-col justify-between border-b border-zinc-500/30 py-11 md:flex-row'>
           <h1 className='flex items-center justify-center md:justify-start'>
-            <Image
-              src={'/logo-white.svg'}
-              alt={'Diogo Passos'}
-              width={'224'}
-              height={'30'}
-            ></Image>
+            <Link href={'/'}>
+              <Image
+                src={'/logo-white.svg'}
+                alt={'Diogo Passos'}
+                width={'224'}
+                height={'30'}
+              />
+            </Link>
           </h1>
           {socialNetworks && (
             <div className='flex flex-row items-center justify-center gap-4 mt-4 md:mt-0'>
