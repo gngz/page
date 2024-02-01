@@ -31,7 +31,7 @@ export function Navbar() {
             <Link href={'#'}>Technologies</Link>
           </Button>
           <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'#'}>Projects</Link>
+            <Link href={'#blog'}>Blog</Link>
           </Button>
           <Button className='text-lg' variant={'link'} asChild>
             <Link href={'#'}>Contact</Link>

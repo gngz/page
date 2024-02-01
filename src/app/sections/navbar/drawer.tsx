@@ -35,7 +35,7 @@ export function NavbarDrawer() {
             <Link href={'#'}>Technologies</Link>
           </Button>
           <Button className='text-md' variant={'link'} asChild>
-            <Link href={'#'}>Projects</Link>
+            <Link href={'#blog'}>Blog</Link>
           </Button>
           <Button className='text-md' variant={'link'} asChild>
             <Link href={'#'}>Contact</Link>
