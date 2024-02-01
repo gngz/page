@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
   const bodyData = RevalidateSchema.safeParse(await request.json());
 
   if (bodyData.success === false) {
-    return Response.json(bodyData.error, { status: 400 });
+    return Response.json({ error: 'Invalid request' }, { status: 400 });
   }
 
   if (!token) {
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
   const results = tag.map((tag) => Promise.resolve(revalidateTag(tag)));
 
-  Promise.all(results).then(() => {
-    return Response.json({ revalidated: true, now: Date.now() });
-  });
+  await Promise.all(results);
+
+  return Response.json({ revalidated: true, now: Date.now() });
 }
