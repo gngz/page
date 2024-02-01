@@ -2,8 +2,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 import { getPosts } from '@/services/cms-api/apis/blog';
 import { BlogPost } from './components/post';
@@ -25,8 +23,6 @@ export default async function Blog() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className='lg:hidden' />
-        <CarouselNext className='lg:hidden' />
       </Carousel>
     </BlogSectionLayout>
   );
