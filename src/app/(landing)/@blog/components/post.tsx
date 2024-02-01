@@ -22,7 +22,7 @@ const formatDate = (date: Date) => {
   }).format(date);
 };
 
-export default function BlogPost({ post }: Readonly<Props>) {
+export function BlogPost({ post }: Readonly<Props>) {
   const fallbackImageSrc = imageFallback(post.title, post.user_created.name);
   return (
     <Link href={`/blog/${post.slug}`}>

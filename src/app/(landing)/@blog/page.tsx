@@ -1,6 +1,12 @@
-import { Button } from '@/components/ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 import { getPosts } from '@/services/cms-api/apis/blog';
-import BlogPost from './components/post';
+import { BlogPost } from './components/post';
 import { BlogSectionLayout } from './section-layout';
 
 export default async function Blog() {
@@ -8,16 +14,20 @@ export default async function Blog() {
 
   return (
     <BlogSectionLayout>
-      <div className={`grid grid-cols-4 gap-4 mt-6 justify-center`}>
-        {posts.map((post) => (
-          <BlogPost key={post.slug} post={post} />
-        ))}
-      </div>
-      {posts.length > 4 && (
-        <div className='flex justify-center mt-6'>
-          <Button className='mx-auto'>More Posts</Button>
-        </div>
-      )}
+      <Carousel
+        className='mt-6'
+        opts={{ align: 'center', loop: true, active: false }}
+      >
+        <CarouselContent>
+          {posts.map((post) => (
+            <CarouselItem key={post.slug} className='md:basis-2/4 lg:basis-1/4'>
+              <BlogPost post={post} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className='lg:hidden' />
+        <CarouselNext className='lg:hidden' />
+      </Carousel>
     </BlogSectionLayout>
   );
 }
