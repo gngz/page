@@ -2,7 +2,7 @@ import { revalidateTag } from 'next/cache';
 import { NextRequest } from 'next/server';
 import { RevalidateSchema } from './schema';
 
-export async function GET(request: NextRequest) {
+export async function POST(request: NextRequest) {
   const token = request.headers.get('Authorization');
   const bodyData = RevalidateSchema.safeParse(await request.json());
 
