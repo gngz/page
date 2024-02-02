@@ -1,5 +1,5 @@
 import { getSeoData } from '@/services/cms-api';
-import '@/styles/global.scss';
+import '@/styles/index.scss';
 import type { Metadata, Viewport } from 'next';
 import { League_Spartan } from 'next/font/google';
 import { Footer } from './sections/footer/footer';

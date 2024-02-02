@@ -98,7 +98,7 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
       </div>
       <SyntaxHighlight>
         <div
-          className='mt-6 text-lg'
+          className='mt-8 text-lg blog-content'
           dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
         />
       </SyntaxHighlight>
