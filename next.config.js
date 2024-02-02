@@ -11,6 +11,9 @@ const nextConfig = {
       {
         hostname: 'diogopassos.pt',
       },
+      {
+        hostname: 'cms.diogopassos.pt',
+      },
     ],
   },
 };

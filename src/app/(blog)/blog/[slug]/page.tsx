@@ -1,4 +1,4 @@
-import SyntaxHighlight from '@/components/syntax-highlight';
+import { SyntaxHighlight } from '@/components/syntax-highlight';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Heading } from '@/components/ui/heading';
 import { getCmsAssetUrl } from '@/lib/cms-asset';
@@ -8,6 +8,7 @@ import { nameLetters } from '@/lib/utils';
 import { getSeoData } from '@/services/cms-api';
 import { getPost } from '@/services/cms-api/apis/blog';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -70,10 +71,24 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
         <div className='flex items-center gap-2'>
           <Avatar>
             <AvatarImage
-              src={getCmsAssetUrl(post.user_created.avatar ?? '')}
               alt={post.user_created.name}
-            />
-            <AvatarFallback className='font-sans text-sm'>
+              src={getCmsAssetUrl(post.user_created.avatar ?? '')}
+              asChild
+            >
+              <Image
+                alt={post.user_created.name}
+                src={getCmsAssetUrl(post.user_created.avatar ?? '')}
+                blurDataURL={
+                  getCmsAssetUrl(post.user_created.avatar ?? '') +
+                  `?transforms=[["blur","100"]]&quality=1`
+                }
+                placeholder='blur'
+                width={40}
+                height={40}
+                quality={70}
+              />
+            </AvatarImage>
+            <AvatarFallback className='font-sans text-sm' delayMs={600}>
               {nameLetters(post.user_created.name)}
             </AvatarFallback>
           </Avatar>
