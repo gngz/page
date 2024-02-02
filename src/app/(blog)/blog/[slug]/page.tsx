@@ -1,7 +1,10 @@
 import SyntaxHighlight from '@/components/syntax-highlight';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Heading } from '@/components/ui/heading';
+import { getCmsAssetUrl } from '@/lib/cms-asset';
 import { renderMarkdown } from '@/lib/markdown';
 import { imageFallback } from '@/lib/post-image-fallback';
+import { nameLetters } from '@/lib/utils';
 import { getSeoData } from '@/services/cms-api';
 import { getPost } from '@/services/cms-api/apis/blog';
 import { Metadata } from 'next';
@@ -64,7 +67,18 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
             year: 'numeric',
           })}
         </span>
-        <span>{post.user_created.name}</span>
+        <div className='flex items-center gap-2'>
+          <Avatar>
+            <AvatarImage
+              src={getCmsAssetUrl(post.user_created.avatar ?? '')}
+              alt={post.user_created.name}
+            />
+            <AvatarFallback className='font-sans text-sm'>
+              {nameLetters(post.user_created.name)}
+            </AvatarFallback>
+          </Avatar>
+          <span className='mt-2'>{post.user_created.name}</span>
+        </div>
       </div>
       <SyntaxHighlight>
         <div
