@@ -60,16 +60,9 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
   return (
     <main className='container mx-auto py-6'>
       <Heading className='text-4xl'>{post.title}</Heading>
-      <div className='flex justify-between'>
-        <span className='text-gray-500'>
-          {post.date_created.toLocaleDateString('en-US', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          })}
-        </span>
+      <div className='flex justify-start items-center gap-2 mt-2'>
         <div className='flex items-center gap-2'>
-          <Avatar>
+          <Avatar className='w-8 h-8'>
             <AvatarImage
               alt={post.user_created.name}
               src={getCmsAssetUrl(post.user_created.avatar ?? '')}
@@ -83,8 +76,8 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
                   `?transforms=[["blur","100"]]&quality=1`
                 }
                 placeholder='blur'
-                width={40}
-                height={40}
+                width={32}
+                height={32}
                 quality={70}
               />
             </AvatarImage>
@@ -92,8 +85,16 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
               {nameLetters(post.user_created.name)}
             </AvatarFallback>
           </Avatar>
-          <span className='mt-2'>{post.user_created.name}</span>
+          <span className='mt-2 text-gray-800'>{post.user_created.name}</span>
         </div>
+        <span className='mt-2 text-gray-500'>|</span>
+        <span className='mt-2 text-gray-500'>
+          {post.date_created.toLocaleDateString('en-US', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })}
+        </span>
       </div>
       <SyntaxHighlight>
         <div
