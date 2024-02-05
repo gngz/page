@@ -3,6 +3,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { SectionLayout } from '../components/section-layout';
+import ValidationTooltip from './validation-tooltip';
+
+const ObligatoryField = () => {
+  return <span className='text-red-500'>*</span>;
+};
 
 export default function Contact() {
   return (
@@ -14,11 +19,18 @@ export default function Contact() {
       <form action=''>
         <div className='grid md:grid-cols-2 gap-3 md:w-4/6 md:mx-auto'>
           <div className='md:col-span-2'>
-            <Label htmlFor='name'>Name</Label>
+            <Label htmlFor='name' className='inline-block'>
+              Name
+              <ObligatoryField />
+              <ValidationTooltip validationMessage='Name is required' />
+            </Label>
             <Input id='name' type='text' />
           </div>
           <div>
-            <Label htmlFor='email'>E-mail</Label>
+            <Label htmlFor='email'>
+              E-mail
+              <ObligatoryField />
+            </Label>
             <Input id='email' type='email' />
           </div>
           <div>
@@ -26,12 +38,18 @@ export default function Contact() {
             <Input id='phone' type='text' />
           </div>
           <div className='md:col-span-2'>
-            <Label htmlFor='subject'>Subject</Label>
+            <Label htmlFor='subject'>
+              Subject
+              <ObligatoryField />
+            </Label>
             <Input id='subject' type='text' />
           </div>
           <div className='md:col-span-2'>
-            <Label htmlFor='message'>Message</Label>
-            <Textarea id='message' />
+            <Label htmlFor='message'>
+              Message
+              <ObligatoryField />
+            </Label>
+            <Textarea id='message' rows={8} />
           </div>
           <div className='flex justify-end md:col-span-2'>
             <Button type='submit' className='self-end'>
