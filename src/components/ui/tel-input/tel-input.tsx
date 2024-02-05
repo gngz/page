@@ -1,4 +1,4 @@
-import * as React from 'react';
+'use client';
 
 import {
   Select,
@@ -8,24 +8,36 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import * as React from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  defaultCountry?: string;
+}
 
 const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ defaultCountry, className, type, ...props }, ref) => {
     return (
       <div className='flex'>
-        <Select>
+        <Select defaultValue={defaultCountry}>
           <SelectTrigger className='w-[180px] rounded-r-none'>
-            <SelectValue placeholder='Theme' />
+            <SelectValue className='truncate text-ellipsis' />
           </SelectTrigger>
           <SelectContent>
-            {Object.keys(CountryCodes).map((key) => (
-              <SelectItem key={key} value={key}>
-                {key}
+            {CountryCodes.map((country) => (
+              <SelectItem key={country.code} value={country.code}>
+                <div className='flex items-center gap-2 truncate text-ellipsis'>
+                  <picture>
+                    <img
+                      className='w-4 h-4'
+                      alt={country.name}
+                      src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
+                    />
+                  </picture>
+                  {country.name}
+                </div>
               </SelectItem>
             ))}
           </SelectContent>

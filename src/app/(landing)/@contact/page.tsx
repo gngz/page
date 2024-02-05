@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { TelInput } from '@/components/ui/tel-input';
 import { Textarea } from '@/components/ui/textarea';
+import { useServerCountry } from '@/lib/use-server-country';
 import { SectionLayout } from '../components/section-layout';
 import ValidationTooltip from './validation-tooltip';
 
@@ -11,6 +12,8 @@ const ObligatoryField = () => {
 };
 
 export default function Contact() {
+  const country = useServerCountry();
+
   return (
     <SectionLayout
       title='Contact'
@@ -36,7 +39,7 @@ export default function Contact() {
           </div>
           <div>
             <Label htmlFor='phone'>Phone Number</Label>
-            <TelInput id='phone' type='text' />
+            <TelInput id='phone' type='text' defaultCountry={country} />
           </div>
           <div className='md:col-span-2'>
             <Label htmlFor='subject'>
