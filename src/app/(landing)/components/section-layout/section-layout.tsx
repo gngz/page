@@ -9,7 +9,7 @@ export function SectionLayout({
 }: Readonly<SectionLayoutProps>) {
   return (
     <section id={id}>
-      <div className='container pb-8'>
+      <div className='container pb-24'>
         <Heading as='h1' className='text-center text-5xl font-medium'>
           {title}
         </Heading>
@@ -18,7 +18,7 @@ export function SectionLayout({
             {subtitle}
           </Heading>
         )}
-        {children}
+        <div className='mt-6'>{children}</div>
       </div>
     </section>
   );
