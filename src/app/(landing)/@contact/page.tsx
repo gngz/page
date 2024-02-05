@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { TelInput } from '@/components/ui/tel-input';
 import { Textarea } from '@/components/ui/textarea';
 import { SectionLayout } from '../components/section-layout';
 import ValidationTooltip from './validation-tooltip';
@@ -35,7 +36,7 @@ export default function Contact() {
           </div>
           <div>
             <Label htmlFor='phone'>Phone Number</Label>
-            <Input id='phone' type='text' />
+            <TelInput id='phone' type='text' />
           </div>
           <div className='md:col-span-2'>
             <Label htmlFor='subject'>
