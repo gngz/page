@@ -8,7 +8,6 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 import * as React from 'react';
 import { useState } from 'react';
 import { Input } from '../input';
@@ -22,7 +21,10 @@ export interface InputProps
 const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ defaultCountry, className, ...props }, ref) => {
     const [country, setCountry] = useState(defaultCountry ?? 'PT');
-    const numberExample = getNumberPlaceholder(country);
+    const numberExample = React.useMemo(
+      () => getNumberPlaceholder(country),
+      [country],
+    );
 
     return (
       <div className='flex focus-within:ring-ring focus-within:ring-2 focus-within:ring-offset-2 rounded-md'>
@@ -32,28 +34,22 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
           onValueChange={setCountry}
         >
           <SelectTrigger
-            className='w-auto rounded-r-none border-r-0 focus:!ring-transparent'
+            className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px]'
             tabIndex={-1}
           >
-            <SelectValue className='truncate text-ellipsis border-r-0 box-border' />
+            <SelectValue className='w-full' />
           </SelectTrigger>
           <SelectContent>
             {CountryCodes.map((country) => (
-              <SelectItem
-                key={country.code}
-                value={country.code}
-                className='px-2'
-              >
-                <div className='flex flex-shrink-0 items-center gap-3'>
-                  <Image
+              <SelectItem key={country.code} value={country.code}>
+                <div className='flex items-center gap-3 justify-start '>
+                  <img
                     src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
                     alt={country.name}
                     title={country.name}
                     className='w-4 h-4'
-                    height={0}
-                    width={0}
                   />
-                  <div className='mr-2 shrink-0'>{country.name}</div>
+                  <span className='mr-2 truncate'>{country.name}</span>
                 </div>
               </SelectItem>
             ))}
@@ -64,7 +60,7 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
           type='tel'
           {...props}
           className={cn(
-            'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent',
+            'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent flex-grow',
             className,
           )}
           placeholder={props.placeholder ?? numberExample}
