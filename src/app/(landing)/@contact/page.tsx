@@ -7,7 +7,7 @@ export default function Contact() {
       subtitle='Feel free to contact-me.'
       id='contact'
     >
-      Hello World
+      <div className='grid grid-cols-2'></div>
     </SectionLayout>
   );
 }

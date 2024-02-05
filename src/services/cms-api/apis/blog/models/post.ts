@@ -8,7 +8,7 @@ export const PostSchema = z.object({
   slug: z.string(),
   preview: z.string(),
   content: z.string(),
-  user_created: UserSchema
+  user_created: UserSchema,
 });
 
 export type PostModel = z.output<typeof PostSchema>;

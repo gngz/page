@@ -1,48 +1,47 @@
 @import 'highlight.js/styles/github.css';
 
 @layer base {
-    
-    .blog-content {
-        h1 {
-            @apply text-3xl text-gray-950 font-medium;
-        }
-
-        h2 {
-            @apply text-2xl mt-8 text-gray-950 font-medium;
-        }
-
-        p, ul {
-            @apply my-[1.5em];
-        }
-
-        pre, blockquote {
-            @apply bg-gray-100 px-4 py-4 mb-2;
-
-            code {
-                @apply text-sm bg-inherit p-0 font-mono #{!important} ;
-
-            }
-
-            .codelang {
-                @apply text-sm mb-3;
-            }
-
-            p {
-                @apply m-0;
-            }
-   
-        }
-
-        blockquote {
-            @apply border-l-4 border-gray-950 font-serif text-base;
-        }
-
-        ul {
-            @apply list-disc list-inside;
-
-            li { 
-                @apply mb-1;
-            }
-        }
+  .blog-content {
+    h1 {
+      @apply text-3xl font-medium text-gray-950;
     }
+
+    h2 {
+      @apply mt-8 text-2xl font-medium text-gray-950;
+    }
+
+    p,
+    ul {
+      @apply my-[1.5em];
+    }
+
+    pre,
+    blockquote {
+      @apply mb-2 bg-gray-100 px-4 py-4;
+
+      code {
+        @apply bg-inherit p-0 font-mono text-sm #{!important};
+      }
+
+      .codelang {
+        @apply mb-3 text-sm;
+      }
+
+      p {
+        @apply m-0;
+      }
+    }
+
+    blockquote {
+      @apply border-l-4 border-gray-950 font-serif text-base;
+    }
+
+    ul {
+      @apply list-inside list-disc;
+
+      li {
+        @apply mb-1;
+      }
+    }
+  }
 }

@@ -19,7 +19,7 @@ export async function getPost(slug: string) {
       }
     }
   
-  `
+  `;
   const collection = 'blog_posts';
   const result = await CMSApi.getInstance().query<{ blog_posts: PostModel[] }>(
     query,
