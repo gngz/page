@@ -9,8 +9,10 @@ import {
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import * as React from 'react';
+import { useState } from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
+import { getNumberPlaceholder } from './utils';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -19,10 +21,20 @@ export interface InputProps
 
 const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ defaultCountry, className, type, ...props }, ref) => {
+    const [country, setCountry] = useState(defaultCountry ?? 'PT');
+    const numberExample = getNumberPlaceholder(country);
+
     return (
       <div className='flex focus-within:ring-ring focus-within:ring-2 focus-within:ring-offset-2 rounded-md'>
-        <Select defaultValue={defaultCountry ?? 'PT'}>
-          <SelectTrigger className='w-auto rounded-r-none border-r-0 focus:!ring-transparent'>
+        <Select
+          defaultValue={country}
+          disabled={props.disabled}
+          onValueChange={setCountry}
+        >
+          <SelectTrigger
+            className='w-auto rounded-r-none border-r-0 focus:!ring-transparent'
+            tabIndex={-1}
+          >
             <SelectValue className='truncate text-ellipsis border-r-0' />
           </SelectTrigger>
           <SelectContent>
@@ -53,6 +65,7 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
             'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent',
             className,
           )}
+          placeholder={props.placeholder ?? numberExample}
         />
       </div>
     );
