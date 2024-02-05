@@ -15,12 +15,12 @@ import { Input } from '../input';
 import CountryCodes from './country-codes.json';
 import { getNumberPlaceholder } from './utils';
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   defaultCountry?: string;
 }
 
 const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ defaultCountry, className, type, ...props }, ref) => {
+  ({ defaultCountry, className, ...props }, ref) => {
     const [country, setCountry] = useState(defaultCountry ?? 'PT');
     const numberExample = getNumberPlaceholder(country);
 
@@ -61,7 +61,7 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
         </Select>
         <Input
           ref={ref}
-          type={type}
+          type='tel'
           {...props}
           className={cn(
             'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent',
