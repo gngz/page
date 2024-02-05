@@ -42,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={font.className}>
+        <div id='top' />
         <Navbar />
         {children}
         <Footer />
