@@ -20,18 +20,21 @@ export interface InputProps
 const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ defaultCountry, className, type, ...props }, ref) => {
     return (
-      <div className='flex'>
-        <Select defaultValue={defaultCountry}>
-          <SelectTrigger className='w-[180px] rounded-r-none'>
-            <SelectValue className='truncate text-ellipsis' />
+      <div className='flex focus-within:ring-ring focus-within:ring-2 focus-within:ring-offset-2 rounded-md'>
+        <Select defaultValue={defaultCountry ?? 'PT'}>
+          <SelectTrigger className='w-auto rounded-r-none border-r-0 focus:!ring-transparent'>
+            <SelectValue className='truncate text-ellipsis border-r-0' />
           </SelectTrigger>
           <SelectContent>
             {CountryCodes.map((country) => (
-              <SelectItem key={country.code} value={country.code}>
+              <SelectItem
+                key={country.code}
+                value={country.code}
+                className='px-2'
+              >
                 <div className='flex items-center gap-2 truncate text-ellipsis'>
-                  <picture>
+                  <picture className='w-4 h-4 flex justify-center items-center'>
                     <img
-                      className='w-4 h-4'
                       alt={country.name}
                       src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
                     />
@@ -46,7 +49,10 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           type={type}
           {...props}
-          className={cn('rounded-l-none border-l-0', className)}
+          className={cn(
+            'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent',
+            className,
+          )}
         />
       </div>
     );
