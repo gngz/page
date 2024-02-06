@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import * as React from 'react';
-import { useState } from 'react';
+import { useImperativeHandle, useRef, useState } from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
 import { getNumberPlaceholder } from './utils';
@@ -21,9 +21,24 @@ export interface InputProps
 const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ defaultCountry, className, ...props }, ref) => {
     const [country, setCountry] = useState(defaultCountry ?? 'PT');
+
     const numberExample = React.useMemo(
       () => getNumberPlaceholder(country),
       [country],
+    );
+    const innerRef = useRef<HTMLInputElement>(null);
+    useImperativeHandle(ref, () => innerRef.current!, []);
+
+    React.useEffect(
+      function onCountrySelectFocusInput() {
+        setTimeout(() => {
+          if (innerRef.current) {
+            innerRef.current.setSelectionRange(0, 0);
+            innerRef.current.focus();
+          }
+        }, 100);
+      },
+      [country, innerRef],
     );
 
     return (
@@ -56,7 +71,7 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
           </SelectContent>
         </Select>
         <Input
-          ref={ref}
+          ref={innerRef}
           type='tel'
           {...props}
           className={cn(
