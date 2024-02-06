@@ -39,7 +39,7 @@ export default function Contact() {
           </div>
           <div>
             <Label htmlFor='phone'>Phone Number</Label>
-            <TelInput id='phone' type='text' defaultCountry={country} />
+            <TelInput id='phone' defaultCountry={country} />
           </div>
           <div className='md:col-span-2'>
             <Label htmlFor='subject'>
