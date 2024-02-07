@@ -1,5 +1,4 @@
 'use client';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { TelInput } from '@/components/ui/tel-input';
@@ -8,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { useForm } from 'react-hook-form';
 import { ContactModel, ContactSchema } from './schemas';
+import { SendButton } from './send-button';
 import { ValidationTooltip } from './validation-tooltip';
 
 type Props = {
@@ -97,9 +97,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           {errors.message && <ErrorAlert>{errors.message.message}</ErrorAlert>}
         </div>
         <div className='flex justify-end md:col-span-2'>
-          <Button type='submit' className='self-end'>
-            Send
-          </Button>
+          <SendButton>Send</SendButton>
         </div>
       </div>
     </form>
