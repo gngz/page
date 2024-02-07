@@ -8,11 +8,13 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import * as React from 'react';
 import { useImperativeHandle, useRef, useState } from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
 import { getNumberPlaceholder } from './utils';
+
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   defaultCountry?: string;
@@ -20,33 +22,35 @@ export interface InputProps
 
 const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ defaultCountry, className, ...props }, ref) => {
+    const innerRef = useRef<HTMLInputElement>(null);
+    useImperativeHandle(ref, () => innerRef.current!, []);
+
+    const countryList = React.useMemo(() => CountryCodes, []);
     const [country, setCountry] = useState(defaultCountry ?? 'PT');
 
     const numberExample = React.useMemo(
       () => getNumberPlaceholder(country),
       [country],
     );
-    const innerRef = useRef<HTMLInputElement>(null);
-    useImperativeHandle(ref, () => innerRef.current!, []);
 
-    React.useEffect(
-      function onCountrySelectFocusInput() {
-        setTimeout(() => {
-          if (innerRef.current) {
-            innerRef.current.setSelectionRange(0, 0);
-            innerRef.current.focus();
-          }
-        }, 100);
-      },
-      [country, innerRef],
-    );
+    const onValueChangeHandler = (value: string) => {
+      setCountry(value);
+
+      setTimeout(() => {
+        if (innerRef.current) {
+          const length = innerRef.current.value.length;
+          innerRef.current.setSelectionRange(length, length);
+          innerRef.current.focus();
+        }
+      }, 100);
+    };
 
     return (
       <div className='flex focus-within:ring-ring focus-within:ring-2 focus-within:ring-offset-2 rounded-md'>
         <Select
           defaultValue={country}
           disabled={props.disabled}
-          onValueChange={setCountry}
+          onValueChange={onValueChangeHandler}
         >
           <SelectTrigger
             className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px]'
@@ -55,14 +59,16 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
             <SelectValue className='w-full' />
           </SelectTrigger>
           <SelectContent>
-            {CountryCodes.map((country) => (
+            {countryList.map((country) => (
               <SelectItem key={country.code} value={country.code}>
                 <div className='flex items-center gap-3 justify-start '>
-                  <img
+                  <Image
                     src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
                     alt={country.name}
                     title={country.name}
                     className='w-4 h-4'
+                    width={0}
+                    height={0}
                   />
                   <span className='mr-2 truncate'>{country.name}</span>
                 </div>
