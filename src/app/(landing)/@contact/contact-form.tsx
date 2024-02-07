@@ -30,18 +30,23 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+
+    formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<ContactModel>({
-    mode: 'onBlur',
+    mode: 'onTouched',
     resolver: zodResolver(ContactSchema),
   });
 
+  const canSubmit = isValid && isDirty;
+
   const onSubmitHandler: SubmitHandler<ContactModel> = async (data) => {
-    return new Promise((resolve) => {
+    await new Promise((resolve) => {
       setTimeout(() => {
         resolve(data);
       }, 2000);
     });
+
+    console.log('FORM DATA', data);
   };
 
   return (
@@ -77,7 +82,11 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <Label htmlFor='phone' className='inline-flex items-center mb-2'>
             Phone Number
           </Label>
-          <TelInput id='phone' defaultCountry={country} />
+          <TelInput
+            {...register('phone')}
+            id='phone'
+            defaultCountry={country}
+          />
         </div>
         <div className='md:col-span-2'>
           <Label htmlFor='subject' className='inline-flex items-center mb-2'>
@@ -106,7 +115,9 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           {errors.message && <ErrorAlert>{errors.message.message}</ErrorAlert>}
         </div>
         <div className='flex justify-end md:col-span-2'>
-          <SendButton isLoading={isSubmitting}>Send</SendButton>
+          <SendButton disabled={!canSubmit} isLoading={isSubmitting}>
+            Send
+          </SendButton>
         </div>
       </div>
     </form>
