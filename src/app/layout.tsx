@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/sonner';
 import { getSeoData } from '@/services/cms-api';
 import '@/styles/index.scss';
 import type { Metadata, Viewport } from 'next';
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Toaster closeButton position='top-center' />
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { ContactModel, ContactSchema } from './schemas';
 import { SendButton } from './send-button';
 import { ValidationTooltip } from './validation-tooltip';
@@ -30,7 +31,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
   const {
     register,
     handleSubmit,
-
+    reset,
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<ContactModel>({
     mode: 'onTouched',
@@ -40,11 +41,19 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
   const canSubmit = isValid && isDirty;
 
   const onSubmitHandler: SubmitHandler<ContactModel> = async (data) => {
-    await new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(data);
-      }, 2000);
-    });
+    try {
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(data);
+        }, 2000);
+      });
+
+      toast('Contact Form Submitted', {
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+    } finally {
+      reset();
+    }
 
     console.log('FORM DATA', data);
   };
