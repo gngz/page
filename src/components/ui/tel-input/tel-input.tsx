@@ -8,22 +8,60 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { CountryCode } from 'libphonenumber-js';
 import Image from 'next/image';
 import * as React from 'react';
-import { useImperativeHandle, useRef, useState } from 'react';
+import {
+  useEffect,
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
-import { getNumberPlaceholder } from './utils';
+import {
+  fromInternationalNumber,
+  getNumberPlaceholder,
+  toInternationalNumber,
+} from './utils';
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'onBlur' | 'onChange' | 'value'
+  > {
+  onBlur?: () => void;
+  onChange?: (value: string | undefined) => void;
+  value?: string;
   defaultCountry?: string;
 }
 
-const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ defaultCountry, className, ...props }, ref) => {
+export type TelInputRef = {
+  focus: () => void;
+};
+
+const TelInput = React.forwardRef<TelInputRef, InputProps>(
+  ({ defaultCountry, className, value, ...props }, ref) => {
     const innerRef = useRef<HTMLInputElement>(null);
-    useImperativeHandle(ref, () => innerRef.current!, []);
+    const [country, setCountry] = useState<CountryCode>(
+      (defaultCountry as CountryCode) ?? 'PT',
+    );
+
+    const [inputValue, setInputValue] = useState<string>('');
+    const [cursor, setCursor] = useState<number | null>(null);
+
+    useLayoutEffect(() => {
+      innerRef.current?.setSelectionRange(cursor, cursor);
+    }, [ref, cursor, value]);
+
+    useEffect(() => {
+      setInputValue(fromInternationalNumber(value ?? '') ?? '');
+    }, [value]);
+
+    useImperativeHandle(ref, () => ({
+      focus: () => {},
+    }));
 
     const countryList = React.useMemo(
       () =>
@@ -45,15 +83,27 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
       [],
     );
 
-    const [country, setCountry] = useState(defaultCountry ?? 'PT');
-
     const numberExample = React.useMemo(
       () => getNumberPlaceholder(country),
       [country],
     );
 
+    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const value = toInternationalNumber(
+        event.target.value,
+        country as CountryCode,
+      );
+
+      setCursor(event.target.selectionStart);
+      props.onChange?.(value);
+    };
+
     const onValueChangeHandler = (value: string) => {
-      setCountry(value);
+      setCountry(value as CountryCode);
+      if (inputValue) {
+        const newValue = fromInternationalNumber(inputValue);
+        props.onChange?.(newValue);
+      }
 
       setTimeout(() => {
         if (innerRef.current) {
@@ -83,6 +133,9 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
           ref={innerRef}
           type='tel'
           {...props}
+          onBlur={() => props.onBlur?.()}
+          onChange={onChangeHandler}
+          value={inputValue}
           className={cn(
             'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent flex-grow',
             className,

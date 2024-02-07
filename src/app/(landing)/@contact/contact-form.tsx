@@ -5,7 +5,7 @@ import { TelInput } from '@/components/ui/tel-input';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { ContactModel, ContactSchema } from './schemas';
 import { SendButton } from './send-button';
@@ -32,6 +32,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<ContactModel>({
     mode: 'onTouched',
@@ -90,12 +91,20 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
         <div>
           <Label htmlFor='phone' className='inline-flex items-center mb-2'>
             Phone Number
+            {errors.phone && (
+              <ValidationTooltip
+                validationMessage={errors.phone.message ?? ''}
+              />
+            )}
           </Label>
-          <TelInput
-            {...register('phone')}
-            id='phone'
-            defaultCountry={country}
+          <Controller
+            control={control}
+            name='phone'
+            render={({ field }) => (
+              <TelInput {...field} defaultCountry={country} />
+            )}
           />
+          {errors.phone && <ErrorAlert>{errors.phone.message}</ErrorAlert>}
         </div>
         <div className='md:col-span-2'>
           <Label htmlFor='subject' className='inline-flex items-center mb-2'>
