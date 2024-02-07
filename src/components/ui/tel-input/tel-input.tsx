@@ -25,7 +25,26 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
     const innerRef = useRef<HTMLInputElement>(null);
     useImperativeHandle(ref, () => innerRef.current!, []);
 
-    const countryList = React.useMemo(() => CountryCodes, []);
+    const countryList = React.useMemo(
+      () =>
+        CountryCodes.map((country) => (
+          <SelectItem key={country.code} value={country.code}>
+            <div className='flex items-center gap-3 justify-start '>
+              <Image
+                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
+                alt={country.name}
+                title={country.name}
+                className='w-4 h-4'
+                width={0}
+                height={0}
+              />
+              <span className='mr-2 truncate'>{country.name}</span>
+            </div>
+          </SelectItem>
+        )),
+      [],
+    );
+
     const [country, setCountry] = useState(defaultCountry ?? 'PT');
 
     const numberExample = React.useMemo(
@@ -58,23 +77,7 @@ const TelInput = React.forwardRef<HTMLInputElement, InputProps>(
           >
             <SelectValue className='w-full' />
           </SelectTrigger>
-          <SelectContent>
-            {countryList.map((country) => (
-              <SelectItem key={country.code} value={country.code}>
-                <div className='flex items-center gap-3 justify-start '>
-                  <Image
-                    src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
-                    alt={country.name}
-                    title={country.name}
-                    className='w-4 h-4'
-                    width={0}
-                    height={0}
-                  />
-                  <span className='mr-2 truncate'>{country.name}</span>
-                </div>
-              </SelectItem>
-            ))}
-          </SelectContent>
+          <SelectContent>{countryList}</SelectContent>
         </Select>
         <Input
           ref={innerRef}
