@@ -5,7 +5,7 @@ import { TelInput } from '@/components/ui/tel-input';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { ContactModel, ContactSchema } from './schemas';
 import { SendButton } from './send-button';
 import { ValidationTooltip } from './validation-tooltip';
@@ -29,14 +29,23 @@ const ErrorAlert = ({ children }: PropsWithChildren) => {
 export function ContactForm({ country = 'PT' }: Readonly<Props>) {
   const {
     register,
-    formState: { errors },
+    handleSubmit,
+    formState: { errors, isSubmitting },
   } = useForm<ContactModel>({
     mode: 'onBlur',
     resolver: zodResolver(ContactSchema),
   });
 
+  const onSubmitHandler: SubmitHandler<ContactModel> = async (data) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(data);
+      }, 2000);
+    });
+  };
+
   return (
-    <form action=''>
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
       <div className='grid md:grid-cols-2 gap-3 md:w-4/6 md:mx-auto'>
         <div className='md:col-span-2'>
           <Label htmlFor='name' className='inline-flex items-center mb-2'>
@@ -97,7 +106,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           {errors.message && <ErrorAlert>{errors.message.message}</ErrorAlert>}
         </div>
         <div className='flex justify-end md:col-span-2'>
-          <SendButton>Send</SendButton>
+          <SendButton isLoading={isSubmitting}>Send</SendButton>
         </div>
       </div>
     </form>
