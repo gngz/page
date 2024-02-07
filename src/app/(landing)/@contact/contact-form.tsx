@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { useForm } from 'react-hook-form';
 import { ContactModel, ContactSchema } from './schemas';
-import ValidationTooltip from './validation-tooltip';
+import { ValidationTooltip } from './validation-tooltip';
 
 type Props = {
   country?: string;
@@ -20,7 +20,7 @@ const ObligatoryField = () => {
 
 const ErrorAlert = ({ children }: PropsWithChildren) => {
   return (
-    <p role='alert' className='text-red-500'>
+    <p role='alert' className='text-red-600 mt-2'>
       {children}
     </p>
   );
@@ -39,7 +39,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
     <form action=''>
       <div className='grid md:grid-cols-2 gap-3 md:w-4/6 md:mx-auto'>
         <div className='md:col-span-2'>
-          <Label htmlFor='name' className='inline-block'>
+          <Label htmlFor='name' className='inline-flex items-center mb-2'>
             Name
             <ObligatoryField />
             {errors.name && (
@@ -52,7 +52,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           {errors.name && <ErrorAlert>{errors.name.message}</ErrorAlert>}
         </div>
         <div>
-          <Label htmlFor='email'>
+          <Label htmlFor='email' className='inline-flex items-center mb-2'>
             E-mail
             <ObligatoryField />
             {errors.email && (
@@ -65,11 +65,13 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           {errors.email && <ErrorAlert>{errors.email.message}</ErrorAlert>}
         </div>
         <div>
-          <Label htmlFor='phone'>Phone Number</Label>
+          <Label htmlFor='phone' className='inline-flex items-center mb-2'>
+            Phone Number
+          </Label>
           <TelInput id='phone' defaultCountry={country} />
         </div>
         <div className='md:col-span-2'>
-          <Label htmlFor='subject'>
+          <Label htmlFor='subject' className='inline-flex items-center mb-2'>
             Subject
             <ObligatoryField />
             {errors.subject && (
@@ -82,7 +84,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           {errors.subject && <ErrorAlert>{errors.subject.message}</ErrorAlert>}
         </div>
         <div className='md:col-span-2'>
-          <Label htmlFor='message'>
+          <Label htmlFor='message' className='inline-flex items-center mb-2'>
             Message
             <ObligatoryField />
             {errors.message && (

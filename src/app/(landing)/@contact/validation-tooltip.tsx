@@ -10,14 +10,12 @@ type Props = {
   validationMessage: string;
 };
 
-export default function ValidationTooltip({
-  validationMessage,
-}: Readonly<Props>) {
+export function ValidationTooltip({ validationMessage }: Readonly<Props>) {
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <FaTriangleExclamation className='text-red-500 ml-1 hidden md:inline' />
+          <FaTriangleExclamation className='text-red-500 ml-1' />
         </TooltipTrigger>
         <TooltipContent>
           <p>{validationMessage}</p>
