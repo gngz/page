@@ -8,14 +8,14 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { CountryCode, parsePhoneNumber } from 'libphonenumber-js';
+import { CountryCode } from 'libphonenumber-js';
 import Image from 'next/image';
 import * as React from 'react';
 import { useImperativeHandle, useRef, useState } from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
 import {
-  fromInternationalNumber,
+  formatNumber,
   getNumberPlaceholder,
   toInternationalNumber,
 } from './utils';
@@ -33,18 +33,6 @@ export interface InputProps
 
 export type TelInputRef = {
   focus: () => void;
-};
-
-const formatNumber = (value: string, country: CountryCode) => {
-  try {
-    const phoneNumber = parsePhoneNumber(value, country);
-    if (phoneNumber.isValid()) {
-      return phoneNumber.formatNational();
-    }
-    return value;
-  } catch {
-    return value;
-  }
 };
 
 const TelInput = React.forwardRef<TelInputRef, InputProps>(
@@ -96,9 +84,11 @@ const TelInput = React.forwardRef<TelInputRef, InputProps>(
     };
 
     const handleOnValueChange = (value: string) => {
-      setCountry(value as CountryCode);
+      const newCountry = value as CountryCode;
+      setCountry(newCountry);
+
       if (inputValue) {
-        const newValue = fromInternationalNumber(inputValue);
+        const newValue = toInternationalNumber(inputValue, newCountry);
         props.onChange?.(newValue);
       }
 
@@ -108,7 +98,7 @@ const TelInput = React.forwardRef<TelInputRef, InputProps>(
           innerRef.current.setSelectionRange(length, length);
           innerRef.current.focus();
         }
-      }, 100);
+      }, 0);
     };
 
     const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {

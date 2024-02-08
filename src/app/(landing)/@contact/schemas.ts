@@ -10,8 +10,7 @@ export const ContactSchema = z.object({
     .string()
     .optional()
     .refine((value) => (value ? isValidPhoneNumber(value) : true), {
-      message:
-        'Please provide a valid phone number.',
+      message: 'Please provide a valid phone number.',
     }),
   subject: z.string().min(4, {
     message: 'The subject must contain a minimum of 4 characters.',
