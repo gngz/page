@@ -31,8 +31,12 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
     const placeholder = useTelephonePlaceholder(country);
 
     useImperativeHandle(ref, () => ({
-      focus: () => {},
+      focus: () => inputRef.current?.focus(),
     }));
+
+    React.useEffect(() => {
+      setInputValue(value?.number ?? '');
+    }, [value]);
 
     const countryList = React.useMemo(
       () =>

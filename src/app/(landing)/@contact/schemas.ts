@@ -16,7 +16,7 @@ export const ContactSchema = z.object({
   phone: z.object({
     internationalNumber: TelephoneSchema,
     number: z.string()
-  }),
+  }).optional(),
   subject: z.string().min(4, {
     message: 'The subject must contain a minimum of 4 characters.',
   }),
