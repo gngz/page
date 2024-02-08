@@ -21,7 +21,7 @@ const ObligatoryField = () => {
 
 const ErrorAlert = ({ children }: PropsWithChildren) => {
   return (
-    <p role='alert' className='text-red-600 mt-2'>
+    <p role='alert' className='text-red-600 text-xs mt-1 h-[1em]'>
       {children}
     </p>
   );
@@ -61,7 +61,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <div className='grid md:grid-cols-2 gap-3 md:w-4/6 md:mx-auto'>
+      <div className='grid md:grid-cols-2 gap-x-4 gap-y-2 md:w-4/6 md:mx-auto'>
         <div className='md:col-span-2'>
           <Label htmlFor='name' className='inline-flex items-center mb-2'>
             Name
@@ -73,7 +73,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
             )}
           </Label>
           <Input {...register('name')} type='text' />
-          {errors.name && <ErrorAlert>{errors.name.message}</ErrorAlert>}
+          <ErrorAlert>{errors.name?.message}</ErrorAlert>
         </div>
         <div>
           <Label htmlFor='email' className='inline-flex items-center mb-2'>
@@ -86,7 +86,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
             )}
           </Label>
           <Input {...register('email')} type='email' />
-          {errors.email && <ErrorAlert>{errors.email.message}</ErrorAlert>}
+          <ErrorAlert>{errors.email?.message}</ErrorAlert>
         </div>
         <div>
           <Label htmlFor='phone' className='inline-flex items-center mb-2'>
@@ -106,9 +106,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               <TelInput {...field} defaultCountry={country} />
             )}
           />
-          {errors.phone && (
-            <ErrorAlert>{errors.phone.internationalNumber?.message}</ErrorAlert>
-          )}
+          <ErrorAlert>{errors.phone?.internationalNumber?.message}</ErrorAlert>
         </div>
         <div className='md:col-span-2'>
           <Label htmlFor='subject' className='inline-flex items-center mb-2'>
@@ -121,7 +119,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
             )}
           </Label>
           <Input {...register('subject')} type='text' />
-          {errors.subject && <ErrorAlert>{errors.subject.message}</ErrorAlert>}
+          <ErrorAlert>{errors.subject?.message}</ErrorAlert>
         </div>
         <div className='md:col-span-2'>
           <Label htmlFor='message' className='inline-flex items-center mb-2'>
@@ -134,7 +132,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
             )}
           </Label>
           <Textarea {...register('message')} rows={8} />
-          {errors.message && <ErrorAlert>{errors.message.message}</ErrorAlert>}
+          <ErrorAlert>{errors.message?.message}</ErrorAlert>
         </div>
         <div className='flex justify-end md:col-span-2'>
           <SendButton disabled={!canSubmit} isLoading={isSubmitting}>
