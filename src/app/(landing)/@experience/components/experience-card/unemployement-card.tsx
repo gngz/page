@@ -3,13 +3,13 @@ import Link from 'next/link';
 
 export default function UnemployementCard() {
   return (
-    <div className='px-3 py-3 bg-gray-300 first:ring first:ring-offset-4 first:rounded-md first:mb-2 first:ring-stone-700'>
+    <div className='px-3 py-3 bg-zinc-200 first:ring first:ring-offset-4 first:rounded-md first:mb-2 first:ring-stone-700'>
       <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
-        <div className='w-10 h-10 rounded-sm bg-slate-800 text-lg flex items-center justify-center'>
+        <div className='w-10 h-10 rounded-sm bg-slate-800 text-lg flex items-center justify-center select-none'>
           🚀
         </div>
         <div className='flex flex-col gap-1'>
-          <span className=' text-gray-600 text-sm'>Software Engineer</span>
+          <span className=' text-gray-500 text-sm'>Software Engineer</span>
           <span className='font-medium  text-gray-800'>Your Company Here</span>
         </div>
         <div className='flex h-full items-center'>
