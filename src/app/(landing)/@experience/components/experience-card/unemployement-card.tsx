@@ -10,7 +10,12 @@ export default function UnemployementCard() {
         </div>
         <div className='flex flex-col gap-1'>
           <span className=' text-gray-500 text-sm'>Software Engineer</span>
-          <span className='font-medium  text-gray-800'>Your Company Here</span>
+          <a
+            href='/#contact'
+            className='font-medium  text-gray-800 hover:underline underline-offset-2'
+          >
+            Your Company Here
+          </a>
         </div>
         <div className='flex h-full items-center'>
           <Link href={'/#contact'}>

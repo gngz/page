@@ -3,9 +3,10 @@ export type EmploymentCardOptions = {
   startDate: Date;
   endDate?: Date;
   companyName: string;
+  companyUrl?: string;
   role: string;
   companyLogo: string;
-  location: 'Remote' | 'Hybrid' | string;
+  location: string;
 };
 
 export type ExperienceCardOptions =

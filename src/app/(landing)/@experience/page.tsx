@@ -25,6 +25,7 @@ export default function Skills() {
               type: 'employement',
               location: 'Funchal',
               companyLogo: '/nearsoft.jpg',
+              companyUrl: 'https://www.nearsoft.pt/',
             }}
           />
           <ExperienceCard
@@ -36,6 +37,7 @@ export default function Skills() {
               type: 'employement',
               location: 'Funchal',
               companyLogo: '/unipartner.png',
+              companyUrl: 'https://www.unipartner.com/',
             }}
           />
           <ExperienceCard
@@ -47,6 +49,7 @@ export default function Skills() {
               type: 'employement',
               location: 'Funchal',
               companyLogo: '/uma.png',
+              companyUrl: 'https://www.uma.pt/',
             }}
           />
         </ExperienceList>
