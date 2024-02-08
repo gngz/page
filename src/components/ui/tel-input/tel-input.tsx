@@ -90,6 +90,7 @@ const TelInput = React.forwardRef<TelInputRef, InputProps>(
       if (inputValue) {
         const newValue = toInternationalNumber(inputValue, newCountry);
         props.onChange?.(newValue);
+        props.onBlur?.();
       }
 
       setTimeout(() => {
