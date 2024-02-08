@@ -1,4 +1,8 @@
-import { AsYouType, CountryCode, getExampleNumber, parseIncompletePhoneNumber, parsePhoneNumber } from 'libphonenumber-js';
+import {
+  CountryCode,
+  getExampleNumber,
+  parsePhoneNumber,
+} from 'libphonenumber-js';
 import examples from 'libphonenumber-js/mobile/examples';
 export function getNumberPlaceholder(countryCode: string) {
   const example = getExampleNumber(
@@ -19,9 +23,7 @@ export const toInternationalNumber = (value: string, country: CountryCode) => {
 
 export const fromInternationalNumber = (value: string) => {
   try {
-
-    const parsedNumber = parsePhoneNumber(value)
-    return new AsYouType(parsedNumber.country).input(parsedNumber.nationalNumber.replace(" ", ""));
+    return parsePhoneNumber(value).formatNational();
   } catch {
     return value ?? '';
   }

@@ -8,16 +8,10 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { CountryCode } from 'libphonenumber-js';
+import { CountryCode, parsePhoneNumber } from 'libphonenumber-js';
 import Image from 'next/image';
 import * as React from 'react';
-import {
-  useEffect,
-  useImperativeHandle,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useImperativeHandle, useRef, useState } from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
 import {
@@ -41,23 +35,25 @@ export type TelInputRef = {
   focus: () => void;
 };
 
+const formatNumber = (value: string, country: CountryCode) => {
+  try {
+    const phoneNumber = parsePhoneNumber(value, country);
+    if (phoneNumber.isValid()) {
+      return phoneNumber.formatNational();
+    }
+    return value;
+  } catch {
+    return value;
+  }
+};
+
 const TelInput = React.forwardRef<TelInputRef, InputProps>(
   ({ defaultCountry, className, value, ...props }, ref) => {
     const innerRef = useRef<HTMLInputElement>(null);
     const [country, setCountry] = useState<CountryCode>(
       (defaultCountry as CountryCode) ?? 'PT',
     );
-
     const [inputValue, setInputValue] = useState<string>('');
-    const [cursor, setCursor] = useState<number | null>(null);
-
-    useLayoutEffect(() => {
-      innerRef.current?.setSelectionRange(cursor, cursor);
-    }, [ref, cursor, value]);
-
-    useEffect(() => {
-      setInputValue(fromInternationalNumber(value ?? '') ?? '');
-    }, [value]);
 
     useImperativeHandle(ref, () => ({
       focus: () => {},
@@ -88,17 +84,18 @@ const TelInput = React.forwardRef<TelInputRef, InputProps>(
       [country],
     );
 
-    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = toInternationalNumber(
         event.target.value,
         country as CountryCode,
       );
 
-      setCursor(event.target.selectionStart);
+      setInputValue(event.target.value);
+
       props.onChange?.(value);
     };
 
-    const onValueChangeHandler = (value: string) => {
+    const handleOnValueChange = (value: string) => {
       setCountry(value as CountryCode);
       if (inputValue) {
         const newValue = fromInternationalNumber(inputValue);
@@ -114,12 +111,18 @@ const TelInput = React.forwardRef<TelInputRef, InputProps>(
       }, 100);
     };
 
+    const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+      const newInputValue = formatNumber(event.target.value, country);
+      setInputValue(newInputValue);
+      props.onBlur?.();
+    };
+
     return (
       <div className='flex focus-within:ring-ring focus-within:ring-2 focus-within:ring-offset-2 rounded-md'>
         <Select
           defaultValue={country}
           disabled={props.disabled}
-          onValueChange={onValueChangeHandler}
+          onValueChange={handleOnValueChange}
         >
           <SelectTrigger
             className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px]'
@@ -133,8 +136,8 @@ const TelInput = React.forwardRef<TelInputRef, InputProps>(
           ref={innerRef}
           type='tel'
           {...props}
-          onBlur={() => props.onBlur?.()}
-          onChange={onChangeHandler}
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
           value={inputValue}
           className={cn(
             'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent flex-grow',
