@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { CaptchaWidget } from './captcha';
 import { ContactModel, ContactSchema } from './schemas';
 import { SendButton } from './send-button';
 import { ValidationTooltip } from './validation-tooltip';
@@ -134,6 +135,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <Textarea {...register('message')} rows={8} />
           <ErrorAlert>{errors.message?.message}</ErrorAlert>
         </div>
+        <CaptchaWidget />
         <div className='flex justify-end md:col-span-2'>
           <SendButton disabled={!canSubmit} isLoading={isSubmitting}>
             Send
