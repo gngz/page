@@ -93,7 +93,9 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
             Phone Number
             {errors.phone && (
               <ValidationTooltip
-                validationMessage={errors.phone.message ?? ''}
+                validationMessage={
+                  errors.phone.internationalNumber?.message ?? ''
+                }
               />
             )}
           </Label>
@@ -104,7 +106,9 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               <TelInput {...field} defaultCountry={country} />
             )}
           />
-          {errors.phone && <ErrorAlert>{errors.phone.message}</ErrorAlert>}
+          {errors.phone && (
+            <ErrorAlert>{errors.phone.internationalNumber?.message}</ErrorAlert>
+          )}
         </div>
         <div className='md:col-span-2'>
           <Label htmlFor='subject' className='inline-flex items-center mb-2'>
