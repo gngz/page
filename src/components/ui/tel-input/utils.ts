@@ -36,8 +36,5 @@ export const formatNumber = (value: string, country: CountryCode) => {
 };
 
 export const useTelephonePlaceholder = (country: CountryCode) => {
-  return useMemo(
-    () => getNumberPlaceholder(country),
-    [country],
-  );
-}
+  return useMemo(() => getNumberPlaceholder(country), [country]);
+};
