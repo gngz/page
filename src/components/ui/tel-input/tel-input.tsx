@@ -105,7 +105,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
           onValueChange={handleSelectChange}
         >
           <SelectTrigger
-            className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px]'
+            className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px] select-none'
             tabIndex={-1}
           >
             <SelectValue className='w-full' />
