@@ -14,28 +14,14 @@ import * as React from 'react';
 import { useImperativeHandle, useRef, useState } from 'react';
 import { Input } from '../input';
 import CountryCodes from './country-codes.json';
+import { TelInputProps, TelInputRef } from './types';
 import {
   formatNumber,
   getNumberPlaceholder,
   toInternationalNumber,
 } from './utils';
 
-export interface InputProps
-  extends Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'onBlur' | 'onChange' | 'value'
-  > {
-  onBlur?: () => void;
-  onChange?: (value: string | undefined) => void;
-  value?: string;
-  defaultCountry?: string;
-}
-
-export type TelInputRef = {
-  focus: () => void;
-};
-
-const TelInput = React.forwardRef<TelInputRef, InputProps>(
+const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
   ({ defaultCountry, className, value, ...props }, ref) => {
     const innerRef = useRef<HTMLInputElement>(null);
     const [country, setCountry] = useState<CountryCode>(
