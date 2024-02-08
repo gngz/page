@@ -48,6 +48,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Toaster closeButton position='top-center' />
+        {/* <CookieConsent /> */}
       </body>
     </html>
   );
