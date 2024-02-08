@@ -18,7 +18,7 @@ export function SectionLayout({
             {subtitle}
           </Heading>
         )}
-        <div className='mt-6'>{children}</div>
+        <div className='mt-12'>{children}</div>
       </div>
     </section>
   );

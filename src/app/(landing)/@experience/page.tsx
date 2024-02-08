@@ -4,7 +4,11 @@ import { ExperienceList } from './components/experience-list';
 
 export default function Skills() {
   return (
-    <SectionLayout title='Experience and Education' id='experience'>
+    <SectionLayout
+      title='Experience and Education'
+      subtitle='My Professional and Academic Path'
+      id='experience'
+    >
       <div className='mx-auto md:w-4/6  lg:w-3/6'>
         <ExperienceList>
           <ExperienceCard
