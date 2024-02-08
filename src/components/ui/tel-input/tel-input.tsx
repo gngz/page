@@ -47,6 +47,13 @@ const TelInput = React.forwardRef<TelInputRef, InputProps>(
       focus: () => {},
     }));
 
+    React.useEffect(
+      function detectInputClear() {
+        if (!value) setInputValue('');
+      },
+      [value],
+    );
+
     const countryList = React.useMemo(
       () =>
         CountryCodes.map((country) => (
