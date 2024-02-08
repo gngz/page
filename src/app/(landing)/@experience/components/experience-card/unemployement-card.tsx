@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function UnemployementCard() {
@@ -6,7 +7,14 @@ export default function UnemployementCard() {
     <div className='px-3 py-3 bg-zinc-200 first:ring first:ring-offset-4 first:rounded-md first:mb-2 first:ring-stone-700'>
       <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
         <div className='w-10 h-10 rounded-sm text-lg flex items-center justify-center select-none bg-gradient-to-tr  from-sky-500 to-sky-950'>
-          🚀
+          <Image
+            src={'/rocket.gif'}
+            alt='rocket'
+            width={0}
+            height={0}
+            sizes='100vw'
+            className='w-full h-full p-[4px]'
+          />
         </div>
         <div className='flex flex-col gap-1'>
           <span className=' text-gray-500 text-sm'>Software Engineer</span>
