@@ -4,6 +4,7 @@ import {
   parsePhoneNumber,
 } from 'libphonenumber-js';
 import examples from 'libphonenumber-js/mobile/examples';
+import { useMemo } from 'react';
 
 export function getNumberPlaceholder(countryCode: string) {
   const example = getExampleNumber(
@@ -33,3 +34,10 @@ export const formatNumber = (value: string, country: CountryCode) => {
     return value;
   }
 };
+
+export const useTelephonePlaceholder = (country: CountryCode) => {
+  return useMemo(
+    () => getNumberPlaceholder(country),
+    [country],
+  );
+}

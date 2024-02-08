@@ -17,28 +17,22 @@ import CountryCodes from './country-codes.json';
 import { TelInputProps, TelInputRef } from './types';
 import {
   formatNumber,
-  getNumberPlaceholder,
   toInternationalNumber,
+  useTelephonePlaceholder,
 } from './utils';
 
 const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
   ({ defaultCountry, className, value, ...props }, ref) => {
-    const innerRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const [country, setCountry] = useState<CountryCode>(
       (defaultCountry as CountryCode) ?? 'PT',
     );
-    const [inputValue, setInputValue] = useState<string>('');
+    const [inputValue, setInputValue] = useState<string>(value?.number ?? '');
+    const placeholder = useTelephonePlaceholder(country);
 
     useImperativeHandle(ref, () => ({
       focus: () => {},
     }));
-
-    React.useEffect(
-      function detectInputClear() {
-        if (!value) setInputValue('');
-      },
-      [value],
-    );
 
     const countryList = React.useMemo(
       () =>
@@ -60,11 +54,6 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
       [],
     );
 
-    const numberExample = React.useMemo(
-      () => getNumberPlaceholder(country),
-      [country],
-    );
-
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = toInternationalNumber(
         event.target.value,
@@ -73,24 +62,27 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
 
       setInputValue(event.target.value);
 
-      props.onChange?.(value);
+      props.onChange?.({
+        internationalNumber: value,
+        number: event.target.value,
+      });
     };
 
-    const handleOnValueChange = (value: string) => {
+    const handleSelectChange = (value: string) => {
       const newCountry = value as CountryCode;
       setCountry(newCountry);
 
       if (inputValue) {
         const newValue = toInternationalNumber(inputValue, newCountry);
-        props.onChange?.(newValue);
+        props.onChange?.({ internationalNumber: newValue, number: inputValue });
         props.onBlur?.();
       }
 
       setTimeout(() => {
-        if (innerRef.current) {
-          const length = innerRef.current.value.length;
-          innerRef.current.setSelectionRange(length, length);
-          innerRef.current.focus();
+        if (inputRef.current) {
+          const length = inputRef.current.value.length;
+          inputRef.current.setSelectionRange(length, length);
+          inputRef.current.focus();
         }
       }, 0);
     };
@@ -106,7 +98,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
         <Select
           defaultValue={country}
           disabled={props.disabled}
-          onValueChange={handleOnValueChange}
+          onValueChange={handleSelectChange}
         >
           <SelectTrigger
             className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px]'
@@ -117,7 +109,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
           <SelectContent>{countryList}</SelectContent>
         </Select>
         <Input
-          ref={innerRef}
+          ref={inputRef}
           type='tel'
           {...props}
           onBlur={handleOnBlur}
@@ -127,7 +119,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
             'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent flex-grow',
             className,
           )}
-          placeholder={props.placeholder ?? numberExample}
+          placeholder={props.placeholder ?? placeholder}
         />
       </div>
     );
