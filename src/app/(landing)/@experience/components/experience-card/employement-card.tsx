@@ -15,7 +15,7 @@ const formatDate = (date: Date) => {
 
 export default function EmployementCard({ options }: Readonly<Props>) {
   return (
-    <div className='px-3 py-3 bg-zinc-200 '>
+    <div className='px-3 py-3 bg-zinc-200 bg-opacity-70 '>
       <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
         <div className='w-10 h-10 rounded-sm overflow-clip '>
           <a
