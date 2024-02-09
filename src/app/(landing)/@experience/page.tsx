@@ -1,5 +1,6 @@
 import { SectionLayout } from '../components/section-layout';
 import { BadgeHR } from './components/badge-hr';
+import EducationCard from './components/experience-card/education-card';
 import { ExperienceCard } from './components/experience-card/experience-card';
 import { ExperienceList } from './components/experience-list';
 
@@ -21,7 +22,7 @@ export default function Skills() {
             options={{
               companyName: 'Nearsoft',
               role: 'Team Lead & Senior Frontend Engineer',
-              startDate: new Date('2022-12-01'),
+              startDate: new Date('2022-06-01'),
               endDate: new Date('2023-12-01'),
               type: 'employement',
               location: 'Funchal',
@@ -33,8 +34,8 @@ export default function Skills() {
             options={{
               companyName: 'Unipartner IT Services',
               role: 'Application Engineer',
-              startDate: new Date('2021-12-01'),
-              endDate: new Date('2022-12-01'),
+              startDate: new Date('2020-09-01'),
+              endDate: new Date('2022-05-01'),
               type: 'employement',
               location: 'Funchal',
               companyLogo: '/unipartner.png',
@@ -45,8 +46,8 @@ export default function Skills() {
             options={{
               companyName: 'Universidade da Madeira',
               role: 'System Administrator',
-              startDate: new Date('2021-11-01'),
-              endDate: new Date('2021-12-01'),
+              startDate: new Date('2020-07-01'),
+              endDate: new Date('2020-08-01'),
               type: 'employement',
               location: 'Funchal',
               companyLogo: '/uma.png',
@@ -55,6 +56,30 @@ export default function Skills() {
           />
         </ExperienceList>
         <BadgeHR>Academic Path</BadgeHR>
+        <ExperienceList>
+          <EducationCard
+            options={{
+              institutionName: 'Universidade da Madeira',
+              courseName: 'Master Degree',
+              startDate: new Date('2021-11-01'),
+
+              instituitionLogo: '/uma.png',
+              instituitionUrl: 'https://www.uma.pt/',
+              location: 'Funchal',
+            }}
+          />
+          <EducationCard
+            options={{
+              institutionName: 'Universidade da Madeira',
+              courseName: "Bachelor's Degree",
+              startDate: new Date('2015-09-01'),
+              endDate: new Date('2019-06-01'),
+              instituitionLogo: '/uma.png',
+              instituitionUrl: 'https://www.uma.pt/',
+              location: 'Funchal',
+            }}
+          />
+        </ExperienceList>
       </div>
     </SectionLayout>
   );

@@ -7,9 +7,8 @@ type Props = {
 };
 
 export function ExperienceCard({ options }: Readonly<Props>) {
-  if (options.type === 'employement') {
+  if (options.type === 'unemployement') return <UnemployementCard />;
+
+  if (options.type === 'employement')
     return <EmployementCard options={options} />;
-  } else {
-    return <UnemployementCard />;
-  }
 }
