@@ -1,4 +1,5 @@
 import { SectionLayout } from '../components/section-layout';
+import { BadgeHR } from './components/badge-hr';
 import { ExperienceCard } from './components/experience-card/experience-card';
 import { ExperienceList } from './components/experience-list';
 
@@ -53,6 +54,7 @@ export default function Skills() {
             }}
           />
         </ExperienceList>
+        <BadgeHR>Academic Path</BadgeHR>
       </div>
     </SectionLayout>
   );
