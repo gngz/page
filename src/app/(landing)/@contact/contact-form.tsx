@@ -73,7 +73,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               />
             )}
           </Label>
-          <Input {...register('name')} type='text' />
+          <Input id='name' {...register('name')} type='text' />
           <ErrorAlert>{errors.name?.message}</ErrorAlert>
         </div>
         <div>
@@ -86,7 +86,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               />
             )}
           </Label>
-          <Input {...register('email')} type='email' />
+          <Input id='email' {...register('email')} type='email' />
           <ErrorAlert>{errors.email?.message}</ErrorAlert>
         </div>
         <div>
@@ -104,7 +104,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
             control={control}
             name='phone'
             render={({ field }) => (
-              <TelInput {...field} defaultCountry={country} />
+              <TelInput id='phone' {...field} defaultCountry={country} />
             )}
           />
           <ErrorAlert>{errors.phone?.internationalNumber?.message}</ErrorAlert>
@@ -119,7 +119,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               />
             )}
           </Label>
-          <Input {...register('subject')} type='text' />
+          <Input id='subject' {...register('subject')} type='text' />
           <ErrorAlert>{errors.subject?.message}</ErrorAlert>
         </div>
         <div className='md:col-span-2'>
@@ -132,7 +132,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               />
             )}
           </Label>
-          <Textarea {...register('message')} rows={8} />
+          <Textarea id='message' {...register('message')} rows={8} />
           <ErrorAlert>{errors.message?.message}</ErrorAlert>
         </div>
         <CaptchaWidget />

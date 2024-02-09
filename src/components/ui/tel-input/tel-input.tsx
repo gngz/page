@@ -41,11 +41,15 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
     const countryList = React.useMemo(
       () =>
         CountryCodes.map((country) => (
-          <SelectItem key={country.code} value={country.code}>
+          <SelectItem
+            key={country.code}
+            value={country.code}
+            aria-label={country.name}
+          >
             <div className='flex items-center gap-3 justify-start '>
               <Image
                 src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
-                alt={country.name}
+                alt={`Flag of ${country.name}`}
                 title={country.name}
                 className='w-4 h-4'
                 width={0}
