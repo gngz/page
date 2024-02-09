@@ -1,7 +1,6 @@
 import { Toaster } from '@/components/ui/sonner';
 import { getSeoData } from '@/services/cms-api';
 import '@/styles/index.scss';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 import { League_Spartan } from 'next/font/google';
 import { Footer } from './sections/footer/footer';
@@ -49,7 +48,6 @@ export default function RootLayout({
         <Footer />
         <Toaster closeButton position='top-center' />
         {/* <CookieConsent /> */}
-        <SpeedInsights />
       </body>
     </html>
   );
