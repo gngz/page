@@ -31,6 +31,7 @@ export default function EmployementCard({ options }: Readonly<Props>) {
               height={0}
               sizes='100vw'
               className='w-full h-full'
+              quality={100}
             />
           </a>
         </div>
