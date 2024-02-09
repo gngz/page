@@ -41,11 +41,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
     const countryList = React.useMemo(
       () =>
         CountryCodes.map((country) => (
-          <SelectItem
-            key={country.code}
-            value={country.code}
-            aria-label={country.name}
-          >
+          <SelectItem key={country.code} value={country.code}>
             <div className='flex items-center gap-3 justify-start '>
               <Image
                 src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
@@ -111,6 +107,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
           <SelectTrigger
             className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px] select-none'
             tabIndex={-1}
+            aria-label='Select country'
           >
             <SelectValue className='w-full' />
           </SelectTrigger>
