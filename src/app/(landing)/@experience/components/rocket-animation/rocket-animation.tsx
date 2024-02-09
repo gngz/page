@@ -11,6 +11,7 @@ export function RocketAnimation() {
         className='w-full h-full p-1 pointer-events-none'
         quality={100}
         alt='🚀'
+        priority
       />
     </picture>
   );
