@@ -15,7 +15,7 @@ const formatDate = (date: Date) => {
 
 export default function EmployementCard({ options }: Readonly<Props>) {
   return (
-    <div className='px-3 py-3 bg-zinc-200 bg-opacity-70 '>
+    <div className='px-3 py-3 bg-slate-100'>
       <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
         <div className='w-10 h-10 rounded-sm overflow-clip '>
           <a
@@ -34,7 +34,7 @@ export default function EmployementCard({ options }: Readonly<Props>) {
           </a>
         </div>
         <div className='flex flex-col gap-1'>
-          <span className=' text-gray-500 text-sm'>{options.courseName}</span>
+          <span className='text-slate-600 text-sm'>{options.courseName}</span>
           <span className='font-medium  text-gray-800'>
             <a
               href={options.instituitionUrl}
@@ -60,7 +60,7 @@ export default function EmployementCard({ options }: Readonly<Props>) {
             )}
           </span>
 
-          <div className='text-gray-500 flex items-center gap-1'>
+          <div className='text-slate-600 flex items-center gap-1'>
             <IoLocationOutline />
             <span className='leading-none h-[10px]'>{options.location}</span>
           </div>

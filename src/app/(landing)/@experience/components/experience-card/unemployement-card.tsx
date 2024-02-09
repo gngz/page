@@ -4,13 +4,13 @@ import { RocketAnimation } from '../rocket-animation/rocket-animation';
 
 export default function UnemployementCard() {
   return (
-    <div className='px-3 py-3 bg-zinc-200 bg-opacity-70  first:ring first:ring-offset-4 first:rounded-md first:mb-2 first:ring-zinc-600'>
+    <div className='px-3 py-3 bg-slate-200 first:ring first:ring-offset-4 first:rounded-md first:mb-2 first:ring-zinc-600'>
       <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
         <div className='w-10 h-10 rounded-sm text-lg flex items-center justify-center select-none bg-gradient-to-tr  from-sky-500 to-sky-950'>
           <RocketAnimation />
         </div>
         <div className='flex flex-col gap-1'>
-          <span className=' text-gray-500 text-sm'>Software Engineer</span>
+          <span className=' text-slate-600 text-sm'>Software Engineer</span>
           <a
             href='/#contact'
             className='font-medium  text-gray-800 hover:underline underline-offset-2'
