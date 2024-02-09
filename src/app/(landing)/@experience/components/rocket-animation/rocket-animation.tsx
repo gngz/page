@@ -5,10 +5,9 @@ export function RocketAnimation() {
       <source srcSet='/rocket.webp' type='image/webp' />
       <Image
         src='/rocket.gif'
-        width={0}
-        height={0}
-        sizes='100vw'
-        className='w-full h-full p-1 pointer-events-none'
+        width={40}
+        height={40}
+        className='p-1 pointer-events-none'
         quality={100}
         alt='🚀'
         priority

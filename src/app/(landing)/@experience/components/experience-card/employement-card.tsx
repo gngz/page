@@ -27,10 +27,8 @@ export default function EmployementCard({ options }: Readonly<Props>) {
               src={options.companyLogo}
               alt={options.companyName}
               title={options.companyName}
-              width={0}
-              height={0}
-              sizes='100vw'
-              className='w-full h-full'
+              width={40}
+              height={40}
               quality={100}
             />
           </a>
