@@ -60,7 +60,7 @@ export default function Skills() {
           <EducationCard
             options={{
               institutionName: 'Universidade da Madeira',
-              courseName: 'Master Degree',
+              courseName: 'Software Engineering - Master Degree',
               startDate: new Date('2021-11-01'),
 
               instituitionLogo: '/uma.png',
@@ -71,7 +71,7 @@ export default function Skills() {
           <EducationCard
             options={{
               institutionName: 'Universidade da Madeira',
-              courseName: "Bachelor's Degree",
+              courseName: "Software Engineering - Bachelor's Degree",
               startDate: new Date('2015-09-01'),
               endDate: new Date('2019-06-01'),
               instituitionLogo: '/uma.png',
