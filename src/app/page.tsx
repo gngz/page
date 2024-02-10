@@ -16,8 +16,14 @@ export default function Home() {
               priority
               className="mb-24"
             />
-            <h1 className="text-5xl font-bold text-center text-zinc-800">
-              🚀 New Personal Page Coming Soon
+            <h1 className="text-5xl font-bold text-center text-zinc-800 flex gap-4 justify-center">
+              <Image
+                src={"/rocket.webp"}
+                alt="rocket"
+                height={"48"}
+                width={"48"}
+              />{" "}
+              New Personal Page Coming Soon
             </h1>
             <h2 className="text-3xl font-light text-center text-zinc-600 mt-4">
               The new page is under construction!
