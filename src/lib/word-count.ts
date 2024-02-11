@@ -1,3 +1,3 @@
 export function wordCount(text: string) {
-    return text.trim().split(' ').length
+  return text.trim().split(' ').length;
 }
