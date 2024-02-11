@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 import { IoLocationOutline } from 'react-icons/io5';
 import { EducationCardOptions } from './types';
 type Props = {
@@ -18,7 +19,7 @@ export default function EmployementCard({ options }: Readonly<Props>) {
     <div className='px-3 py-3 bg-slate-100'>
       <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
         <div className='w-10 h-10 rounded-sm overflow-clip '>
-          <a
+          <Link
             href={options.instituitionUrl}
             target='_blank'
             rel='noopener noreferrer'
@@ -30,8 +31,9 @@ export default function EmployementCard({ options }: Readonly<Props>) {
               width={40}
               height={40}
               quality={100}
+              className='pointer-events-none'
             />
-          </a>
+          </Link>
         </div>
         <div className='flex flex-col gap-1'>
           <span className='text-slate-600 text-sm'>{options.courseName}</span>
