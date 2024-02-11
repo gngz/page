@@ -1,6 +1,5 @@
 import { SectionLayout } from '../components/section-layout';
 import { BadgeHR } from './components/badge-hr';
-import EducationCard from './components/experience-card/education-card';
 import { ExperienceCard } from './components/experience-card/experience-card';
 import { ExperienceList } from './components/experience-list';
 
@@ -20,11 +19,11 @@ export default function Skills() {
           />
           <ExperienceCard
             options={{
+              type: 'employement',
               companyName: 'Nearsoft',
               role: 'Team Lead & Senior Frontend Engineer',
               startDate: new Date('2022-06-01'),
               endDate: new Date('2023-12-01'),
-              type: 'employement',
               location: 'Funchal',
               companyLogo: '/nearsoft.jpg',
               companyUrl: 'https://www.nearsoft.pt/',
@@ -32,11 +31,11 @@ export default function Skills() {
           />
           <ExperienceCard
             options={{
+              type: 'employement',
               companyName: 'Unipartner IT Services',
               role: 'Application Engineer',
               startDate: new Date('2020-09-01'),
               endDate: new Date('2022-05-01'),
-              type: 'employement',
               location: 'Funchal',
               companyLogo: '/unipartner.png',
               companyUrl: 'https://www.unipartner.com/',
@@ -44,11 +43,11 @@ export default function Skills() {
           />
           <ExperienceCard
             options={{
+              type: 'employement',
               companyName: 'Universidade da Madeira',
               role: 'System Administrator',
               startDate: new Date('2020-07-01'),
               endDate: new Date('2020-08-01'),
-              type: 'employement',
               location: 'Funchal',
               companyLogo: '/uma.png',
               companyUrl: 'https://www.uma.pt/',
@@ -57,19 +56,20 @@ export default function Skills() {
         </ExperienceList>
         <BadgeHR>Academic Path</BadgeHR>
         <ExperienceList>
-          <EducationCard
+          <ExperienceCard
             options={{
+              type: 'education',
               institutionName: 'Universidade da Madeira',
               courseName: 'Software Engineering - Master Degree',
               startDate: new Date('2021-11-01'),
-
               instituitionLogo: '/uma.png',
               instituitionUrl: 'https://www.uma.pt/',
               location: 'Funchal',
             }}
           />
-          <EducationCard
+          <ExperienceCard
             options={{
+              type: 'education',
               institutionName: 'Universidade da Madeira',
               courseName: "Software Engineering - Bachelor's Degree",
               startDate: new Date('2015-09-01'),
