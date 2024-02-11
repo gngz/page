@@ -15,7 +15,7 @@ export function SendButton({
   return (
     <Button
       type='submit'
-      className='flex gap-2 items-center justify-center w-28'
+      className='flex gap-2 items-center justify-center w-28 select-none'
       {...rest}
       disabled={isLoading || disabled}
       aria-disabled={isLoading || disabled}
