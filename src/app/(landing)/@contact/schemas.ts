@@ -24,10 +24,11 @@ export const ContactSchema = z.object({
     message: 'The subject must contain a minimum of 4 characters.',
   }),
   message: z.string()
-    .min(30, { message: 'The message must contain a minimum of 30 characters.' })
     .refine((value) => wordCount(value) >= 10, {
       message: 'The message must contain a minimum of 10 words.',
-    }),
+    }).refine((value) => value.length >= 30,
+      { message: 'The message must contain a minimum of 30 characters.' }
+    )
 });
 
 export type ContactModel = z.infer<typeof ContactSchema>;
