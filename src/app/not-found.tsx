@@ -11,7 +11,7 @@ export default function NotFound() {
           alt='404'
           width={300}
           height={300}
-          className='mx-auto py-6'
+          className='mx-auto py-6 select-none pointer-events-none'
         />
 
         <Heading className='text-4xl font-bold'>
