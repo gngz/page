@@ -19,7 +19,7 @@ export function Hero() {
             Welcome to my personal site!
           </Heading>
           <Heading className='text-2xl font-light text-center mt-2' as='h2'>
-            Here you cand find my digital resumee and <br /> my latests thoughts
+            Here you cand find my digital resumee and <br /> my latest thoughts
             on tech.
           </Heading>
           <div className='flex justify-center mt-16'>
