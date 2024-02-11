@@ -28,6 +28,7 @@ export function Hero() {
               alt='Developer'
               width={300}
               height={184}
+              className='pointer-events-none'
               priority
             ></Image>
           </div>
