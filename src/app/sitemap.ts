@@ -1,20 +1,25 @@
+import { getPosts } from '@/services/cms-api/apis/blog';
 import { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseURL = process.env.WEB_URL ?? 'https://diogopassos.pt';
-  return [
-    {
-      url: `${baseURL}`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const baseURL = process.env.WEB_URL ?? 'https://diogopassos.pt';
 
-    {
-      url: `${baseURL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-  ];
+    return [
+        {
+            url: `${baseURL}`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 1,
+        },
+
+        {
+            url: `${baseURL}/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
+        {
+            l
+        }
+    ];
 }
