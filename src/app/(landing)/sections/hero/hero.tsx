@@ -27,7 +27,8 @@ export function Hero() {
               src={'/dev.svg'}
               alt='Developer'
               width={300}
-              height={100}
+              height={184}
+              priority
             ></Image>
           </div>
         </div>
