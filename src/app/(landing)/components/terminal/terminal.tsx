@@ -42,7 +42,7 @@ function TerminalTitleBar({ title }: Readonly<{ title: string }>) {
 
 export function TerminalBlink({ children }: Readonly<PropsWithChildren>) {
   return (
-    <div className='animate-blink-cursor ml-1 inline-block h-[1.1em] w-2 bg-purple-700'></div>
+    <div className='animate-blink-cursor ml-1 inline-block h-[1.1em] w-2 bg-indigo-500 '></div>
   );
 }
 
