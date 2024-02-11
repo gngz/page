@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function NotFound() {
   return (
     <main className=' bg-slate-50'>
-      <div className='container text-center pt-8 min-h-[calc(100svh-327px)]'>
+      <div className='container text-center py-8 min-h-[calc(100svh-327px)]'>
         <Image
           src={'/404.svg'}
           alt='404'
