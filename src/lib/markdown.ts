@@ -6,8 +6,9 @@ export function renderMarkdown(markdown: string) {
     highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
-          return `<pre><div class="codelang">${hljs.getLanguage(lang)
-            ?.name}</div><code class="hljs">${
+          return `<pre><div class="codelang">${
+            hljs.getLanguage(lang)?.name
+          }</div><code class="hljs">${
             hljs.highlight(str, { language: lang }).value
           }</code></pre>`;
         } catch (__) {}
