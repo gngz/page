@@ -7,6 +7,7 @@ import { imageFallback } from '@/lib/post-image-fallback';
 import { nameLetters } from '@/lib/utils';
 import { getSeoData } from '@/services/cms-api';
 import { getPost } from '@/services/cms-api/apis/blog';
+import '@/styles/blog.scss';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
