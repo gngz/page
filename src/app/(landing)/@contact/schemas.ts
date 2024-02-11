@@ -1,3 +1,4 @@
+import { wordCount } from '@/lib/word-count';
 import { isValidPhoneNumber } from 'libphonenumber-js/max';
 import { z } from 'zod';
 
@@ -24,7 +25,9 @@ export const ContactSchema = z.object({
   }),
   message: z
     .string()
-    .min(10, { message: 'Your message should be a minimum of 10 characters.' }),
+    .refine((value) => wordCount(value) >= 10, {
+      message: 'The message must contain a minimum of 10 words.',
+    })
 });
 
 export type ContactModel = z.infer<typeof ContactSchema>;
