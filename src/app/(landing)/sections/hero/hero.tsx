@@ -4,11 +4,8 @@ import Image from 'next/image';
 import { CiCircleChevDown } from 'react-icons/ci';
 
 export function Hero() {
-  const Terminal = dynamic(
-    () => import('./terminal').then((mod) => mod.HeroTerminal),
-    {
-      loading: () => <p>Loading...</p>,
-    },
+  const Terminal = dynamic(() =>
+    import('./terminal').then((mod) => mod.HeroTerminal),
   );
 
   return (
