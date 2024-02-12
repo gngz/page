@@ -16,7 +16,7 @@ export default function Home() {
               priority
               className="mb-24"
             />
-            <h1 className="text-5xl font-bold text-center text-zinc-800 flex gap-4 justify-center">
+            <h1 className="text-5xl font-bold text-center text-zinc-800 flex gap-4 justify-center flex-wrap">
               <Image
                 src={"/rocket.webp"}
                 alt="rocket"
