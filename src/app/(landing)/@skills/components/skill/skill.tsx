@@ -125,7 +125,7 @@ export function Skill({ skill }: Readonly<Props>) {
           alt={skillName}
           width={32}
           height={32}
-          className=''
+          className='pointer-events-none user-select-none'
         />
       )}
       <p className='font-light text-lg h-[24px] text-center flex-grow'>
