@@ -36,7 +36,11 @@ export function Hero() {
         </div>
       </main>
       <div className='text-slate-600 text-3xl flex justify-center mt-auto'>
-        <Link href={'/#experience'} className='animate-bounce my-6'>
+        <Link
+          href={'/#experience'}
+          className='animate-bounce my-6'
+          aria-label='See More'
+        >
           <CiCircleChevDown />
         </Link>
       </div>

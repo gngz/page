@@ -151,6 +151,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
                   checked={field.value}
                   ref={field.ref}
                   disabled={field.disabled}
+                  aria-label='I accept that the information sent will be used for contact purposes.'
                 />
               )}
             />
