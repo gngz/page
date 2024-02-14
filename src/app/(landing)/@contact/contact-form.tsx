@@ -136,30 +136,34 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <Textarea id='message' {...register('message')} rows={8} />
           <ErrorAlert>{errors.message?.message}</ErrorAlert>
         </div>
-        <div className='md:col-span-2 flex items-center gap-2'>
-          <Controller
-            control={control}
-            name='acceptTerms'
-            render={({ field }) => (
-              <Checkbox
-                id='accept-terms'
-                name={field.name}
-                onCheckedChange={field.onChange}
-                onBlur={field.onBlur}
-                checked={field.value}
-                ref={field.ref}
-                disabled={field.disabled}
-              />
-            )}
-          />
-          <Label htmlFor='accept-terms' className='h-[10px]'>
-            I accept that the information sent will be used for contact
-            purposes.
-          </Label>
-        </div>
         <CaptchaWidget />
-        <div className='flex justify-end md:col-span-2'>
-          <SendButton disabled={!canSubmit} isLoading={isSubmitting}>
+        <div className='flex justify-between md:col-span-2 items-start flex-wrap gap-y-6'>
+          <div className='flex items-center gap-2'>
+            <Controller
+              control={control}
+              name='acceptTerms'
+              render={({ field }) => (
+                <Checkbox
+                  id='accept-terms'
+                  name={field.name}
+                  onCheckedChange={field.onChange}
+                  onBlur={field.onBlur}
+                  checked={field.value}
+                  ref={field.ref}
+                  disabled={field.disabled}
+                />
+              )}
+            />
+            <Label htmlFor='accept-terms' className='h-[10px]'>
+              I accept that the information sent will be used for contact
+              purposes.
+            </Label>
+          </div>
+          <SendButton
+            disabled={!canSubmit}
+            isLoading={isSubmitting}
+            className='ml-auto'
+          >
             Send
           </SendButton>
         </div>

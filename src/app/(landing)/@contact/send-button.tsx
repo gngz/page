@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { ComponentProps } from 'react';
 import { FaPaperPlane, FaSpinner } from 'react-icons/fa6';
 
@@ -8,6 +9,7 @@ type Props = ComponentProps<typeof Button> & {
 
 export function SendButton({
   children,
+  className,
   isLoading = false,
   disabled,
   ...rest
@@ -15,7 +17,10 @@ export function SendButton({
   return (
     <Button
       type='submit'
-      className='flex gap-2 items-center justify-center w-28 select-none'
+      className={cn(
+        'flex gap-2 items-center justify-center w-28 select-none',
+        className,
+      )}
       {...rest}
       disabled={isLoading || disabled}
       aria-disabled={isLoading || disabled}
