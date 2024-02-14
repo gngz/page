@@ -12,7 +12,7 @@ export async function Footer() {
       <div className='container mx-auto'>
         <div className='flex flex-col justify-between border-b border-zinc-500/30 py-11 md:flex-row'>
           <h1 className='flex items-center justify-center md:justify-start'>
-            <Link href={'/'}>
+            <Link href={'/#top'}>
               <Image
                 src={'/logo-white.svg'}
                 alt={'Diogo Passos'}
@@ -38,11 +38,11 @@ export async function Footer() {
         </div>
         <div className='flex flex-col py-14 lg:flex-row'>
           <div className='flex flex-auto flex-col flex-wrap gap-x-12 lg:flex-row'>
-            <a href='#'>Home</a>
-            <a href='#'>About Me</a>
-            <a href='#'>Technologies</a>
-            <a href='#'>Projects</a>
-            <a href='#'>Contact</a>
+            <a href='/#top'>Home</a>
+            <a href='/#experience'>About Me</a>
+            <a href='/#skills'>Skills and Technologies</a>
+            <a href='/#blog'>Blog</a>
+            <a href='/#contact'>Contact</a>
           </div>
           <div className='flex-inital mt-14 lg:mt-0'>
             © {year} DiogoPassos.pt - All Rights Reserved
