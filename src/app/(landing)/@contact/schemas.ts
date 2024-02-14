@@ -31,6 +31,9 @@ export const ContactSchema = z.object({
     .refine((value) => value.length >= 30, {
       message: 'The message must contain a minimum of 30 characters.',
     }),
+  acceptTerms: z.boolean().refine((value) => value, {
+    message: 'Please accept the terms and conditions.',
+  })
 });
 
 export type ContactModel = z.infer<typeof ContactSchema>;

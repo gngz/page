@@ -1,4 +1,5 @@
 'use client';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { TelInput } from '@/components/ui/tel-input';
@@ -134,6 +135,27 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           </Label>
           <Textarea id='message' {...register('message')} rows={8} />
           <ErrorAlert>{errors.message?.message}</ErrorAlert>
+        </div>
+        <div className='md:col-span-2 flex items-center gap-2'>
+          <Controller
+            control={control}
+            name='acceptTerms'
+            render={({ field }) => (
+              <Checkbox
+                id='accept-terms'
+                name={field.name}
+                onCheckedChange={field.onChange}
+                onBlur={field.onBlur}
+                checked={field.value}
+                ref={field.ref}
+                disabled={field.disabled}
+              />
+            )}
+          />
+          <Label htmlFor='accept-terms' className='h-[10px]'>
+            I accept that the information sent will be used for contact
+            purposes.
+          </Label>
         </div>
         <CaptchaWidget />
         <div className='flex justify-end md:col-span-2'>
