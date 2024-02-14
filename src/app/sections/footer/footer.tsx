@@ -41,7 +41,7 @@ export async function Footer() {
             <a href='/#top'>Home</a>
             <a href='/#experience'>About Me</a>
             <a href='/#skills'>Skills and Technologies</a>
-            <a href='/#blog'>Blog</a>
+            {/* <a href='/#blog'>Blog</a> */}
             <a href='/#contact'>Contact</a>
           </div>
           <div className='flex-inital mt-14 lg:mt-0'>

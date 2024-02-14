@@ -18,7 +18,7 @@ export default async function Layout({
       {children}
       {experience}
       {skills}
-      {blog}
+      {/* {blog} */}
       {contact}
     </React.Fragment>
   );

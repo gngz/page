@@ -30,9 +30,9 @@ export function Navbar() {
           <Button className='text-lg' variant={'link'} asChild>
             <Link href={'/#skills'}>Skills and Tech</Link>
           </Button>
-          <Button className='text-lg' variant={'link'} asChild>
+          {/* <Button className='text-lg' variant={'link'} asChild>
             <Link href={'/#blog'}>Blog</Link>
-          </Button>
+          </Button> */}
           <Button className='text-lg' variant={'link'} asChild>
             <Link href={'/#contact'}>Contact</Link>
           </Button>
