@@ -118,7 +118,7 @@ export function Skill({ skill }: Readonly<Props>) {
   const { skillName, skillImageSrc } = skills[skill];
 
   return (
-    <div className='rounded-xl border pl-1 pr-3 py-1 flex gap-3 items-center bg-slate-100'>
+    <div className='flex-grow md:flex-grow-0 rounded-xl border pl-1 pr-3 py-1 flex gap-3 items-center bg-slate-100'>
       {skillImageSrc && (
         <Image
           src={skillImageSrc}
@@ -128,7 +128,9 @@ export function Skill({ skill }: Readonly<Props>) {
           className=''
         />
       )}
-      <span className='font-light text-lg h-[24px]'>{skillName}</span>
+      <p className='font-light text-lg h-[24px] text-center flex-grow'>
+        {skillName}
+      </p>
     </div>
   );
 }
