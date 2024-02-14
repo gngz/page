@@ -33,7 +33,7 @@ export const ContactSchema = z.object({
     }),
   acceptTerms: z.boolean().refine((value) => value, {
     message: 'Please accept the terms and conditions.',
-  })
+  }),
 });
 
 export type ContactModel = z.infer<typeof ContactSchema>;
