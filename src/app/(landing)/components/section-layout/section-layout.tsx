@@ -10,11 +10,11 @@ export function SectionLayout({
   return (
     <section id={id}>
       <div className='container pb-24'>
-        <Heading as='h1' className='text-center text-5xl font-medium'>
+        <Heading as='h2' className='text-center text-4xl font-medium'>
           {title}
         </Heading>
         {subtitle && (
-          <Heading as='h2' className='text-center text-2xl'>
+          <Heading as='h3' className='text-center text-2xl'>
             {subtitle}
           </Heading>
         )}

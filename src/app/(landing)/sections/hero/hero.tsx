@@ -13,10 +13,10 @@ export function Hero() {
     <section className='bg-slate-100 min-h-[60vh] mb-16 flex flex-col'>
       <main className='container grid grid-cols-1 lg:grid-cols-[1fr_auto] py-4 mb-12  items-center gap-x-8 gap-y-16 mt-auto'>
         <div className='px-8'>
-          <Heading className='text-4xl font-bold text-center'>
+          <Heading className='text-4xl font-bold text-center' as='h2'>
             Welcome to my personal site!
           </Heading>
-          <Heading className='text-2xl font-light text-center mt-2' as='h2'>
+          <Heading className='text-2xl font-light text-center mt-2' as='h1'>
             Here you cand find my digital resumee and <br /> my latest thoughts
             on tech.
           </Heading>
