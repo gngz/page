@@ -28,7 +28,7 @@ export function HeroTerminal() {
           </Link>
         </TerminalLine>
         <TerminalLine>Role: Frontend Engineer</TerminalLine>
-        <TerminalLine>Top Skills: Next.js, React, AWS</TerminalLine>
+        <TerminalLine>Top Skills: Next.js, React, TypeScript, AWS</TerminalLine>
       </div>
       <TerminalLine>
         <Text as='span' className='text-emerald-400'>
