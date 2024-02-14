@@ -8,7 +8,7 @@ import {
 
 export function HeroTerminal() {
   return (
-    <Terminal title='bash'>
+    <Terminal title='zsh'>
       <TerminalLine>
         <Text as='span' className='text-emerald-400'>
           diogopassos.pt
