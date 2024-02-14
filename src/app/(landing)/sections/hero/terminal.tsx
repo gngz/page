@@ -21,6 +21,7 @@ export function HeroTerminal() {
       </TerminalLine>
       <div className='mt-1 mb-16'>
         <TerminalLine>Name: Diogo Passos</TerminalLine>
+        <TerminalLine>Location: Funchal, Madeira Island 🇵🇹</TerminalLine>
         <TerminalLine>
           Company:{' '}
           <Link className='hover:underline ml-1' href={'#contact'}>
