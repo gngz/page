@@ -9,10 +9,10 @@ export default function Skills() {
       subtitle='Here are some of my skills and my prefered technologies.'
       id='skills'
     >
-      <Heading as='h2' className='text-center text-2xl mb-4'>
+      <Heading as='h2' className='text-center text-2xl mb-6 font-light'>
         Software Development
       </Heading>
-      <div className='flex gap-4 mb-6 justify-between md:justify-center flex-wrap'>
+      <div className='flex gap-4 mb-12 justify-between md:justify-center flex-wrap'>
         <Skill skill='nextjs' />
         <Skill skill='react' />
         <Skill skill='typescript' />
@@ -25,10 +25,10 @@ export default function Skills() {
       </div>
 
       <div className='flex gap-4 mb-6'></div>
-      <Heading as='h2' className='text-center text-2xl mb-4'>
+      <Heading as='h2' className='text-center text-2xl mb-6 font-light'>
         Systems & DevOps
       </Heading>
-      <div className='flex gap-4 mb-6 justify-between md:justify-center flex-wrap'>
+      <div className='flex gap-4 mb-12 justify-between md:justify-center flex-wrap'>
         <Skill skill='linux' />
         <Skill skill='ansible' />
         <Skill skill='docker' />
@@ -38,10 +38,10 @@ export default function Skills() {
         <Skill skill='postgres' />
         <Skill skill='mysql' />
       </div>
-      <Heading as='h2' className='text-center text-2xl mb-4'>
+      <Heading as='h2' className='text-center text-2xl mb-6 font-light'>
         Tools
       </Heading>
-      <div className='flex gap-4 mb-6 justify-between md:justify-center flex-wrap'>
+      <div className='flex gap-4 mb-12 justify-between md:justify-center flex-wrap'>
         <Skill skill='vscode' />
         <Skill skill='figma' />
         <Skill skill='git' />
