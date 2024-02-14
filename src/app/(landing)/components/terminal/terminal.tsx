@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 import { TerminalLineProps, TerminalProps } from './types';
 
 export function TerminalLine({ children }: Readonly<TerminalLineProps>) {
-  return <div className='flex items-center text-sm'>{children}</div>;
+  return <div className='flex items-center text-sm mb-1'>{children}</div>;
 }
 
 function TerminalTitleBarButtons() {
