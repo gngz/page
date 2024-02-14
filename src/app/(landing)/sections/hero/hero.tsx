@@ -1,6 +1,7 @@
 import { Heading } from '@/components/ui/heading';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
 import { CiCircleChevDown } from 'react-icons/ci';
 
 export function Hero() {
@@ -34,10 +35,10 @@ export function Hero() {
           <Terminal />
         </div>
       </main>
-      <div className='text-slate-600 text-2xl flex justify-center mt-auto'>
-        <span className='animate-bounce my-6'>
+      <div className='text-slate-600 text-3xl flex justify-center mt-auto'>
+        <Link href={'/#experience'} className='animate-bounce my-6'>
           <CiCircleChevDown />
-        </span>
+        </Link>
       </div>
     </section>
   );
