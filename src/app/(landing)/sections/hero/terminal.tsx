@@ -4,6 +4,7 @@ import {
   Terminal,
   TerminalBlink,
   TerminalLine,
+  TerminalLineWithIcon,
 } from '../../components/terminal';
 
 export function HeroTerminal() {
@@ -19,24 +20,26 @@ export function HeroTerminal() {
         </Text>
         $ whoami
       </TerminalLine>
-      <div className='mt-1 mb-16'>
-        <TerminalLine>👋 Name: Diogo Passos</TerminalLine>
-        <TerminalLine>
-          <p>
-            📍 Location: Funchal,{' '}
-            <span className='whitespace-nowrap'>Madeira Island 🇵🇹</span>
-          </p>
-        </TerminalLine>
-        <TerminalLine>
-          💼 Company:{' '}
+      <div className='mt-2 mb-14'>
+        <TerminalLineWithIcon icon={'👋'}>
+          <strong>Name:</strong> Diogo Passos
+        </TerminalLineWithIcon>
+        <TerminalLineWithIcon icon={'📍'}>
+          <strong>Location:</strong> Funchal,{' '}
+          <span className='whitespace-nowrap'>Madeira 🇵🇹</span>
+        </TerminalLineWithIcon>
+        <TerminalLineWithIcon icon={'💼'}>
+          <strong>Company:</strong>{' '}
           <Link className='hover:underline ml-1' href={'#contact'}>
             your-company-here
           </Link>
-        </TerminalLine>
-        <TerminalLine>⭐ Role: Frontend Engineer</TerminalLine>
-        <TerminalLine>
-          🛠️ Top Skills: Next.js, React, TypeScript, AWS
-        </TerminalLine>
+        </TerminalLineWithIcon>
+        <TerminalLineWithIcon icon={'👨‍💻'}>
+          <strong>Role:</strong> Frontend Engineer
+        </TerminalLineWithIcon>
+        <TerminalLineWithIcon icon={'🛠️'}>
+          <strong>Top Skills:</strong> Next.js, React.js, TypeScript, Node, AWS
+        </TerminalLineWithIcon>
       </div>
       <TerminalLine>
         <Text as='span' className='text-emerald-400'>

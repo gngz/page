@@ -3,7 +3,22 @@ import { PropsWithChildren } from 'react';
 import { TerminalLineProps, TerminalProps } from './types';
 
 export function TerminalLine({ children }: Readonly<TerminalLineProps>) {
-  return <div className='flex items-center text-sm mb-1'>{children}</div>;
+  return <div className='text-sm mb-1'>{children}</div>;
+}
+
+type TerminalLineWithIconProps = PropsWithChildren & {
+  icon: React.ReactNode;
+};
+export function TerminalLineWithIcon({
+  icon,
+  children,
+}: Readonly<TerminalLineWithIconProps>) {
+  return (
+    <div className='text-sm mb-1 flex gap-3'>
+      <span>{icon}</span>
+      <span>{children}</span>
+    </div>
+  );
 }
 
 function TerminalTitleBarButtons() {
