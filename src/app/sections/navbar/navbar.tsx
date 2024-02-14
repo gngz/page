@@ -25,10 +25,10 @@ export function Navbar() {
             <Link href={'/#top'}>Home</Link>
           </Button>
           <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#about'}>About Me</Link>
+            <Link href={'/#experience'}>About Me</Link>
           </Button>
           <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#tech'}>Technologies</Link>
+            <Link href={'/#skills'}>Skills and Tech</Link>
           </Button>
           <Button className='text-lg' variant={'link'} asChild>
             <Link href={'/#blog'}>Blog</Link>
