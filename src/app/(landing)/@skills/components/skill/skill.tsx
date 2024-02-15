@@ -3,30 +3,7 @@ type Props = {
   skill: keyof typeof skills;
 };
 
-const skills: Record<
-  | 'nextjs'
-  | 'react'
-  | 'typescript'
-  | 'javascript'
-  | 'php'
-  | 'csharp'
-  | 'sass'
-  | 'tailwind'
-  | 'node'
-  | 'linux'
-  | 'ansible'
-  | 'docker'
-  | 'aws'
-  | 'vercel'
-  | 'cloudflare'
-  | 'postgres'
-  | 'mysql'
-  | 'vscode'
-  | 'figma'
-  | 'git'
-  | 'github',
-  { skillName: string; skillImageSrc?: string }
-> = {
+const skills = {
   nextjs: {
     skillName: 'Next.js',
     skillImageSrc: '/skills/nextjs.svg',
@@ -51,6 +28,14 @@ const skills: Record<
     skillName: 'C#',
     skillImageSrc: '/skills/csharp.svg',
   },
+  golang: {
+    skillName: 'Go',
+    skillImageSrc: '/skills/golang.svg',
+  },
+  dart: {
+    skillName: 'Dart',
+    skillImageSrc: '/skills/dart.svg',
+  },
   sass: {
     skillName: 'Sass',
     skillImageSrc: '/skills/sass.svg',
@@ -63,9 +48,25 @@ const skills: Record<
     skillName: 'Node.js',
     skillImageSrc: '/skills/nodejs.svg',
   },
+  prisma: {
+    skillName: 'Prisma.js',
+    skillImageSrc: '/skills/prisma.svg',
+  },
+  bun: {
+    skillName: 'Bun',
+    skillImageSrc: '/skills/bun.svg',
+  },
   linux: {
     skillName: 'Linux',
     skillImageSrc: '/skills/linux.svg',
+  },
+  nginx: {
+    skillName: 'Nginx',
+    skillImageSrc: '/skills/nginx.svg',
+  },
+  caddy: {
+    skillName: 'Caddy',
+    skillImageSrc: '/skills/caddy.svg',
   },
   ansible: {
     skillName: 'Ansible',
@@ -75,7 +76,6 @@ const skills: Record<
     skillName: 'Docker',
     skillImageSrc: '/skills/docker.svg',
   },
-
   aws: {
     skillName: 'AWS',
     skillImageSrc: '/skills/aws.svg',
@@ -100,6 +100,10 @@ const skills: Record<
     skillName: 'VS Code',
     skillImageSrc: '/skills/vscode.svg',
   },
+  postman: {
+    skillName: 'Postman',
+    skillImageSrc: '/skills/postman.svg',
+  },
   figma: {
     skillName: 'Figma',
     skillImageSrc: '/skills/figma.svg',
@@ -112,7 +116,11 @@ const skills: Record<
     skillName: 'GitHub',
     skillImageSrc: '/skills/github.svg',
   },
-};
+  gitlab: {
+    skillName: 'Gitlab',
+    skillImageSrc: '/skills/gitlab.svg',
+  },
+} as const;
 
 export function Skill({ skill }: Readonly<Props>) {
   const { skillName, skillImageSrc } = skills[skill];
@@ -125,7 +133,8 @@ export function Skill({ skill }: Readonly<Props>) {
           alt={skillName}
           width={32}
           height={32}
-          className='pointer-events-none user-select-none'
+          className='user-select-none'
+          title={skillName}
         />
       )}
       <p className='font-light text-lg h-[24px] text-center flex-grow'>

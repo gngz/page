@@ -12,23 +12,27 @@ export default function Skills() {
       <Heading as='h3' className='text-center text-2xl mb-6 font-light'>
         Software Development
       </Heading>
-      <div className='flex gap-4 mb-12 justify-between md:justify-center flex-wrap'>
+      <div className='flex flex-wrap justify-center gap-4'>
         <Skill skill='nextjs' />
         <Skill skill='react' />
         <Skill skill='typescript' />
         <Skill skill='javascript' />
         <Skill skill='php' />
-        {/* <Skill skill='csharp' /> */}
+        <Skill skill='csharp' />
+        <Skill skill='golang' />
+        <Skill skill='dart' />
         <Skill skill='sass' />
         <Skill skill='tailwind' />
         <Skill skill='node' />
+        <Skill skill='bun' />
+        <Skill skill='prisma' />
       </div>
 
       <div className='flex gap-4 mb-6'></div>
       <Heading as='h3' className='text-center text-2xl mb-6 font-light'>
         Systems & DevOps
       </Heading>
-      <div className='flex gap-4 mb-12 justify-between md:justify-center flex-wrap'>
+      <div className='flex flex-wrap gap-4 justify-center'>
         <Skill skill='linux' />
         <Skill skill='ansible' />
         <Skill skill='docker' />
@@ -37,15 +41,19 @@ export default function Skills() {
         <Skill skill='cloudflare' />
         <Skill skill='postgres' />
         <Skill skill='mysql' />
+        <Skill skill='nginx' />
+        <Skill skill='caddy' />
       </div>
       <Heading as='h3' className='text-center text-2xl mb-6 font-light'>
         Tools
       </Heading>
-      <div className='flex gap-4 mb-12 justify-between md:justify-center flex-wrap'>
+      <div className='flex flex-wrap gap-4 justify-center'>
         <Skill skill='vscode' />
+        <Skill skill='postman' />
         <Skill skill='figma' />
         <Skill skill='git' />
         <Skill skill='github' />
+        <Skill skill='gitlab' />
       </div>
     </SectionLayout>
   );
