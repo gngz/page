@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import {
   Drawer,
+  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerPortal,
@@ -14,7 +15,7 @@ import { FaBars } from 'react-icons/fa6';
 
 export function NavbarDrawer() {
   return (
-    <Drawer direction='right'>
+    <Drawer direction='right' modal={true} preventScrollRestoration={false}>
       <DrawerTrigger asChild>
         <Button variant={'ghost'} aria-label='Toggle navigation'>
           <FaBars size={20} />
@@ -29,7 +30,9 @@ export function NavbarDrawer() {
             <Link href={'/#top'}>Home</Link>
           </Button>
           <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#experience'}>About Me</Link>
+            <DrawerClose>
+              <a href={'/#experience'}>About Me</a>
+            </DrawerClose>
           </Button>
           <Button className='text-lg' variant={'link'} asChild>
             <Link href={'/#skills'}>Skills and Tech</Link>
@@ -38,7 +41,9 @@ export function NavbarDrawer() {
             <Link href={'/#blog'}>Blog</Link>
           </Button> */}
           <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#contact'}>Contact</Link>
+            <DrawerClose>
+              <a href={'/#contact'}>Contact</a>
+            </DrawerClose>
           </Button>
         </DrawerContent>
       </DrawerPortal>
