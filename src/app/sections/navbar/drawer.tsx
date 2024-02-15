@@ -22,7 +22,7 @@ export function NavbarDrawer() {
       </SheetTrigger>
       <SheetContent
         onCloseAutoFocus={(e) => e.preventDefault()}
-        className='bg-slate-200'
+        className='bg-slate-100'
       >
         <div className='flex items-center justify-between'>
           <SheetTitle>Navigation</SheetTitle>
