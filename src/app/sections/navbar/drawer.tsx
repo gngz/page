@@ -1,52 +1,69 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerHeader,
-  DrawerPortal,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/components/ui/drawer';
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import Link from 'next/link';
-import { FaBars } from 'react-icons/fa6';
+import { FaBars, FaXmark } from 'react-icons/fa6';
 
 export function NavbarDrawer() {
   return (
-    <Drawer direction='right' modal={true} preventScrollRestoration={false}>
-      <DrawerTrigger asChild>
+    <Sheet>
+      <SheetTrigger asChild>
         <Button variant={'ghost'} aria-label='Toggle navigation'>
           <FaBars size={20} />
         </Button>
-      </DrawerTrigger>
-      <DrawerPortal>
-        <DrawerContent className='left-6 h-screen p-4'>
-          <DrawerHeader>
-            <DrawerTitle>Navigation</DrawerTitle>
-          </DrawerHeader>
-          <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#top'}>Home</Link>
-          </Button>
-          <Button className='text-lg' variant={'link'} asChild>
-            <DrawerClose>
-              <a href={'/#experience'}>About Me</a>
-            </DrawerClose>
-          </Button>
-          <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#skills'}>Skills and Tech</Link>
-          </Button>
+      </SheetTrigger>
+      <SheetContent
+        onCloseAutoFocus={(e) => e.preventDefault()}
+        className='bg-slate-200'
+      >
+        <div className='flex items-center justify-between'>
+          <SheetTitle>Navigation</SheetTitle>
+          <SheetClose asChild>
+            <Button
+              className='text-2xl text-slate-800'
+              aria-label='Close'
+              variant={'ghost'}
+            >
+              <FaXmark />
+            </Button>
+          </SheetClose>
+        </div>
+        <div className='mt-6 flex flex-col gap-4'>
+          <SheetClose asChild>
+            <Button className='text-lg' variant={'link'} asChild>
+              <Link href={'/#top'}>Home</Link>
+            </Button>
+          </SheetClose>
+
+          <SheetClose asChild>
+            <Button className='text-lg' variant={'link'} asChild>
+              <Link href={'/#experience'}>About Me</Link>
+            </Button>
+          </SheetClose>
+
+          <SheetClose asChild>
+            <Button className='text-lg' variant={'link'} asChild>
+              <Link href={'/#skills'}>Skills and Tech</Link>
+            </Button>
+          </SheetClose>
           {/* <Button className='text-lg' variant={'link'} asChild>
             <Link href={'/#blog'}>Blog</Link>
           </Button> */}
-          <Button className='text-lg' variant={'link'} asChild>
-            <DrawerClose>
-              <a href={'/#contact'}>Contact</a>
-            </DrawerClose>
-          </Button>
-        </DrawerContent>
-      </DrawerPortal>
-    </Drawer>
+          <SheetClose asChild>
+            <Button className='text-lg' variant={'link'} asChild>
+              <Link href={'/#contact'}>Contact</Link>
+            </Button>
+          </SheetClose>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 }
