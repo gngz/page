@@ -12,7 +12,7 @@ export default function Skills() {
       <Heading as='h3' className='mb-6 text-center text-2xl font-light'>
         Software Development
       </Heading>
-      <div className='flex flex-wrap justify-center gap-4'>
+      <div className='mb-6 flex flex-wrap justify-center gap-4'>
         <Skill skill='nextjs' />
         <Skill skill='react' />
         <Skill skill='typescript' />
@@ -27,12 +27,10 @@ export default function Skills() {
         <Skill skill='bun' />
         <Skill skill='prisma' />
       </div>
-
-      <div className='mb-6 flex gap-4'></div>
       <Heading as='h3' className='mb-6 text-center text-2xl font-light'>
         Systems & DevOps
       </Heading>
-      <div className='flex flex-wrap justify-center gap-4'>
+      <div className='mb-6 flex flex-wrap justify-center gap-4'>
         <Skill skill='linux' />
         <Skill skill='ansible' />
         <Skill skill='docker' />
@@ -47,7 +45,7 @@ export default function Skills() {
       <Heading as='h3' className='mb-6 text-center text-2xl font-light'>
         Tools
       </Heading>
-      <div className='flex flex-wrap justify-center gap-4'>
+      <div className='mb-6 flex flex-wrap justify-center gap-4'>
         <Skill skill='vscode' />
         <Skill skill='postman' />
         <Skill skill='figma' />

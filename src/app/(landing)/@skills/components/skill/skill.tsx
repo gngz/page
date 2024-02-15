@@ -131,8 +131,8 @@ export function Skill({ skill }: Readonly<Props>) {
         <Image
           src={skillImageSrc}
           alt={skillName}
-          width={32}
-          height={32}
+          width={36}
+          height={36}
           className='user-select-none'
           title={skillName}
         />
