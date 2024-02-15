@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { sendMailAction } from './action/send-mail';
 import { CaptchaWidget } from './captcha';
 import { ContactModel, ContactSchema } from './schemas';
 import { SendButton } from './send-button';
@@ -45,14 +46,13 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
 
   const onSubmitHandler: SubmitHandler<ContactModel> = async (data) => {
     try {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(data);
-        }, 2000);
-      });
-
+      await sendMailAction(data);
       toast('Contact Form Submitted', {
         description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+    } catch {
+      toast.error('Uh oh! Something went wrong', {
+        description: 'Please try again later.',
       });
     } finally {
       reset();
@@ -155,7 +155,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
                 />
               )}
             />
-            <Label htmlFor='accept-terms' className='h-[10px]'>
+            <Label htmlFor='accept-terms'>
               I accept that the information sent will be used for contact
               purposes.
             </Label>
