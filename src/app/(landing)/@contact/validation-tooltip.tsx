@@ -15,7 +15,7 @@ export function ValidationTooltip({ validationMessage }: Readonly<Props>) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <FaTriangleExclamation className='text-red-500 ml-1' />
+          <FaTriangleExclamation className='ml-1 text-red-500' />
         </TooltipTrigger>
         <TooltipContent>
           <p>{validationMessage}</p>

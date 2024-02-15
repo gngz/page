@@ -18,7 +18,7 @@ export function SendButton({
     <Button
       type='submit'
       className={cn(
-        'flex gap-2 items-center justify-center w-28 select-none',
+        'flex w-28 select-none items-center justify-center gap-2',
         className,
       )}
       {...rest}

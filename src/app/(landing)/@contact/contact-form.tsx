@@ -23,7 +23,7 @@ const ObligatoryField = () => {
 
 const ErrorAlert = ({ children }: PropsWithChildren) => {
   return (
-    <p role='alert' className='text-red-600 text-xs mt-1 h-[1em]'>
+    <p role='alert' className='mt-1 h-[1em] text-xs text-red-600'>
       {children}
     </p>
   );
@@ -63,9 +63,9 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <div className='grid md:grid-cols-2 gap-x-4 gap-y-2 md:w-4/6 md:mx-auto'>
+      <div className='grid gap-x-4 gap-y-2 md:mx-auto md:w-4/6 md:grid-cols-2'>
         <div className='md:col-span-2'>
-          <Label htmlFor='name' className='inline-flex items-center mb-2'>
+          <Label htmlFor='name' className='mb-2 inline-flex items-center'>
             Name
             <ObligatoryField />
             {errors.name && (
@@ -78,7 +78,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <ErrorAlert>{errors.name?.message}</ErrorAlert>
         </div>
         <div>
-          <Label htmlFor='email' className='inline-flex items-center mb-2'>
+          <Label htmlFor='email' className='mb-2 inline-flex items-center'>
             E-mail
             <ObligatoryField />
             {errors.email && (
@@ -91,7 +91,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <ErrorAlert>{errors.email?.message}</ErrorAlert>
         </div>
         <div>
-          <Label htmlFor='phone' className='inline-flex items-center mb-2'>
+          <Label htmlFor='phone' className='mb-2 inline-flex items-center'>
             Phone Number
             {errors.phone && (
               <ValidationTooltip
@@ -111,7 +111,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <ErrorAlert>{errors.phone?.internationalNumber?.message}</ErrorAlert>
         </div>
         <div className='md:col-span-2'>
-          <Label htmlFor='subject' className='inline-flex items-center mb-2'>
+          <Label htmlFor='subject' className='mb-2 inline-flex items-center'>
             Subject
             <ObligatoryField />
             {errors.subject && (
@@ -124,7 +124,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <ErrorAlert>{errors.subject?.message}</ErrorAlert>
         </div>
         <div className='md:col-span-2'>
-          <Label htmlFor='message' className='inline-flex items-center mb-2'>
+          <Label htmlFor='message' className='mb-2 inline-flex items-center'>
             Message
             <ObligatoryField />
             {errors.message && (
@@ -137,7 +137,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
           <ErrorAlert>{errors.message?.message}</ErrorAlert>
         </div>
         <CaptchaWidget />
-        <div className='flex justify-between md:col-span-2 items-start flex-wrap gap-y-6'>
+        <div className='flex flex-wrap items-start justify-between gap-y-6 md:col-span-2'>
           <div className='flex items-center gap-2'>
             <Controller
               control={control}

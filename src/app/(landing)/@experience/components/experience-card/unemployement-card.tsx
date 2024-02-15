@@ -4,16 +4,16 @@ import { RocketAnimation } from '../rocket-animation/rocket-animation';
 
 export default function UnemployementCard() {
   return (
-    <div className='px-3 py-3 bg-slate-200 first:ring first:ring-offset-4 first:rounded-md first:mb-2 first:ring-zinc-600'>
-      <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
-        <div className='w-10 h-10 rounded-sm text-lg flex items-center justify-center select-none bg-gradient-to-tr  from-sky-500 to-sky-950'>
+    <div className='bg-slate-200 px-3 py-3 first:mb-2 first:rounded-md first:ring first:ring-zinc-600 first:ring-offset-4'>
+      <div className='grid grid-cols-[auto_1fr_auto] items-start gap-4'>
+        <div className='flex h-10 w-10 select-none items-center justify-center rounded-sm bg-gradient-to-tr from-sky-500  to-sky-950 text-lg'>
           <RocketAnimation />
         </div>
         <div className='flex flex-col gap-1'>
-          <span className=' text-slate-600 text-sm'>Software Engineer</span>
+          <span className=' text-sm text-slate-600'>Software Engineer</span>
           <a
             href='/#contact'
-            className='font-medium  text-gray-800 hover:underline underline-offset-2'
+            className='font-medium  text-gray-800 underline-offset-2 hover:underline'
           >
             Your Company Here
           </a>
@@ -22,9 +22,9 @@ export default function UnemployementCard() {
           <Link href={'/#contact'}>
             <Button size={'sm'} className='relative'>
               Hire me!
-              <div className='absolute flex h-3 w-3 top-0 right-0 -translate-y-1/3 translate-x-1/3'>
-                <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75'></span>
-                <span className='relative inline-flex rounded-full h-3 w-3 bg-sky-500'></span>
+              <div className='absolute right-0 top-0 flex h-3 w-3 -translate-y-1/3 translate-x-1/3'>
+                <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75'></span>
+                <span className='relative inline-flex h-3 w-3 rounded-full bg-sky-500'></span>
               </div>
             </Button>
           </Link>

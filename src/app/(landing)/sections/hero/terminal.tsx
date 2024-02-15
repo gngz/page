@@ -20,7 +20,7 @@ export function HeroTerminal() {
         </Text>
         $ whoami
       </TerminalLine>
-      <div className='mt-2 mb-14'>
+      <div className='mb-14 mt-2'>
         <TerminalLineWithIcon icon={'👋'}>
           <strong>Name:</strong> Diogo Passos
         </TerminalLineWithIcon>
@@ -30,7 +30,7 @@ export function HeroTerminal() {
         </TerminalLineWithIcon>
         <TerminalLineWithIcon icon={'💼'}>
           <strong>Company:</strong>{' '}
-          <Link className='hover:underline ml-1' href={'#contact'}>
+          <Link className='ml-1 hover:underline' href={'#contact'}>
             your-company-here
           </Link>
         </TerminalLineWithIcon>

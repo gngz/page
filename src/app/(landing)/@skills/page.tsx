@@ -9,7 +9,7 @@ export default function Skills() {
       subtitle='Here are some of my skills and my prefered technologies.'
       id='skills'
     >
-      <Heading as='h3' className='text-center text-2xl mb-6 font-light'>
+      <Heading as='h3' className='mb-6 text-center text-2xl font-light'>
         Software Development
       </Heading>
       <div className='flex flex-wrap justify-center gap-4'>
@@ -28,11 +28,11 @@ export default function Skills() {
         <Skill skill='prisma' />
       </div>
 
-      <div className='flex gap-4 mb-6'></div>
-      <Heading as='h3' className='text-center text-2xl mb-6 font-light'>
+      <div className='mb-6 flex gap-4'></div>
+      <Heading as='h3' className='mb-6 text-center text-2xl font-light'>
         Systems & DevOps
       </Heading>
-      <div className='flex flex-wrap gap-4 justify-center'>
+      <div className='flex flex-wrap justify-center gap-4'>
         <Skill skill='linux' />
         <Skill skill='ansible' />
         <Skill skill='docker' />
@@ -44,10 +44,10 @@ export default function Skills() {
         <Skill skill='nginx' />
         <Skill skill='caddy' />
       </div>
-      <Heading as='h3' className='text-center text-2xl mb-6 font-light'>
+      <Heading as='h3' className='mb-6 text-center text-2xl font-light'>
         Tools
       </Heading>
-      <div className='flex flex-wrap gap-4 justify-center'>
+      <div className='flex flex-wrap justify-center gap-4'>
         <Skill skill='vscode' />
         <Skill skill='postman' />
         <Skill skill='figma' />

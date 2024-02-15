@@ -42,12 +42,12 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
       () =>
         CountryCodes.map((country) => (
           <SelectItem key={country.code} value={country.code}>
-            <div className='flex items-center gap-3 justify-start '>
+            <div className='flex items-center justify-start gap-3 '>
               <Image
                 src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
                 alt={`Flag of ${country.name}`}
                 title={country.name}
-                className='w-4 h-4'
+                className='h-4 w-4'
                 width={0}
                 height={0}
               />
@@ -98,14 +98,14 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
     };
 
     return (
-      <div className='flex focus-within:ring-ring focus-within:ring-2 focus-within:ring-offset-2 rounded-md'>
+      <div className='flex rounded-md focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2'>
         <Select
           defaultValue={country}
           disabled={props.disabled}
           onValueChange={handleSelectChange}
         >
           <SelectTrigger
-            className='rounded-r-none focus:!ring-transparent flex-shrink max-w-[128px] select-none'
+            className='max-w-[128px] flex-shrink select-none rounded-r-none focus:!ring-transparent'
             tabIndex={-1}
             aria-label='Select country'
           >
@@ -121,7 +121,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
           onChange={handleOnChange}
           value={inputValue}
           className={cn(
-            'rounded-l-none border-l-0 focus-visible:!ring-offset-0 focus-visible:!ring-transparent flex-grow',
+            'flex-grow rounded-l-none border-l-0 focus-visible:!ring-transparent focus-visible:!ring-offset-0',
             className,
           )}
           placeholder={props.placeholder ?? placeholder}

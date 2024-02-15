@@ -8,12 +8,12 @@ export function useCountryList() {
     () =>
       CountryCodes.map((country) => (
         <SelectItem key={country.code} value={country.code}>
-          <div className='flex items-center gap-3 justify-start '>
+          <div className='flex items-center justify-start gap-3 '>
             <Image
               src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
               alt={country.name}
               title={country.name}
-              className='w-4 h-4'
+              className='h-4 w-4'
               width={0}
               height={0}
             />

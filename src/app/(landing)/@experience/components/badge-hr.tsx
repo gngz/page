@@ -4,12 +4,12 @@ import { PropsWithChildren } from 'react';
 export function BadgeHR({ children }: Readonly<PropsWithChildren>) {
   return (
     <div className='relative my-6 select-none'>
-      <hr className=' h-px bg-gray-200 border-0 dark:bg-gray-700 absolute right-0 left-0 top-1/2 -translate-y-1/2' />
+      <hr className=' absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 border-0 bg-gray-200 dark:bg-gray-700' />
       <Badge
-        className='relative top-0 left-1/2 -translate-x-1/2 bg-white inline-flex items-center'
+        className='relative left-1/2 top-0 inline-flex -translate-x-1/2 items-center bg-white'
         variant={'outline'}
       >
-        <span className='text-slate-800 leading-none h-[10px] font-normal'>
+        <span className='h-[10px] font-normal leading-none text-slate-800'>
           {children}
         </span>
       </Badge>

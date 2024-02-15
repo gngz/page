@@ -22,7 +22,7 @@ export async function Footer() {
             </Link>
           </h1>
           {socialNetworks && (
-            <div className='flex flex-row items-center justify-center gap-4 mt-4 md:mt-0'>
+            <div className='mt-4 flex flex-row items-center justify-center gap-4 md:mt-0'>
               {socialNetworks.map((network) => {
                 return (
                   <SocialIcon

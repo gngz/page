@@ -61,9 +61,9 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
   return (
     <main className='container mx-auto py-6'>
       <Heading className='text-4xl'>{post.title}</Heading>
-      <div className='flex justify-start items-center gap-2 mt-2'>
+      <div className='mt-2 flex items-center justify-start gap-2'>
         <div className='flex items-center gap-2'>
-          <Avatar className='w-8 h-8'>
+          <Avatar className='h-8 w-8'>
             <AvatarImage
               alt={post.user_created.name}
               src={getCmsAssetUrl(post.user_created.avatar ?? '')}
@@ -99,12 +99,12 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
       </div>
       <SyntaxHighlight>
         <div
-          className='mt-8 text-lg blog-content'
+          className='blog-content mt-8 text-lg'
           dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
         />
       </SyntaxHighlight>
 
-      <Heading as='h3' className='text-2xl mt-6'>
+      <Heading as='h3' className='mt-6 text-2xl'>
         Related Posts
       </Heading>
     </main>

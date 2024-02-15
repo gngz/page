@@ -26,7 +26,7 @@ export function BlogPost({ post }: Readonly<Props>) {
   const fallbackImageSrc = imageFallback(post.title, post.user_created.name);
   return (
     <Link href={`/blog/${post.slug}`}>
-      <Card key={post.slug} className='overflow-hidden group'>
+      <Card key={post.slug} className='group overflow-hidden'>
         <Image
           src={fallbackImageSrc}
           alt={post.title}
@@ -39,11 +39,11 @@ export function BlogPost({ post }: Readonly<Props>) {
           <CardTitle>{post.title}</CardTitle>
         </CardHeader>
         <CardContent>{post.preview}</CardContent>
-        <CardFooter className='text-gray-500 flex justify-between items-center'>
+        <CardFooter className='flex items-center justify-between text-gray-500'>
           {formatDate(post.date_created)}
           <Button
             variant={'outline'}
-            className='opacity-0 group-hover:opacity-100 pointer-events-none'
+            className='pointer-events-none opacity-0 group-hover:opacity-100'
           >
             Read More
           </Button>

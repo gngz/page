@@ -21,7 +21,7 @@ export function NavbarDrawer() {
         </Button>
       </DrawerTrigger>
       <DrawerPortal>
-        <DrawerContent className='h-screen left-6 p-4'>
+        <DrawerContent className='left-6 h-screen p-4'>
           <DrawerHeader>
             <DrawerTitle>Navigation</DrawerTitle>
           </DrawerHeader>

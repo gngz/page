@@ -16,9 +16,9 @@ const formatDate = (date: Date) => {
 
 export default function EmployementCard({ options }: Readonly<Props>) {
   return (
-    <div className='px-3 py-3 bg-slate-100'>
-      <div className='grid grid-cols-[auto_1fr_auto] gap-4 items-start'>
-        <div className='w-10 h-10 rounded-sm overflow-clip '>
+    <div className='bg-slate-100 px-3 py-3'>
+      <div className='grid grid-cols-[auto_1fr_auto] items-start gap-4'>
+        <div className='h-10 w-10 overflow-clip rounded-sm '>
           <Link
             href={options.instituitionUrl}
             target='_blank'
@@ -36,7 +36,7 @@ export default function EmployementCard({ options }: Readonly<Props>) {
           </Link>
         </div>
         <div className='flex flex-col gap-1'>
-          <span className='text-slate-600 text-sm'>{options.courseName}</span>
+          <span className='text-sm text-slate-600'>{options.courseName}</span>
           <span className='font-medium  text-gray-800'>
             <a
               href={options.instituitionUrl}
@@ -51,7 +51,7 @@ export default function EmployementCard({ options }: Readonly<Props>) {
             </a>
           </span>
         </div>
-        <div className='flex flex-col gap-1 text-sm items-end self-center'>
+        <div className='flex flex-col items-end gap-1 self-center text-sm'>
           <span className='text-gray-800'>
             {options.endDate ? (
               <>
@@ -62,9 +62,9 @@ export default function EmployementCard({ options }: Readonly<Props>) {
             )}
           </span>
 
-          <div className='text-slate-600 flex items-center gap-1'>
+          <div className='flex items-center gap-1 text-slate-600'>
             <IoLocationOutline />
-            <span className='leading-none h-[10px]'>{options.location}</span>
+            <span className='h-[10px] leading-none'>{options.location}</span>
           </div>
         </div>
       </div>
