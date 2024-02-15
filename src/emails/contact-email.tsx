@@ -32,7 +32,7 @@ export function ContactEmail(data: ContactEmailProps) {
       </Preview>
       <Tailwind production>
         <Body className='mx-auto my-auto bg-white px-2 pt-8 font-sans'>
-          <Container className='rounded-lg border border-solid border-[#eaeaea] bg-zinc-50 px-4'>
+          <Container className='rounded-lg border border-solid border-[#eaeaea] bg-slate-50 px-4'>
             <Img
               src='https://diogopassos.pt/logo.png'
               alt='Diogo Passos'
