@@ -38,7 +38,8 @@ export function HeroTerminal() {
           <strong>Role:</strong> Frontend Engineer
         </TerminalLineWithIcon>
         <TerminalLineWithIcon icon={'🛠️'}>
-          <strong>Top Skills:</strong> Next.js, React.js, TypeScript, Node, AWS
+          <strong>Top Skills:</strong> Next.js, React.js, TypeScript, Node.js,
+          AWS
         </TerminalLineWithIcon>
       </div>
       <TerminalLine>
