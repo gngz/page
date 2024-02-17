@@ -15,6 +15,14 @@ export async function generateMetadata() {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
+    applicationName: seo.title,
+    alternates: {
+      canonical: process.env.WEB_URL ?? 'https://diogopassos.pt',
+      alternate: {
+        href: 'https://www.diogopassos.pt',
+        hreflang: 'en',
+      },
+    },
     openGraph: {
       title: seo.title,
       description: seo.description,
