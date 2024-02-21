@@ -1,8 +1,7 @@
-import { SyntaxHighlight } from '@/components/syntax-highlight';
+import { Markdown } from '@/components/markdown';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Heading } from '@/components/ui/heading';
 import { getCmsAssetUrl } from '@/lib/cms-asset';
-import { renderMarkdown } from '@/lib/markdown';
 import { imageFallback } from '@/lib/post-image-fallback';
 import { nameLetters } from '@/lib/utils';
 import { getSeoData } from '@/services/cms-api';
@@ -97,13 +96,9 @@ export default async function BlogPost({ params: { slug } }: Readonly<Props>) {
           })}
         </span>
       </div>
-      <SyntaxHighlight>
-        <div
-          className='blog-content mt-8 text-lg'
-          dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
-        />
-      </SyntaxHighlight>
-
+      <div className='blog-content'>
+        <Markdown>{post.content}</Markdown>
+      </div>
       <Heading as='h3' className='mt-6 text-2xl'>
         Related Posts
       </Heading>
