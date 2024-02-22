@@ -1,5 +1,6 @@
+import { Terminal } from '@/app/(landing)/components/terminal';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 type Props = React.HTMLAttributes<HTMLElement>;
 
 export function CodeBlock(props: Readonly<React.HTMLAttributes<HTMLElement>>) {
@@ -7,13 +8,21 @@ export function CodeBlock(props: Readonly<React.HTMLAttributes<HTMLElement>>) {
   const matchLanguage = /language-(\w+)/.exec(className ?? '');
   const language = matchLanguage?.at(1);
 
-  return matchLanguage ? (
-    <SyntaxHighlighter {...rest} PreTag='div' language={language} style={dark}>
-      {String(children).replace(/\n$/, '')}
-    </SyntaxHighlighter>
-  ) : (
-    <code {...rest} className={className}>
-      {children}
-    </code>
+  return (
+    <Terminal title={language ?? ''}>
+      <SyntaxHighlighter
+        {...rest}
+        language={language}
+        style={atomDark}
+        customStyle={{
+          borderRadius: '0',
+          marginTop: 0,
+          backgroundColor: 'transparent',
+        }}
+        showLineNumbers
+      >
+        {String(children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    </Terminal>
   );
 }

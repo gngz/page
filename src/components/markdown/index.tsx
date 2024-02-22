@@ -10,6 +10,7 @@ type Props = {
 
 const markdownComponents: ReactMarkdownProps['components'] = {
   code: CodeBlock,
+  pre: 'div',
 };
 
 export function Markdown({ children }: Readonly<Props>) {
