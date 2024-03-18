@@ -12,9 +12,20 @@ export default function Skills() {
     >
       <div className='mx-auto md:w-4/6  lg:w-3/6'>
         <ExperienceList>
-          <ExperienceCard
+          {/* <ExperienceCard
             options={{
               type: 'unemployement',
+            }}
+          /> */}
+          <ExperienceCard
+            options={{
+              type: 'employement',
+              companyName: 'Yacooba Labs',
+              role: 'Software Engineer',
+              startDate: new Date('2024-03-01'),
+              location: 'Funchal',
+              companyLogo: '/yacooba.png',
+              companyUrl: 'https://www.yacoobalabs.com/',
             }}
           />
           <ExperienceCard
