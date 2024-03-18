@@ -30,12 +30,16 @@ export function HeroTerminal() {
         </TerminalLineWithIcon>
         <TerminalLineWithIcon icon={'💼'}>
           <strong>Company:</strong>{' '}
-          <Link className='ml-1 hover:underline' href={'#contact'}>
-            your-company-here
+          <Link
+            className='ml-1 hover:underline'
+            href={'https://yacoobalabs.com/'}
+            target='_blank'
+          >
+            Yacooba Labs
           </Link>
         </TerminalLineWithIcon>
         <TerminalLineWithIcon icon={'👨‍💻'}>
-          <strong>Role:</strong> Frontend Engineer
+          <strong>Role:</strong> Software Engineer
         </TerminalLineWithIcon>
         <TerminalLineWithIcon icon={'🛠️'}>
           <strong>Top Skills:</strong> Next.js, React.js, TypeScript, Node.js,

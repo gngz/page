@@ -51,6 +51,11 @@ export default function EmployementCard({ options }: Readonly<Props>) {
           </span>
         </div>
         <div className='flex flex-col items-end gap-1 self-center text-sm'>
+          {options.startDate && !options.endDate && (
+            <span className='text-gray-800'>
+              Since {formatDate(options.startDate)}
+            </span>
+          )}
           {options.endDate && (
             <span className='text-gray-800'>
               {formatDate(options.startDate)} - {formatDate(options.endDate)}
