@@ -11,7 +11,7 @@ export default function Skills() {
       id='experience'
     >
       <div className='mx-auto md:w-4/6  lg:w-3/6'>
-        <ExperienceList>
+        <ExperienceList highglightFirst>
           {/* <ExperienceCard
             options={{
               type: 'unemployement',
