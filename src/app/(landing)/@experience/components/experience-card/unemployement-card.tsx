@@ -4,7 +4,7 @@ import { RocketAnimation } from '../rocket-animation/rocket-animation';
 
 export default function UnemployementCard() {
   return (
-    <div className='bg-slate-200 px-3 py-3 first:mb-2 first:rounded-md first:ring first:ring-zinc-600 first:ring-offset-4'>
+    <div className='bg-slate-200 px-3 py-3'>
       <div className='grid grid-cols-[auto_1fr_auto] items-start gap-4'>
         <div className='flex h-10 w-10 select-none items-center justify-center rounded-sm bg-gradient-to-tr from-sky-500  to-sky-950 text-lg'>
           <RocketAnimation />
