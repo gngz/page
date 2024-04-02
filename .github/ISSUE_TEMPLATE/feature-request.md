@@ -1,6 +1,6 @@
 ---
-name: issue-template.md
-about: Describe this issue template's purpose here.
+name: feature-request
+about: To create a feature request
 title: "[Feature]"
 labels: ''
 assignees: gngz
