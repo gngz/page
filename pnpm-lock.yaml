@@ -1202,7 +1202,7 @@ packages:
       '@radix-ui/react-select': 2.0.0(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.67)(react@18.2.0)
       '@radix-ui/react-toggle-group': 1.0.4(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
-      '@vitejs/plugin-react': 4.2.1(vite@4.5.2)
+      '@vitejs/plugin-react': 4.2.1(vite@4.5.3)
       classnames: 2.3.2
       framer-motion: 10.16.16(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
@@ -1212,8 +1212,8 @@ packages:
       superstruct: 1.0.3
       tailwindcss: 3.4.0
       titleize: 4.0.0
-      vite: 4.5.2(@types/node@20.11.29)(sass@1.72.0)
-      vite-plugin-node-polyfills: 0.16.0(vite@4.5.2)
+      vite: 4.5.3(@types/node@20.11.29)(sass@1.72.0)
+      vite-plugin-node-polyfills: 0.16.0(vite@4.5.3)
     transitivePeerDependencies:
       - '@types/node'
       - '@types/react'
@@ -1496,7 +1496,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.9
+      '@babel/runtime': 7.24.0
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.67)(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.67)(react@18.2.0)
@@ -1764,7 +1764,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.9
+      '@babel/runtime': 7.24.0
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.67)(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.67)(react@18.2.0)
@@ -1893,7 +1893,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.9
+      '@babel/runtime': 7.24.0
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.67)(react@18.2.0)
@@ -1978,7 +1978,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.9
+      '@babel/runtime': 7.24.0
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.67)(react@18.2.0)
       '@radix-ui/react-direction': 1.0.1(@types/react@18.2.67)(react@18.2.0)
@@ -2005,7 +2005,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.9
+      '@babel/runtime': 7.24.0
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-use-controllable-state': 1.0.1(@types/react@18.2.67)(react@18.2.0)
@@ -2464,7 +2464,7 @@ packages:
       '@unocss/core': 0.58.5
     dev: false
 
-  /@vitejs/plugin-react@4.2.1(vite@4.5.2):
+  /@vitejs/plugin-react@4.2.1(vite@4.5.3):
     resolution: {integrity: sha512-oojO9IDc4nCUUi8qIR11KoQm0XFFLIwsRBwHRR4d/88IWghn1y6ckz/bJ8GHDCsYEJee8mDzqtJxh15/cisJNQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2475,7 +2475,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.9)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 4.5.2(@types/node@20.11.29)(sass@1.72.0)
+      vite: 4.5.3(@types/node@20.11.29)(sass@1.72.0)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -5046,7 +5046,7 @@ packages:
       '@unocss/preset-wind': 0.58.5
       '@unocss/transformer-compile-class': 0.58.5
       '@unocss/transformer-variant-group': 0.58.5
-      '@vitejs/plugin-react': 4.2.1(vite@4.5.2)
+      '@vitejs/plugin-react': 4.2.1(vite@4.5.3)
       autoprefixer: 10.4.18(postcss@8.4.36)
       chalk: 4.1.2
       classnames: 2.5.1
@@ -5075,8 +5075,8 @@ packages:
       superstruct: 1.0.3
       titleize: 4.0.0
       unist-util-visit: 5.0.0
-      vite: 4.5.2(@types/node@20.11.29)(sass@1.72.0)
-      vite-plugin-node-polyfills: 0.16.0(vite@4.5.2)
+      vite: 4.5.3(@types/node@20.11.29)(sass@1.72.0)
+      vite-plugin-node-polyfills: 0.16.0(vite@4.5.3)
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - '@types/node'
@@ -7537,7 +7537,7 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vite-plugin-node-polyfills@0.16.0(vite@4.5.2):
+  /vite-plugin-node-polyfills@0.16.0(vite@4.5.3):
     resolution: {integrity: sha512-uj1ymOmk7TliMxiivmXokpMY5gVMBpFPSZPLQSCv/LjkJGGKwyLjpbFL64dbYZEdFSUQ3tM7pbrxNh25yvhqOA==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0 || ^4.0.0
@@ -7546,13 +7546,13 @@ packages:
       buffer-polyfill: /buffer@6.0.3
       node-stdlib-browser: 1.2.0
       process: 0.11.10
-      vite: 4.5.2(@types/node@20.11.29)(sass@1.72.0)
+      vite: 4.5.3(@types/node@20.11.29)(sass@1.72.0)
     transitivePeerDependencies:
       - rollup
     dev: false
 
-  /vite@4.5.2(@types/node@20.11.29)(sass@1.72.0):
-    resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
+  /vite@4.5.3(@types/node@20.11.29)(sass@1.72.0):
+    resolution: {integrity: sha512-kQL23kMeX92v3ph7IauVkXkikdDRsYMGTVl5KY2E9OY4ONLvkHf04MDTbnfo6NKxZiDLWzVpP5oTa8hQD8U3dg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
