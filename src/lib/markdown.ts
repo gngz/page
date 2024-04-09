@@ -1,5 +1,5 @@
 import hljs from 'highlight.js';
-import markdownit from 'markdown-it/lib';
+import markdownit from 'markdown-it';
 
 export function renderMarkdown(markdown: string) {
   const md = markdownit({
