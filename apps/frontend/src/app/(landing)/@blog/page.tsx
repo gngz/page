@@ -2,7 +2,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '../../../components/ui/carousel';
+} from '../../../components/old/carousel';
 import { getPosts } from '../../../services/cms-api/apis/blog';
 import { BlogPost } from './components/post';
 import { BlogSectionLayout } from './section-layout';

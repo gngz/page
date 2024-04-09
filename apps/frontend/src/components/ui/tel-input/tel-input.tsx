@@ -1,18 +1,18 @@
 'use client';
 
+import { CountryCode } from 'libphonenumber-js';
+import Image from 'next/image';
+import * as React from 'react';
+import { useImperativeHandle, useRef, useState } from 'react';
+import { cn } from '../../../lib/utils';
+import { Input } from '../../old/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../select';
-import { cn } from '../../../lib/utils';
-import { CountryCode } from 'libphonenumber-js';
-import Image from 'next/image';
-import * as React from 'react';
-import { useImperativeHandle, useRef, useState } from 'react';
-import { Input } from '../input';
+} from '../../old/select';
 import CountryCodes from './country-codes.json';
 import { TelInputProps, TelInputRef } from './types';
 import {
@@ -98,7 +98,7 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
     };
 
     return (
-      <div className='flex rounded-md focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2'>
+      <div className='focus-within:ring-ring flex rounded-md focus-within:ring-2 focus-within:ring-offset-2'>
         <Select
           defaultValue={country}
           disabled={props.disabled}

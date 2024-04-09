@@ -1,10 +1,10 @@
+import { FaTriangleExclamation } from 'react-icons/fa6';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '../../../components/ui/tooltip';
-import { FaTriangleExclamation } from 'react-icons/fa6';
+} from '../../../components/old/tooltip';
 
 type Props = {
   validationMessage: string;

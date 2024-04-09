@@ -1,13 +1,13 @@
 'use client';
-import { Checkbox } from '../../../components/ui/checkbox';
-import { Input } from '../../../components/ui/input';
-import { Label } from '../../../components/ui/label';
-import { TelInput } from '../../../components/ui/tel-input';
-import { Textarea } from '../../../components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { Checkbox } from '../../../components/old/checkbox';
+import { Input } from '../../../components/old/input';
+import { Label } from '../../../components/old/label';
+import { Textarea } from '../../../components/old/textarea';
+import { TelInput } from '../../../components/ui/tel-input';
 import { sendMailAction } from './action/send-mail';
 import { CaptchaWidget } from './captcha';
 import { ContactModel, ContactSchema } from './schemas';

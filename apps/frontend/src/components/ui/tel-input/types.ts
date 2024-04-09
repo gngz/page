@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { Input } from '../input';
+import { Input } from '../../old/input';
 
 export type TelInputValueType = {
   internationalNumber?: string;

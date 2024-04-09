@@ -1,15 +1,15 @@
-import { Button } from '../../../../components/ui/button';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '../../../../components/old/button';
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../../../../components/ui/card';
+} from '../../../../components/old/card';
 import { imageFallback } from '../../../../lib/post-image-fallback';
 import { PostModel } from '../../../../services/cms-api/apis/blog/models/post';
-import Image from 'next/image';
-import Link from 'next/link';
 
 type Props = {
   post: PostModel;

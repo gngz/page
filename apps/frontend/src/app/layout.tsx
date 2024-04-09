@@ -1,8 +1,8 @@
-import { Toaster } from '../components/ui/sonner';
-import { getSeoData } from '../services/cms-api';
 import '@/styles/index.scss';
 import type { Metadata, Viewport } from 'next';
 import { League_Spartan } from 'next/font/google';
+import { Toaster } from '../components/old/sonner';
+import { getSeoData } from '../services/cms-api';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
 const font = League_Spartan({ subsets: ['latin'] });

@@ -1,5 +1,5 @@
-import { Badge } from '../../../../components/ui/badge';
 import { PropsWithChildren } from 'react';
+import { Badge } from '../../../../components/old/badge';
 
 export function BadgeHR({ children }: Readonly<PropsWithChildren>) {
   return (
