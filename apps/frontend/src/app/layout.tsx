@@ -1,4 +1,5 @@
 import '@/styles/index.scss';
+import { Theme } from '@radix-ui/themes';
 import type { Metadata, Viewport } from 'next';
 import { League_Spartan } from 'next/font/google';
 import { Toaster } from '../components/old/sonner';
@@ -50,12 +51,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={font.className}>
-        <div id='top' />
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster closeButton position='top-center' />
-        {/* <CookieConsent /> */}
+        <Theme>
+          <div id='top' />
+          <Navbar />
+          {children}
+          <Footer />
+          <Toaster closeButton position='top-center' />
+          {/* <CookieConsent /> */}
+        </Theme>
       </body>
     </html>
   );
