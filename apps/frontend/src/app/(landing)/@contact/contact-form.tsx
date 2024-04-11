@@ -1,10 +1,10 @@
 'use client';
-import { Button } from '@/components/atoms';
+import { Button, Checkbox } from '@/components/atoms';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { Checkbox } from '../../../components/old/checkbox';
+
 import { Input } from '../../../components/old/input';
 import { Label } from '../../../components/old/label';
 import { Textarea } from '../../../components/old/textarea';
