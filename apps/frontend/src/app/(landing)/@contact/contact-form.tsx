@@ -1,13 +1,9 @@
 'use client';
-import { Button, Checkbox } from '@/components/atoms';
+import { Button, Checkbox, Input, Label, TextArea } from '@/components/atoms';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-
-import { Input } from '../../../components/old/input';
-import { Label } from '../../../components/old/label';
-import { Textarea } from '../../../components/old/textarea';
 import { TelInput } from '../../../components/ui/tel-input';
 import { sendMailAction } from './action/send-mail';
 import { CaptchaWidget } from './captcha';
@@ -133,7 +129,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               />
             )}
           </Label>
-          <Textarea id='message' {...register('message')} rows={8} />
+          <TextArea id='message' {...register('message')} rows={8} />
           <ErrorAlert>{errors.message?.message}</ErrorAlert>
         </div>
         <CaptchaWidget />
