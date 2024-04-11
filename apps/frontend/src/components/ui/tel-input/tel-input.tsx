@@ -1,11 +1,10 @@
 'use client';
-
+import { Input } from '@/components/atoms';
 import { CountryCode } from 'libphonenumber-js';
 import Image from 'next/image';
 import * as React from 'react';
 import { useImperativeHandle, useRef, useState } from 'react';
 import { cn } from '../../../lib/utils';
-import { Input } from '../../old/input';
 import {
   Select,
   SelectContent,
