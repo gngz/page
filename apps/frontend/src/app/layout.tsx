@@ -6,7 +6,7 @@ import { Toaster } from '../components/old/sonner';
 import { getSeoData } from '../services/cms-api';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
-const font = League_Spartan({ subsets: ['latin'] });
+const font = League_Spartan({ subsets: ['latin'], variable: '--font-default' });
 
 export async function generateMetadata() {
   const seo = await getSeoData();
@@ -50,8 +50,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={font.className}>
-        <Theme>
+      <body className={font.variable}>
+        <Theme
+          panelBackground='translucent'
+          radius='large'
+          scaling='95%'
+          accentColor='gray'
+        >
           <div id='top' />
           <Navbar />
           {children}
