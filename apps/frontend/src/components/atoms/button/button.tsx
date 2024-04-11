@@ -1,3 +1,5 @@
+'use client';
+
 import { Button as RButton } from '@radix-ui/themes';
 import { ComponentProps, ComponentRef, forwardRef } from 'react';
 
