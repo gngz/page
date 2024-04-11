@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/atoms';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -11,7 +12,6 @@ import { TelInput } from '../../../components/ui/tel-input';
 import { sendMailAction } from './action/send-mail';
 import { CaptchaWidget } from './captcha';
 import { ContactModel, ContactSchema } from './schemas';
-import { SendButton } from './send-button';
 import { ValidationTooltip } from './validation-tooltip';
 
 type Props = {
@@ -160,13 +160,14 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               purposes.
             </Label>
           </div>
-          <SendButton
+          <Button
+            type='submit'
+            loading={isSubmitting}
             disabled={!canSubmit}
-            isLoading={isSubmitting}
             className='ml-auto'
           >
             Send
-          </SendButton>
+          </Button>
         </div>
       </div>
     </form>
