@@ -1,9 +1,9 @@
 'use client';
 
 import { Checkbox as RCheckbox } from '@radix-ui/themes';
-import { ComponentProps, ComponentRef, forwardRef } from 'react';
+import { ComponentPropsWithoutRef, ComponentRef, forwardRef } from 'react';
 
-type Props = ComponentProps<typeof RCheckbox>;
+type Props = ComponentPropsWithoutRef<typeof RCheckbox>;
 type Ref = ComponentRef<typeof RCheckbox>;
 
 const Checkbox = forwardRef<Ref, Props>(function Checkbox(

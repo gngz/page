@@ -7,10 +7,10 @@ type Props = ComponentPropsWithoutRef<typeof TextField.Root>;
 type Ref = ComponentRef<typeof TextField.Root>;
 
 const Input = forwardRef<Ref, Props>(function Checkbox(
-  { size = '3', ...rest }: Props,
+  { size = '3', variant = 'classic', ...rest }: Props,
   ref,
 ) {
-  return <TextField.Root ref={ref} size={size} {...rest} />;
+  return <TextField.Root ref={ref} variant={variant} size={size} {...rest} />;
 });
 
 Input.displayName = 'Input';
