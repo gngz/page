@@ -7,7 +7,7 @@ type Props = ComponentPropsWithoutRef<typeof RTextArea>;
 type Ref = ComponentRef<typeof RTextArea>;
 
 const TextArea = forwardRef<Ref, Props>(function (
-  { size = '3', variant = 'classic', ...rest }: Props,
+  { size = '3', variant = 'surface', ...rest }: Props,
   ref,
 ) {
   return <RTextArea ref={ref} variant={variant} size={size} {...rest} />;
