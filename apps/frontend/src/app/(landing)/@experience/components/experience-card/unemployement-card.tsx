@@ -1,5 +1,5 @@
+import { Button } from '@/components/atoms';
 import Link from 'next/link';
-import { Button } from '../../../../../components/old/button';
 import { RocketAnimation } from '../rocket-animation/rocket-animation';
 
 export default function UnemployementCard() {
@@ -20,7 +20,7 @@ export default function UnemployementCard() {
         </div>
         <div className='flex h-full items-center'>
           <Link href={'/#contact'}>
-            <Button size={'sm'} className='relative'>
+            <Button size={'1'} className='relative'>
               Hire me!
               <div className='absolute right-0 top-0 flex h-3 w-3 -translate-y-1/3 translate-x-1/3'>
                 <span className='absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75'></span>
