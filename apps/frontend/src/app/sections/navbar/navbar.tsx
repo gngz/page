@@ -1,7 +1,6 @@
 import { Button } from '@/components/atoms';
 import Image from 'next/image';
 import Link from 'next/link';
-import { NavbarDrawer } from './drawer';
 
 export function Navbar() {
   return (
@@ -17,9 +16,7 @@ export function Navbar() {
             />
           </Link>
         </div>
-        <div className='lg:hidden'>
-          <NavbarDrawer />
-        </div>
+        <div className='lg:hidden'>{/* <NavbarDrawer /> */}</div>
         <div className='hidden gap-2 lg:flex'>
           <Button className='text-lg' variant={'ghost'} asChild>
             <Link href={'/#top'}>Home</Link>
