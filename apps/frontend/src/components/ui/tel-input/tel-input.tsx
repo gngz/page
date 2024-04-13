@@ -1,10 +1,16 @@
 'use client';
 import { Input, Select } from '@/components/atoms';
+import { cn } from '@/lib/utils/cn';
 import { CountryCode } from 'libphonenumber-js';
 import Image from 'next/image';
-import * as React from 'react';
-import { useImperativeHandle, useRef, useState } from 'react';
-import { cn } from '../../../lib/utils';
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import CountryCodes from './country-codes.json';
 import { TelInputProps, TelInputRef } from './types';
 import {
@@ -13,7 +19,7 @@ import {
   useTelephonePlaceholder,
 } from './utils';
 
-const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
+const TelInput = forwardRef<TelInputRef, TelInputProps>(
   ({ defaultCountry, className, value, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [country, setCountry] = useState<CountryCode>(
@@ -26,11 +32,11 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
       focus: () => inputRef.current?.focus(),
     }));
 
-    React.useEffect(() => {
+    useEffect(() => {
       setInputValue(value?.number ?? '');
     }, [value]);
 
-    const selectOptions = React.useMemo(
+    const selectOptions = useMemo(
       () =>
         CountryCodes.map((country) => {
           return {
