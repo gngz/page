@@ -1,4 +1,4 @@
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils/cn';
 import { ShapeProps } from './types';
 
 function shapeVariantsClass(props: ShapeProps) {

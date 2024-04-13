@@ -1,11 +1,12 @@
-import { Toaster } from '../components/ui/sonner';
-import { getSeoData } from '../services/cms-api';
+import { Toast } from '@/components/atoms';
 import '@/styles/index.scss';
+import { Theme } from '@radix-ui/themes';
 import type { Metadata, Viewport } from 'next';
-import { League_Spartan } from 'next/font/google';
+import { Raleway } from 'next/font/google';
+import { getSeoData } from '../services/cms-api';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
-const font = League_Spartan({ subsets: ['latin'] });
+const font = Raleway({ subsets: ['latin'], variable: '--font-default' });
 
 export async function generateMetadata() {
   const seo = await getSeoData();
@@ -49,13 +50,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={font.className}>
-        <div id='top' />
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster closeButton position='top-center' />
-        {/* <CookieConsent /> */}
+      <body className={font.variable}>
+        <Theme
+          panelBackground='translucent'
+          radius='large'
+          scaling='95%'
+          accentColor='gray'
+        >
+          <div id='top' />
+          <Navbar />
+          {children}
+          <Footer />
+          <Toast />
+          {/* <CookieConsent /> */}
+        </Theme>
       </body>
     </html>
   );

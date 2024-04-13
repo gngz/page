@@ -1,18 +1,16 @@
 'use client';
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../select';
-import { cn } from '../../../lib/utils';
+import { Input, Select } from '@/components/atoms';
+import { cn } from '@/lib/utils/cn';
 import { CountryCode } from 'libphonenumber-js';
 import Image from 'next/image';
-import * as React from 'react';
-import { useImperativeHandle, useRef, useState } from 'react';
-import { Input } from '../input';
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import CountryCodes from './country-codes.json';
 import { TelInputProps, TelInputRef } from './types';
 import {
@@ -21,7 +19,7 @@ import {
   useTelephonePlaceholder,
 } from './utils';
 
-const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
+const TelInput = forwardRef<TelInputRef, TelInputProps>(
   ({ defaultCountry, className, value, ...props }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [country, setCountry] = useState<CountryCode>(
@@ -34,15 +32,17 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
       focus: () => inputRef.current?.focus(),
     }));
 
-    React.useEffect(() => {
+    useEffect(() => {
       setInputValue(value?.number ?? '');
     }, [value]);
 
-    const countryList = React.useMemo(
+    const selectOptions = useMemo(
       () =>
-        CountryCodes.map((country) => (
-          <SelectItem key={country.code} value={country.code}>
-            <div className='flex items-center justify-start gap-3 '>
+        CountryCodes.map((country) => {
+          return {
+            value: country.code,
+            label: country.name,
+            icon: (
               <Image
                 src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
                 alt={`Flag of ${country.name}`}
@@ -51,10 +51,9 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
                 width={0}
                 height={0}
               />
-              <span className='mr-2 truncate'>{country.name}</span>
-            </div>
-          </SelectItem>
-        )),
+            ),
+          };
+        }),
       [],
     );
 
@@ -98,35 +97,25 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
     };
 
     return (
-      <div className='flex rounded-md focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2'>
-        <Select
-          defaultValue={country}
-          disabled={props.disabled}
-          onValueChange={handleSelectChange}
-        >
-          <SelectTrigger
-            className='max-w-[128px] flex-shrink select-none rounded-r-none focus:!ring-transparent'
-            tabIndex={-1}
-            aria-label='Select country'
-          >
-            <SelectValue className='w-full' />
-          </SelectTrigger>
-          <SelectContent>{countryList}</SelectContent>
-        </Select>
-        <Input
-          ref={inputRef}
-          type='tel'
-          {...props}
-          onBlur={handleOnBlur}
-          onChange={handleOnChange}
-          value={inputValue}
-          className={cn(
-            'flex-grow rounded-l-none border-l-0 focus-visible:!ring-transparent focus-visible:!ring-offset-0',
-            className,
-          )}
-          placeholder={props.placeholder ?? placeholder}
-        />
-      </div>
+      <Input
+        ref={inputRef}
+        type='tel'
+        {...props}
+        onBlur={handleOnBlur}
+        onChange={handleOnChange}
+        value={inputValue}
+        className={cn('flex-grow ', className)}
+        placeholder={props.placeholder ?? placeholder}
+        leftSlot={
+          <Select
+            variant='ghost'
+            items={selectOptions}
+            disabled={props.disabled}
+            onChange={handleSelectChange}
+            initialValue={country}
+          />
+        }
+      />
     );
   },
 );

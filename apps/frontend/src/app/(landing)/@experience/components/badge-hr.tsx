@@ -1,4 +1,4 @@
-import { Badge } from '../../../../components/ui/badge';
+import { Badge } from '@/components/atoms';
 import { PropsWithChildren } from 'react';
 
 export function BadgeHR({ children }: Readonly<PropsWithChildren>) {
