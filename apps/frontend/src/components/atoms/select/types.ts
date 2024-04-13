@@ -15,5 +15,6 @@ export type SelectProps = {
   size?: SelectSizeType;
   variant?: SelectVariantType;
   items: SelectItem[];
+  disabled?: boolean;
   onChange?: (value: string) => void;
 };

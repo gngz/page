@@ -8,7 +8,7 @@ type Ref = ComponentRef<typeof RadixSelect.Trigger>;
 
 const Select = forwardRef<Ref, SelectProps>(function (props, ref) {
   const [value, setValue] = useState<string | undefined>(props.initialValue);
-  const item = props.items.find((item) => item.value === value);
+  const item = props.items?.find((item) => item.value === value);
 
   const onChangeHandler = useCallback(
     (value: string) => {
@@ -23,6 +23,7 @@ const Select = forwardRef<Ref, SelectProps>(function (props, ref) {
       size={props.size}
       value={value}
       onValueChange={onChangeHandler}
+      disabled={props.disabled}
     >
       <RadixSelect.Trigger
         variant={props.variant}
@@ -35,7 +36,7 @@ const Select = forwardRef<Ref, SelectProps>(function (props, ref) {
         </Flex>
       </RadixSelect.Trigger>
       <RadixSelect.Content>
-        {props.items.map((item) => (
+        {props.items?.map((item) => (
           <RadixSelect.Item key={item.value} value={item.value}>
             {item.label}
           </RadixSelect.Item>
