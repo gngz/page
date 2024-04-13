@@ -1,16 +1,21 @@
 'use client';
 
 import { TextField } from '@radix-ui/themes';
-import { ComponentPropsWithoutRef, ComponentRef, forwardRef } from 'react';
+import { ComponentRef, forwardRef } from 'react';
+import { InputProps } from './types';
 
-type Props = ComponentPropsWithoutRef<typeof TextField.Root>;
 type Ref = ComponentRef<typeof TextField.Root>;
 
-const Input = forwardRef<Ref, Props>(function Checkbox(
-  { size = '3', variant = 'surface', ...rest }: Props,
+const Input = forwardRef<Ref, InputProps>(function (
+  { size = '3', variant = 'surface', leftSlot, rightSlot, ...rest }: InputProps,
   ref,
 ) {
-  return <TextField.Root ref={ref} variant={variant} size={size} {...rest} />;
+  return (
+    <TextField.Root ref={ref} variant={variant} size={size} {...rest}>
+      {leftSlot && <TextField.Slot side='left'>{leftSlot}</TextField.Slot>}
+      {rightSlot && <TextField.Slot side='right'>{rightSlot}</TextField.Slot>}
+    </TextField.Root>
+  );
 });
 
 Input.displayName = 'Input';
