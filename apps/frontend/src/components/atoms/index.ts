@@ -6,4 +6,5 @@ export { default as Input } from './input/input';
 export { default as Label } from './label/label';
 export { default as Select } from './select/select';
 export { default as TextArea } from './textarea/textarea';
+export { Toast, addToast } from './toast/toast';
 export { default as Tooltip } from './tooltip/tooltip';
