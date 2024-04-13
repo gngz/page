@@ -1,6 +1,6 @@
-import { Button } from '@/components/atoms';
+import { Link } from '@/components/atoms';
 import Image from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 export function Navbar() {
   return (
@@ -16,23 +16,20 @@ export function Navbar() {
             />
           </Link>
         </div>
-        <div className='lg:hidden'>{/* <NavbarDrawer /> */}</div>
-        <div className='hidden gap-2 lg:flex'>
-          <Button className='text-lg' variant={'ghost'} asChild>
-            <Link href={'/#top'}>Home</Link>
-          </Button>
-          <Button className='text-lg' variant={'ghost'} asChild>
-            <Link href={'/#experience'}>About Me</Link>
-          </Button>
-          <Button className='text-lg' variant={'ghost'} asChild>
-            <Link href={'/#skills'}>Skills and Tech</Link>
-          </Button>
-          {/* <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#blog'}>Blog</Link>
-          </Button> */}
-          <Button className='text-lg' variant={'ghost'} asChild>
-            <Link href={'/#contact'}>Contact</Link>
-          </Button>
+        <div className='lg:hidden'>{/* Add Mobile Logic Here */}</div>
+        <div className='hidden gap-6 lg:flex'>
+          <Link asChild size='5'>
+            <NextLink href='/#top'>Home</NextLink>
+          </Link>
+          <Link asChild size='5'>
+            <NextLink href='/#experience'>About Me</NextLink>
+          </Link>
+          <Link asChild size='5'>
+            <NextLink href='/#skills'>Skills and Tech</NextLink>
+          </Link>
+          <Link asChild size='5'>
+            <NextLink href='/#contact'>Contact</NextLink>
+          </Link>
         </div>
       </div>
     </nav>
