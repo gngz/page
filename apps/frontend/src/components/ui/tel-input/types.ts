@@ -8,7 +8,13 @@ export type TelInputValueType = {
 
 export type TelInputProps = Omit<
   ComponentProps<typeof Input>,
-  'type' | 'onBlur' | 'onChange' | 'value' | 'defaultValue'
+  | 'type'
+  | 'onBlur'
+  | 'onChange'
+  | 'value'
+  | 'defaultValue'
+  | 'leftSlot'
+  | 'rightSlot'
 > & {
   onBlur?: () => void;
   onChange?: (value: TelInputValueType) => void;
