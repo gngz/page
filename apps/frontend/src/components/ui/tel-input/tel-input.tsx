@@ -1,17 +1,10 @@
 'use client';
-import { Input } from '@/components/atoms';
+import { Input, Select } from '@/components/atoms';
 import { CountryCode } from 'libphonenumber-js';
 import Image from 'next/image';
 import * as React from 'react';
 import { useImperativeHandle, useRef, useState } from 'react';
 import { cn } from '../../../lib/utils';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '../../old/select';
 import CountryCodes from './country-codes.json';
 import { TelInputProps, TelInputRef } from './types';
 import {
@@ -37,11 +30,13 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
       setInputValue(value?.number ?? '');
     }, [value]);
 
-    const countryList = React.useMemo(
+    const selectOptions = React.useMemo(
       () =>
-        CountryCodes.map((country) => (
-          <SelectItem key={country.code} value={country.code}>
-            <div className='flex items-center justify-start gap-3 '>
+        CountryCodes.map((country) => {
+          return {
+            value: country.code,
+            label: country.name,
+            icon: (
               <Image
                 src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code}.svg`}
                 alt={`Flag of ${country.name}`}
@@ -50,10 +45,9 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
                 width={0}
                 height={0}
               />
-              <span className='mr-2 truncate'>{country.name}</span>
-            </div>
-          </SelectItem>
-        )),
+            ),
+          };
+        }),
       [],
     );
 
@@ -97,35 +91,25 @@ const TelInput = React.forwardRef<TelInputRef, TelInputProps>(
     };
 
     return (
-      <div className='focus-within:ring-ring flex rounded-md focus-within:ring-2 focus-within:ring-offset-2'>
-        <Select
-          defaultValue={country}
-          disabled={props.disabled}
-          onValueChange={handleSelectChange}
-        >
-          <SelectTrigger
-            className='max-w-[128px] flex-shrink select-none rounded-r-none focus:!ring-transparent'
-            tabIndex={-1}
-            aria-label='Select country'
-          >
-            <SelectValue className='w-full' />
-          </SelectTrigger>
-          <SelectContent>{countryList}</SelectContent>
-        </Select>
-        <Input
-          ref={inputRef}
-          type='tel'
-          {...props}
-          onBlur={handleOnBlur}
-          onChange={handleOnChange}
-          value={inputValue}
-          className={cn(
-            'flex-grow rounded-l-none border-l-0 focus-visible:!ring-transparent focus-visible:!ring-offset-0',
-            className,
-          )}
-          placeholder={props.placeholder ?? placeholder}
-        />
-      </div>
+      <Input
+        ref={inputRef}
+        type='tel'
+        {...props}
+        onBlur={handleOnBlur}
+        onChange={handleOnChange}
+        value={inputValue}
+        className={cn('flex-grow ', className)}
+        placeholder={props.placeholder ?? placeholder}
+        leftSlot={
+          <Select
+            variant='ghost'
+            items={selectOptions}
+            disabled={props.disabled}
+            onChange={handleSelectChange}
+            initialValue={country}
+          />
+        }
+      />
     );
   },
 );
