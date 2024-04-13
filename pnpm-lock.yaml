@@ -90,36 +90,15 @@ importers:
       '@marsidev/react-turnstile':
         specifier: ^0.5.4
         version: 0.5.4(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-avatar':
-        specifier: ^1.0.4
-        version: 1.0.4(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-dialog':
-        specifier: ^1.0.5
-        version: 1.0.5(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-label':
         specifier: ^2.0.2
         version: 2.0.2(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-navigation-menu':
-        specifier: ^1.1.4
-        version: 1.1.4(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-select':
-        specifier: ^2.0.0
-        version: 2.0.0(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
-      '@radix-ui/react-slot':
-        specifier: ^1.0.2
-        version: 1.0.2(@types/react@18.2.75)(react@18.2.0)
       '@radix-ui/themes':
         specifier: ^3.0.2
         version: 3.0.2(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
-      embla-carousel-react:
-        specifier: 8.0.1
-        version: 8.0.1(react@18.2.0)
       highlight.js:
         specifier: ^11.9.0
         version: 11.9.0
@@ -129,18 +108,12 @@ importers:
       libphonenumber-js:
         specifier: ^1.10.60
         version: 1.10.60
-      lucide-react:
-        specifier: ^0.366.0
-        version: 0.366.0(react@18.2.0)
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
       next:
         specifier: 14.2.0
         version: 14.2.0(@babel/core@7.24.4)(react-dom@18.2.0)(react@18.2.0)(sass@1.74.1)
-      next-themes:
-        specifier: ^0.3.0
-        version: 0.3.0(react-dom@18.2.0)(react@18.2.0)
       nodemailer:
         specifier: ^6.9.13
         version: 6.9.13
@@ -171,9 +144,6 @@ importers:
       vanilla-cookieconsent:
         specifier: 3.0.1
         version: 3.0.1
-      vaul:
-        specifier: ^0.9.0
-        version: 0.9.0(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -6639,12 +6609,6 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /class-variance-authority@0.7.0:
-    resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
-    dependencies:
-      clsx: 2.0.0
-    dev: false
-
   /classnames@2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
@@ -6703,11 +6667,6 @@ packages:
 
   /clsx@1.2.1:
     resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
-    engines: {node: '>=6'}
-    dev: false
-
-  /clsx@2.0.0:
-    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
     engines: {node: '>=6'}
     dev: false
 
@@ -7396,17 +7355,6 @@ packages:
       ms: 2.0.0
     dev: false
 
-  /debug@3.2.7:
-    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.3
-    dev: true
-
   /debug@3.2.7(supports-color@5.5.0):
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     peerDependencies:
@@ -7720,28 +7668,6 @@ packages:
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
       minimalistic-crypto-utils: 1.0.1
-    dev: false
-
-  /embla-carousel-react@8.0.1(react@18.2.0):
-    resolution: {integrity: sha512-cpFQ/HwCsjBjzpu9Z9IHmZ9DaCSf/wo4q+qUTcRW3SsNv+1Q8IY7Y8J2QIyTmz0vOWY7tliu3uE2gqRH7ZDwOQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.1 || ^18.0.0
-    dependencies:
-      embla-carousel: 8.0.1
-      embla-carousel-reactive-utils: 8.0.1(embla-carousel@8.0.1)
-      react: 18.2.0
-    dev: false
-
-  /embla-carousel-reactive-utils@8.0.1(embla-carousel@8.0.1):
-    resolution: {integrity: sha512-KBSkz2h9LwVFkOrwzIJKgXbmEDlIShkreeOHnV8Cph09AdBMzb412nRkcctbeDcuG9x3CVsqLzJrSXnZeYhFPQ==}
-    peerDependencies:
-      embla-carousel: 8.0.1
-    dependencies:
-      embla-carousel: 8.0.1
-    dev: false
-
-  /embla-carousel@8.0.1:
-    resolution: {integrity: sha512-RsaMRyBCd144N95gb3XoI+H9zj3RI4y0qcfvKYEh2tIAIEenL9CW9vwzltCeoYkWYipGdkvup+HGT9ewG1YTEw==}
     dev: false
 
   /emoji-regex@8.0.0:
@@ -8077,7 +8003,7 @@ packages:
   /eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
     dependencies:
-      debug: 3.2.7
+      debug: 3.2.7(supports-color@5.5.0)
       is-core-module: 2.13.1
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -8129,7 +8055,7 @@ packages:
         optional: true
     dependencies:
       '@typescript-eslint/parser': 7.2.0(eslint@8.57.0)(typescript@5.4.4)
-      debug: 3.2.7
+      debug: 3.2.7(supports-color@5.5.0)
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1)(eslint@8.57.0)
@@ -8152,7 +8078,7 @@ packages:
       array.prototype.findlastindex: 1.2.5
       array.prototype.flat: 1.3.2
       array.prototype.flatmap: 1.3.2
-      debug: 3.2.7
+      debug: 3.2.7(supports-color@5.5.0)
       doctrine: 2.1.0
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
@@ -10457,14 +10383,6 @@ packages:
       es5-ext: 0.10.64
     dev: false
 
-  /lucide-react@0.366.0(react@18.2.0):
-    resolution: {integrity: sha512-iUOsp/35wOkrgEzigZlZI/OhVxQZ8CmxjebdIjfSDzNBmrNYjQfKSpeKderaEFfGt3OycF1BE+wLlaqWRuoh4w==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /magic-string@0.30.9:
     resolution: {integrity: sha512-S1+hd+dIrC8EZqKyT9DstTH/0Z+f76kmmvZnkfQVmOpDEF9iVgdYif3Q/pIWHmCoo59bQVGW0kVL3e2nl+9+Sw==}
     engines: {node: '>=12'}
@@ -10904,16 +10822,6 @@ packages:
 
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
-    dev: false
-
-  /next-themes@0.3.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
-    peerDependencies:
-      react: ^16.8 || ^17 || ^18
-      react-dom: ^16.8 || ^17 || ^18
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /next-tick@1.1.0:
@@ -15271,20 +15179,6 @@ packages:
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
-    dev: false
-
-  /vaul@0.9.0(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-bZSySGbAHiTXmZychprnX/dE0EsSige88xtyyL3/MCRbrFotRPQZo7UdydGXZWw+CKbNOw5Ow8gwAo93/nB/Cg==}
-    peerDependencies:
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-    dependencies:
-      '@radix-ui/react-dialog': 1.0.5(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
     dev: false
 
   /vfile-location@5.0.2:
