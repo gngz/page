@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '../../../components/old/button';
-
+import { Button } from '@/components/atoms';
 import Link from 'next/link';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import {
@@ -38,19 +37,19 @@ export function NavbarDrawer() {
         </div>
         <div className='mt-6 flex flex-col gap-4'>
           <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
+            <Button className='text-lg' variant={'ghost'} asChild>
               <Link href={'/#top'}>Home</Link>
             </Button>
           </SheetClose>
 
           <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
+            <Button className='text-lg' variant={'ghost'} asChild>
               <Link href={'/#experience'}>About Me</Link>
             </Button>
           </SheetClose>
 
           <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
+            <Button className='text-lg' variant={'ghost'} asChild>
               <Link href={'/#skills'}>Skills and Tech</Link>
             </Button>
           </SheetClose>
@@ -58,7 +57,7 @@ export function NavbarDrawer() {
             <Link href={'/#blog'}>Blog</Link>
           </Button> */}
           <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
+            <Button className='text-lg' variant={'ghost'} asChild>
               <Link href={'/#contact'}>Contact</Link>
             </Button>
           </SheetClose>

@@ -1,6 +1,6 @@
+import { Button } from '@/components/atoms';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../../../components/old/button';
 import { NavbarDrawer } from './drawer';
 
 export function Navbar() {
@@ -21,19 +21,19 @@ export function Navbar() {
           <NavbarDrawer />
         </div>
         <div className='hidden gap-2 lg:flex'>
-          <Button className='text-lg' variant={'link'} asChild>
+          <Button className='text-lg' variant={'ghost'} asChild>
             <Link href={'/#top'}>Home</Link>
           </Button>
-          <Button className='text-lg' variant={'link'} asChild>
+          <Button className='text-lg' variant={'ghost'} asChild>
             <Link href={'/#experience'}>About Me</Link>
           </Button>
-          <Button className='text-lg' variant={'link'} asChild>
+          <Button className='text-lg' variant={'ghost'} asChild>
             <Link href={'/#skills'}>Skills and Tech</Link>
           </Button>
           {/* <Button className='text-lg' variant={'link'} asChild>
             <Link href={'/#blog'}>Blog</Link>
           </Button> */}
-          <Button className='text-lg' variant={'link'} asChild>
+          <Button className='text-lg' variant={'ghost'} asChild>
             <Link href={'/#contact'}>Contact</Link>
           </Button>
         </div>
