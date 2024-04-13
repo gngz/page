@@ -20,7 +20,7 @@ const ObligatoryField = () => {
 
 const ErrorAlert = ({ children }: PropsWithChildren) => {
   return (
-    <p role='alert' className='mt-1 h-[1em] text-xs text-red-600'>
+    <p role='alert' className='mt-1 h-[1em] text-xs text-red-600 lg:hidden'>
       {children}
     </p>
   );
