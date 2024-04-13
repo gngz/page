@@ -1,8 +1,8 @@
-import { Heading } from '../../../../components/ui/heading';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CiCircleChevDown } from 'react-icons/ci';
+import { Heading } from '../../../../components/ui/heading';
 
 export function Hero() {
   const Terminal = dynamic(() =>
@@ -17,7 +17,7 @@ export function Hero() {
             Welcome to my personal site!
           </Heading>
           <Heading className='mt-2 text-center text-2xl font-light' as='h1'>
-            Here you cand find my digital resumee and <br /> my latest thoughts
+            Here you can find my digital resumee and <br /> my latest thoughts
             on tech.
           </Heading>
           <div className='mt-16 flex justify-center'>
