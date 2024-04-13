@@ -2,11 +2,11 @@ import { Toast } from '@/components/atoms';
 import '@/styles/index.scss';
 import { Theme } from '@radix-ui/themes';
 import type { Metadata, Viewport } from 'next';
-import { League_Spartan } from 'next/font/google';
+import { Raleway } from 'next/font/google';
 import { getSeoData } from '../services/cms-api';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
-const font = League_Spartan({ subsets: ['latin'], variable: '--font-default' });
+const font = Raleway({ subsets: ['latin'], variable: '--font-default' });
 
 export async function generateMetadata() {
   const seo = await getSeoData();
