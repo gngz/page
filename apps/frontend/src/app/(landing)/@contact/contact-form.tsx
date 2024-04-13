@@ -1,5 +1,12 @@
 'use client';
-import { Button, Checkbox, Input, Label, TextArea } from '@/components/atoms';
+import {
+  Button,
+  Checkbox,
+  Input,
+  Label,
+  TextArea,
+  addToast,
+} from '@/components/atoms';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -43,9 +50,10 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
   const onSubmitHandler: SubmitHandler<ContactModel> = async (data) => {
     try {
       await sendMailAction(data);
-      toast('Contact Form Submitted', {
-        description: "Thank you for reaching out. I'll get back to you soon!",
-      });
+      addToast(
+        'Contact Form Submitted',
+        "Thank you for reaching out. I'll get back to you soon!",
+      );
     } catch {
       toast.error('Uh oh! Something went wrong', {
         description: 'Please try again later.',

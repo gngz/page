@@ -1,8 +1,8 @@
+import { Toast } from '@/components/atoms';
 import '@/styles/index.scss';
 import { Theme } from '@radix-ui/themes';
 import type { Metadata, Viewport } from 'next';
 import { League_Spartan } from 'next/font/google';
-import { Toaster } from '../components/old/sonner';
 import { getSeoData } from '../services/cms-api';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
@@ -61,7 +61,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <Toaster closeButton position='top-center' />
+          <Toast />
           {/* <CookieConsent /> */}
         </Theme>
       </body>
