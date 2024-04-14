@@ -19,16 +19,16 @@ export function Navbar() {
         <div className='lg:hidden'>{/* Add Mobile Logic Here */}</div>
         <div className='hidden gap-6 lg:flex'>
           <Link asChild size='5'>
-            <NextLink href='/#top'>Home</NextLink>
+            <NextLink href='/#top'>home</NextLink>
           </Link>
           <Link asChild size='5'>
-            <NextLink href='/#experience'>About Me</NextLink>
+            <NextLink href='/#experience'>about Me</NextLink>
           </Link>
           <Link asChild size='5'>
-            <NextLink href='/#skills'>Skills and Tech</NextLink>
+            <NextLink href='/#skills'>skills and tech</NextLink>
           </Link>
           <Link asChild size='5'>
-            <NextLink href='/#contact'>Contact</NextLink>
+            <NextLink href='/#contact'>contact-me</NextLink>
           </Link>
         </div>
       </div>
