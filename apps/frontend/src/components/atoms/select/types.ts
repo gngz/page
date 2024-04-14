@@ -1,10 +1,10 @@
 import { Select as RadixSelect } from '@radix-ui/themes';
-import { ComponentProps } from 'react';
+import { ComponentProps, ReactNode } from 'react';
 
 type SelectVariantType = ComponentProps<typeof RadixSelect.Trigger>['variant'];
 type SelectSizeType = ComponentProps<typeof RadixSelect.Root>['size'];
 export type SelectItem = {
-  label: string;
+  label?: ReactNode;
   value: string;
   icon?: JSX.Element;
 };

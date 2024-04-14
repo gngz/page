@@ -1,4 +1,5 @@
 import { Link } from '@/components/atoms';
+import LanguageSelector from '@/components/lang-selector';
 import Image from 'next/image';
 import NextLink from 'next/link';
 
@@ -17,7 +18,7 @@ export function Navbar() {
           </Link>
         </div>
         <div className='lg:hidden'>{/* Add Mobile Logic Here */}</div>
-        <div className='hidden gap-6 lg:flex'>
+        <div className='hidden items-center gap-6 lg:flex'>
           <Link asChild size='5'>
             <NextLink href='/#top'>home</NextLink>
           </Link>
@@ -30,6 +31,13 @@ export function Navbar() {
           <Link asChild size='5'>
             <NextLink href='/#contact'>contact-me</NextLink>
           </Link>
+          <LanguageSelector
+            languages={[
+              { name: 'Portuguese', langCode: 'pt', flagCode: 'pt' },
+              { name: 'English', langCode: 'en', flagCode: 'us' },
+            ]}
+            defaultLanguage={'pt'}
+          />
         </div>
       </div>
     </nav>
