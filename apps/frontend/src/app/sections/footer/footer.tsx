@@ -1,11 +1,10 @@
-import SocialIcon from '../../../components/social-icon';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getSocialNetworksData } from '../../(landing)/actions/social-networks';
+
+import SocialIcon from '../../../components/social-icon';
 
 export async function Footer() {
   const year = new Date().getFullYear();
-  const socialNetworks = await getSocialNetworksData();
 
   return (
     <footer className='bg-zinc-900 text-lg text-zinc-300'>
@@ -21,20 +20,23 @@ export async function Footer() {
               />
             </Link>
           </h1>
-          {socialNetworks && (
-            <div className='mt-4 flex flex-row items-center justify-center gap-4 md:mt-0'>
-              {socialNetworks.map((network) => {
-                return (
-                  <SocialIcon
-                    key={network.code}
-                    socialNetwork={network.code}
-                    href={network.url}
-                    title={network.name}
-                  />
-                );
-              })}
-            </div>
-          )}
+          <div className='mt-4 flex flex-row items-center justify-center gap-4 md:mt-0'>
+            <SocialIcon
+              socialNetwork='linkedin'
+              href='https://www.linkedin.com/in/gdpassos/'
+              title='LinkedIn'
+            />
+            <SocialIcon
+              socialNetwork='github'
+              href='https://github.com/gngz'
+              title='GitHub'
+            />
+            <SocialIcon
+              socialNetwork='x'
+              href='https://twitter.com/gdfpassos'
+              title='X'
+            />
+          </div>
         </div>
         <div className='flex flex-col py-14 lg:flex-row'>
           <div className='flex flex-auto flex-col flex-wrap gap-x-12 gap-y-3 lg:flex-row'>

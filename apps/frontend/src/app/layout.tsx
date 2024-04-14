@@ -3,24 +3,38 @@ import '@/styles/index.scss';
 import { Theme } from '@radix-ui/themes';
 import type { Metadata, Viewport } from 'next';
 import { Lato } from 'next/font/google';
-import { getSeoData } from '../services/cms-api';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
+
 const font = Lato({
   subsets: ['latin'],
   variable: '--font-default',
   weight: ['300', '400', '700'],
 });
 
-export async function generateMetadata() {
-  const seo = await getSeoData();
+const title = 'Diogo Passos | Software Engineer';
+const description =
+  'Diogo Passos is an experienced software engineer with a passion for developing innovative solutions. Browse the site to learn more about his projects, skills, and professional experiences.';
+const keywords = [
+  'Gonçalo Passos',
+  'Diogo Passos',
+  'frontend',
+  'software',
+  'engineer',
+  'developer',
+  'innovative',
+  'personal',
+  'skills',
+  'jamstack',
+];
 
+export async function generateMetadata() {
   return {
     metadataBase: new URL(process.env.WEB_URL ?? 'https://diogopassos.pt'),
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
-    applicationName: seo.title,
+    title: title,
+    description: description,
+    keywords: keywords,
+    applicationName: title,
     alternates: {
       canonical: process.env.WEB_URL ?? 'https://diogopassos.pt',
       alternate: {
@@ -29,14 +43,14 @@ export async function generateMetadata() {
       },
     },
     openGraph: {
-      title: seo.title,
-      description: seo.description,
-      tags: seo.keywords,
+      title: title,
+      description: description,
+      tags: keywords,
     },
     twitter: {
-      title: seo.title,
-      description: seo.description,
-      tags: seo.keywords,
+      title: title,
+      description: description,
+      tags: keywords,
     },
   } as Metadata;
 }
