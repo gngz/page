@@ -22,7 +22,7 @@ export function Navbar() {
             <NextLink href='/#top'>home</NextLink>
           </Link>
           <Link asChild size='5'>
-            <NextLink href='/#experience'>about Me</NextLink>
+            <NextLink href='/#experience'>about me</NextLink>
           </Link>
           <Link asChild size='5'>
             <NextLink href='/#skills'>skills and tech</NextLink>
