@@ -81,9 +81,6 @@ importers:
 
   apps/frontend:
     dependencies:
-      '@directus/sdk':
-        specifier: ^15.1.0
-        version: 15.1.0
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.3.4(react-hook-form@7.51.2)
@@ -2086,17 +2083,6 @@ packages:
     dependencies:
       '@date-io/core': 2.17.0
       date-fns: 2.30.0
-    dev: false
-
-  /@directus/sdk@15.1.0:
-    resolution: {integrity: sha512-M2+Z1WmU8Q5KlR22K5ugmBHq10a6tcGl3QuvGKnN+jNwDnRyN5brJxt7FvgtWrY3Q1ToGLxmL37GHAH9s12dlQ==}
-    engines: {node: '>=18.0.0'}
-    dependencies:
-      '@directus/system-data': 1.0.2
-    dev: false
-
-  /@directus/system-data@1.0.2:
-    resolution: {integrity: sha512-PweDAwTz4zImEGJnhoaX8apOCvcAfE0aGQrCSk+3cf1sLso0ShNlcDvUymtVfrqOXy0qT9sLa833bpJVaXF5ng==}
     dev: false
 
   /@discoveryjs/json-ext@0.5.7:
