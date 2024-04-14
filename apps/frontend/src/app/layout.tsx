@@ -2,11 +2,15 @@ import { Toast } from '@/components/atoms';
 import '@/styles/index.scss';
 import { Theme } from '@radix-ui/themes';
 import type { Metadata, Viewport } from 'next';
-import { Raleway } from 'next/font/google';
+import { Lato } from 'next/font/google';
 import { getSeoData } from '../services/cms-api';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
-const font = Raleway({ subsets: ['latin'], variable: '--font-default' });
+const font = Lato({
+  subsets: ['latin'],
+  variable: '--font-default',
+  weight: ['300', '400', '700'],
+});
 
 export async function generateMetadata() {
   const seo = await getSeoData();
