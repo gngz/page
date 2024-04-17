@@ -36,7 +36,8 @@ export default function LanguageSelector({
   }));
   return (
     <Select
-      variant='soft'
+      placeholder='Select Language'
+      variant='surface'
       items={langs}
       initialValue={defaultLanguage}
       onChange={onChange}

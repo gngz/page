@@ -10,6 +10,7 @@ export type SelectItem = {
 };
 
 export type SelectProps = {
+  className?: string;
   initialValue?: string;
   placeholder?: string;
   size?: SelectSizeType;
@@ -17,4 +18,4 @@ export type SelectProps = {
   items: SelectItem[];
   disabled?: boolean;
   onChange?: (value: string) => void;
-};
+} & Omit<ComponentProps<typeof RadixSelect.Trigger>, 'onChange'>;

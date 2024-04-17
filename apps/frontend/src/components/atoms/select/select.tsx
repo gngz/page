@@ -7,28 +7,31 @@ import { SelectProps } from './types';
 type Ref = ComponentRef<typeof RadixSelect.Trigger>;
 
 const Select = forwardRef<Ref, SelectProps>(function (props, ref) {
-  const [value, setValue] = useState<string | undefined>(props.initialValue);
+  const { initialValue, size, disabled, onChange, ...rest } = props;
+  const [value, setValue] = useState<string | undefined>(initialValue);
   const item = props.items?.find((item) => item.value === value);
 
   const onChangeHandler = useCallback(
     (value: string) => {
       setValue(value);
-      props.onChange?.(value);
+      onChange?.(value);
     },
-    [props, setValue],
+    [onChange, setValue],
   );
 
   return (
     <RadixSelect.Root
-      size={props.size}
+      size={size}
       value={value}
       onValueChange={onChangeHandler}
-      disabled={props.disabled}
+      disabled={disabled}
     >
       <RadixSelect.Trigger
         variant={props.variant}
         placeholder={props.placeholder}
+        className='bg-transparent'
         ref={ref}
+        {...rest}
       >
         <Flex as='span' align='center' gap='2'>
           {item?.icon}

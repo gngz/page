@@ -108,6 +108,7 @@ const TelInput = forwardRef<TelInputRef, TelInputProps>(
         placeholder={props.placeholder ?? placeholder}
         leftSlot={
           <Select
+            size='2'
             variant='ghost'
             items={selectOptions}
             disabled={props.disabled}
