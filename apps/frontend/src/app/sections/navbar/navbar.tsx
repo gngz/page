@@ -2,6 +2,7 @@ import { Link } from '@/components/atoms';
 import LanguageSelector from '@/components/lang-selector';
 import Image from 'next/image';
 import NextLink from 'next/link';
+import Drawer from './drawer';
 
 export function Navbar() {
   return (
@@ -17,7 +18,9 @@ export function Navbar() {
             />
           </Link>
         </div>
-        <div className='lg:hidden'>{/* Add Mobile Logic Here */}</div>
+        <div className='lg:hidden'>
+          <Drawer />
+        </div>
         <div className='hidden items-center gap-6 lg:flex'>
           <Link asChild size='5'>
             <NextLink href='/#top'>home</NextLink>
