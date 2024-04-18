@@ -1,5 +1,4 @@
 import { Link } from '@/components/atoms';
-import LanguageSelector from '@/components/lang-selector';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import Drawer from './drawer';
@@ -22,25 +21,25 @@ export function Navbar() {
           <Drawer />
         </div>
         <div className='hidden items-center gap-6 lg:flex'>
-          <Link asChild size='5'>
+          <Link asChild size='5' highContrast>
             <NextLink href='/#top'>home</NextLink>
           </Link>
-          <Link asChild size='5'>
+          <Link asChild size='5' highContrast>
             <NextLink href='/#experience'>about me</NextLink>
           </Link>
-          <Link asChild size='5'>
+          <Link asChild size='5' highContrast>
             <NextLink href='/#skills'>skills and tech</NextLink>
           </Link>
-          <Link asChild size='5'>
+          <Link asChild size='5' highContrast>
             <NextLink href='/#contact'>contact</NextLink>
           </Link>
-          <LanguageSelector
+          {/* <LanguageSelector
             languages={[
               { name: 'Portuguese', langCode: 'pt', flagCode: 'pt' },
               { name: 'English', langCode: 'en', flagCode: 'us' },
             ]}
             defaultLanguage={'pt'}
-          />
+          /> */}
         </div>
       </div>
     </nav>

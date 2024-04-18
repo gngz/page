@@ -46,7 +46,6 @@ export default function Drawer() {
       >
         <Button
           variant='surface'
-          color='gray'
           highContrast
           size='4'
           className='w-full'
@@ -57,7 +56,6 @@ export default function Drawer() {
         </Button>
         <Button
           variant='surface'
-          color='gray'
           highContrast
           size='4'
           className='w-full'
@@ -68,7 +66,6 @@ export default function Drawer() {
         </Button>
         <Button
           variant='surface'
-          color='gray'
           highContrast
           size='4'
           className='w-full'
@@ -79,7 +76,6 @@ export default function Drawer() {
         </Button>
         <Button
           variant='surface'
-          color='gray'
           highContrast
           size='4'
           className='w-full'
