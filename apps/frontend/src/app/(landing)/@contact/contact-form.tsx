@@ -10,6 +10,7 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { FaPaperPlane } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import { TelInput } from '../../../components/ui/tel-input';
 import { sendMailAction } from './action/send-mail';
@@ -168,7 +169,10 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
             loading={isSubmitting}
             disabled={!canSubmit}
             className='ml-auto'
+            size={'3'}
+            highContrast
           >
+            <FaPaperPlane />
             Send
           </Button>
         </div>
