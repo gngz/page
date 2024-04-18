@@ -1,7 +1,7 @@
-import { Link } from '@/components/atoms';
+import { Button } from '../../../components/ui/button';
 import Image from 'next/image';
-import NextLink from 'next/link';
-import Drawer from './drawer';
+import Link from 'next/link';
+import { NavbarDrawer } from './drawer';
 
 export function Navbar() {
   return (
@@ -18,28 +18,24 @@ export function Navbar() {
           </Link>
         </div>
         <div className='lg:hidden'>
-          <Drawer />
+          <NavbarDrawer />
         </div>
-        <div className='hidden items-center gap-6 lg:flex'>
-          <Link asChild size='5' highContrast>
-            <NextLink href='/#top'>home</NextLink>
-          </Link>
-          <Link asChild size='5' highContrast>
-            <NextLink href='/#experience'>about me</NextLink>
-          </Link>
-          <Link asChild size='5' highContrast>
-            <NextLink href='/#skills'>skills and tech</NextLink>
-          </Link>
-          <Link asChild size='5' highContrast>
-            <NextLink href='/#contact'>contact</NextLink>
-          </Link>
-          {/* <LanguageSelector
-            languages={[
-              { name: 'Portuguese', langCode: 'pt', flagCode: 'pt' },
-              { name: 'English', langCode: 'en', flagCode: 'us' },
-            ]}
-            defaultLanguage={'pt'}
-          /> */}
+        <div className='hidden gap-2 lg:flex'>
+          <Button className='text-lg' variant={'link'} asChild>
+            <Link href={'/#top'}>Home</Link>
+          </Button>
+          <Button className='text-lg' variant={'link'} asChild>
+            <Link href={'/#experience'}>About Me</Link>
+          </Button>
+          <Button className='text-lg' variant={'link'} asChild>
+            <Link href={'/#skills'}>Skills and Tech</Link>
+          </Button>
+          {/* <Button className='text-lg' variant={'link'} asChild>
+            <Link href={'/#blog'}>Blog</Link>
+          </Button> */}
+          <Button className='text-lg' variant={'link'} asChild>
+            <Link href={'/#contact'}>Contact</Link>
+          </Button>
         </div>
       </div>
     </nav>

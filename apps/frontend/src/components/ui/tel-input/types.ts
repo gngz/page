@@ -1,5 +1,5 @@
-import { Input } from '@/components/atoms';
 import { ComponentProps } from 'react';
+import { Input } from '../input';
 
 export type TelInputValueType = {
   internationalNumber?: string;
@@ -8,13 +8,7 @@ export type TelInputValueType = {
 
 export type TelInputProps = Omit<
   ComponentProps<typeof Input>,
-  | 'type'
-  | 'onBlur'
-  | 'onChange'
-  | 'value'
-  | 'defaultValue'
-  | 'leftSlot'
-  | 'rightSlot'
+  'type' | 'onBlur' | 'onChange' | 'value'
 > & {
   onBlur?: () => void;
   onChange?: (value: TelInputValueType) => void;

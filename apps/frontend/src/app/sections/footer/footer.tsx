@@ -1,10 +1,11 @@
+import SocialIcon from '../../../components/social-icon';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import SocialIcon from '../../../components/social-icon';
+import { getSocialNetworksData } from '../../(landing)/actions/social-networks';
 
 export async function Footer() {
   const year = new Date().getFullYear();
+  const socialNetworks = await getSocialNetworksData();
 
   return (
     <footer className='bg-zinc-900 text-lg text-zinc-300'>
@@ -20,34 +21,31 @@ export async function Footer() {
               />
             </Link>
           </h1>
-          <div className='mt-4 flex flex-row items-center justify-center gap-4 md:mt-0'>
-            <SocialIcon
-              socialNetwork='linkedin'
-              href='https://www.linkedin.com/in/gdpassos/'
-              title='LinkedIn'
-            />
-            <SocialIcon
-              socialNetwork='github'
-              href='https://github.com/gngz'
-              title='GitHub'
-            />
-            <SocialIcon
-              socialNetwork='x'
-              href='https://twitter.com/gdfpassos'
-              title='X'
-            />
-          </div>
+          {socialNetworks && (
+            <div className='mt-4 flex flex-row items-center justify-center gap-4 md:mt-0'>
+              {socialNetworks.map((network) => {
+                return (
+                  <SocialIcon
+                    key={network.code}
+                    socialNetwork={network.code}
+                    href={network.url}
+                    title={network.name}
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
         <div className='flex flex-col py-14 lg:flex-row'>
           <div className='flex flex-auto flex-col flex-wrap gap-x-12 gap-y-3 lg:flex-row'>
-            <Link href='/#top'>home</Link>
-            <Link href='/#experience'>about me</Link>
-            <Link href='/#skills'>skills and technologies</Link>
+            <a href='/#top'>Home</a>
+            <a href='/#experience'>About Me</a>
+            <a href='/#skills'>Skills and Technologies</a>
             {/* <a href='/#blog'>Blog</a> */}
-            <Link href='/#contact'>contact</Link>
+            <a href='/#contact'>Contact</a>
           </div>
           <div className='flex-inital mt-14 lg:mt-0'>
-            © {year} DiogoPassos.pt - All rights reserved.
+            © {year} DiogoPassos.pt - All Rights Reserved
           </div>
         </div>
       </div>
