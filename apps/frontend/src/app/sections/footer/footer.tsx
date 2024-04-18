@@ -40,14 +40,14 @@ export async function Footer() {
         </div>
         <div className='flex flex-col py-14 lg:flex-row'>
           <div className='flex flex-auto flex-col flex-wrap gap-x-12 gap-y-3 lg:flex-row'>
-            <a href='/#top'>Home</a>
-            <a href='/#experience'>About Me</a>
-            <a href='/#skills'>Skills and Technologies</a>
+            <Link href='/#top'>home</Link>
+            <Link href='/#experience'>about me</Link>
+            <Link href='/#skills'>skills and technologies</Link>
             {/* <a href='/#blog'>Blog</a> */}
-            <a href='/#contact'>Contact</a>
+            <Link href='/#contact'>contact</Link>
           </div>
           <div className='flex-inital mt-14 lg:mt-0'>
-            © {year} DiogoPassos.pt - All Rights Reserved
+            © {year} DiogoPassos.pt - All rights reserved.
           </div>
         </div>
       </div>

@@ -72,7 +72,7 @@ export default function RootLayout({
         <Theme
           panelBackground='translucent'
           radius='large'
-          scaling='95%'
+          appearance='light'
           accentColor='gray'
         >
           <div id='top' />

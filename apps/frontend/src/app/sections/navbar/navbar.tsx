@@ -32,7 +32,7 @@ export function Navbar() {
             <NextLink href='/#skills'>skills and tech</NextLink>
           </Link>
           <Link asChild size='5'>
-            <NextLink href='/#contact'>contact-me</NextLink>
+            <NextLink href='/#contact'>contact</NextLink>
           </Link>
           <LanguageSelector
             languages={[

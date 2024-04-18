@@ -61,8 +61,6 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
     } finally {
       reset();
     }
-
-    console.log('FORM DATA', data);
   };
 
   return (
@@ -156,6 +154,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
                   ref={field.ref}
                   disabled={field.disabled}
                   aria-label='I accept that the information sent will be used for contact purposes.'
+                  highContrast
                 />
               )}
             />
