@@ -1,21 +1,40 @@
-import { Toaster } from '../components/ui/sonner';
-import { getSeoData } from '../services/cms-api';
+import { Toast } from '@/components/atoms';
 import '@/styles/index.scss';
+import { Theme } from '@radix-ui/themes';
 import type { Metadata, Viewport } from 'next';
-import { League_Spartan } from 'next/font/google';
+import { Lato } from 'next/font/google';
 import { Footer } from './sections/footer/footer';
 import { Navbar } from './sections/navbar';
-const font = League_Spartan({ subsets: ['latin'] });
+
+const font = Lato({
+  subsets: ['latin'],
+  variable: '--font-default',
+  weight: ['300', '400', '700'],
+});
+
+const title = 'Diogo Passos | Software Engineer';
+const description =
+  'Diogo Passos is an experienced software engineer with a passion for developing innovative solutions. Browse the site to learn more about his projects, skills, and professional experiences.';
+const keywords = [
+  'Gonçalo Passos',
+  'Diogo Passos',
+  'frontend',
+  'software',
+  'engineer',
+  'developer',
+  'innovative',
+  'personal',
+  'skills',
+  'jamstack',
+];
 
 export async function generateMetadata() {
-  const seo = await getSeoData();
-
   return {
     metadataBase: new URL(process.env.WEB_URL ?? 'https://diogopassos.pt'),
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
-    applicationName: seo.title,
+    title: title,
+    description: description,
+    keywords: keywords,
+    applicationName: title,
     alternates: {
       canonical: process.env.WEB_URL ?? 'https://diogopassos.pt',
       alternate: {
@@ -24,14 +43,14 @@ export async function generateMetadata() {
       },
     },
     openGraph: {
-      title: seo.title,
-      description: seo.description,
-      tags: seo.keywords,
+      title: title,
+      description: description,
+      tags: keywords,
     },
     twitter: {
-      title: seo.title,
-      description: seo.description,
-      tags: seo.keywords,
+      title: title,
+      description: description,
+      tags: keywords,
     },
   } as Metadata;
 }
@@ -49,13 +68,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={font.className}>
-        <div id='top' />
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster closeButton position='top-center' />
-        {/* <CookieConsent /> */}
+      <body className={font.variable}>
+        <Theme
+          panelBackground='translucent'
+          radius='large'
+          appearance='light'
+          accentColor='gray'
+        >
+          <div id='top' />
+          <Navbar />
+          {children}
+          <Footer />
+          <Toast />
+          {/* <CookieConsent /> */}
+        </Theme>
       </body>
     </html>
   );

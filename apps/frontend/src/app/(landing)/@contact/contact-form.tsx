@@ -1,17 +1,20 @@
 'use client';
-import { Checkbox } from '../../../components/ui/checkbox';
-import { Input } from '../../../components/ui/input';
-import { Label } from '../../../components/ui/label';
-import { TelInput } from '../../../components/ui/tel-input';
-import { Textarea } from '../../../components/ui/textarea';
+import {
+  Button,
+  Checkbox,
+  Input,
+  Label,
+  TextArea,
+  addToast,
+} from '@/components/atoms';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PropsWithChildren } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { TelInput } from '../../../components/ui/tel-input';
 import { sendMailAction } from './action/send-mail';
 import { CaptchaWidget } from './captcha';
 import { ContactModel, ContactSchema } from './schemas';
-import { SendButton } from './send-button';
 import { ValidationTooltip } from './validation-tooltip';
 
 type Props = {
@@ -24,7 +27,7 @@ const ObligatoryField = () => {
 
 const ErrorAlert = ({ children }: PropsWithChildren) => {
   return (
-    <p role='alert' className='mt-1 h-[1em] text-xs text-red-600'>
+    <p role='alert' className='mt-1 h-[1em] text-xs text-red-600 lg:hidden'>
       {children}
     </p>
   );
@@ -47,9 +50,10 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
   const onSubmitHandler: SubmitHandler<ContactModel> = async (data) => {
     try {
       await sendMailAction(data);
-      toast('Contact Form Submitted', {
-        description: "Thank you for reaching out. I'll get back to you soon!",
-      });
+      addToast(
+        'Contact Form Submitted',
+        "Thank you for reaching out. I'll get back to you soon!",
+      );
     } catch {
       toast.error('Uh oh! Something went wrong', {
         description: 'Please try again later.',
@@ -57,8 +61,6 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
     } finally {
       reset();
     }
-
-    console.log('FORM DATA', data);
   };
 
   return (
@@ -133,7 +135,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               />
             )}
           </Label>
-          <Textarea id='message' {...register('message')} rows={8} />
+          <TextArea id='message' {...register('message')} rows={8} />
           <ErrorAlert>{errors.message?.message}</ErrorAlert>
         </div>
         <CaptchaWidget />
@@ -152,6 +154,7 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
                   ref={field.ref}
                   disabled={field.disabled}
                   aria-label='I accept that the information sent will be used for contact purposes.'
+                  highContrast
                 />
               )}
             />
@@ -160,13 +163,14 @@ export function ContactForm({ country = 'PT' }: Readonly<Props>) {
               purposes.
             </Label>
           </div>
-          <SendButton
+          <Button
+            type='submit'
+            loading={isSubmitting}
             disabled={!canSubmit}
-            isLoading={isSubmitting}
             className='ml-auto'
           >
             Send
-          </SendButton>
+          </Button>
         </div>
       </div>
     </form>

@@ -1,3 +1,5 @@
+@import '@radix-ui/themes/styles.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,3 +7,5 @@
 @import './global.scss';
 
 @import 'vanilla-cookieconsent/dist/cookieconsent.css';
+
+@import './theme.scss';

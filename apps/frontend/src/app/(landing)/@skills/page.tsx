@@ -1,11 +1,11 @@
-import { Heading } from '../../../components/ui/heading';
 import { PropsWithChildren } from 'react';
+import { Heading } from '../../../components/ui/heading';
 import { SectionLayout } from '../components/section-layout';
 import { Skill } from './components/skill';
 
 const SkillsList = ({ children }: Readonly<PropsWithChildren>) => {
   return (
-    <div className='mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:flex lg:flex-wrap lg:justify-center'>
+    <div className='mb-12 grid grid-cols-2 gap-4 sm:grid-cols-4'>
       {children}
     </div>
   );

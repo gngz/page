@@ -1,69 +1,90 @@
 'use client';
 
-import { Button } from '../../../components/ui/button';
+import { Button } from '@/components/atoms';
+import NextLink from 'next/link';
+import { useCallback, useEffect, useState } from 'react';
+import { CgMenu, CgMenuRightAlt } from 'react-icons/cg';
 
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from '../../../components/ui/sheet';
-import Link from 'next/link';
-import { FaBars, FaXmark } from 'react-icons/fa6';
+const useScrollLock = () => {
+  const [locked, setLocked] = useState(false);
 
-export function NavbarDrawer() {
+  useEffect(() => {
+    document.querySelector('body')?.classList.toggle('overflow-hidden', locked);
+  }, [locked]);
+
+  return {
+    lock: () => setLocked(true),
+    unlock: () => setLocked(false),
+  };
+};
+
+export default function Drawer() {
+  const [open, setOpen] = useState(false);
+
+  const bodyLock = useScrollLock();
+
+  const toggleNavbar = useCallback(() => {
+    setOpen((oldVal) => !oldVal);
+    open ? bodyLock.unlock() : bodyLock.lock();
+  }, [open, bodyLock]);
+
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button variant={'ghost'} aria-label='Toggle navigation'>
-          <FaBars size={20} />
-        </Button>
-      </SheetTrigger>
-      <SheetContent
-        onCloseAutoFocus={(e) => e.preventDefault()}
-        className='bg-slate-100'
+    <>
+      <Button
+        onClick={toggleNavbar}
+        variant='ghost'
+        aria-expanded={open}
+        aria-haspopup
+        aria-controls='drawer'
       >
-        <div className='flex items-center justify-between'>
-          <SheetTitle>Navigation</SheetTitle>
-          <SheetClose asChild>
-            <Button
-              className='text-2xl text-slate-800'
-              aria-label='Close'
-              variant={'ghost'}
-            >
-              <FaXmark />
-            </Button>
-          </SheetClose>
-        </div>
-        <div className='mt-6 flex flex-col gap-4'>
-          <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
-              <Link href={'/#top'}>Home</Link>
-            </Button>
-          </SheetClose>
-
-          <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
-              <Link href={'/#experience'}>About Me</Link>
-            </Button>
-          </SheetClose>
-
-          <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
-              <Link href={'/#skills'}>Skills and Tech</Link>
-            </Button>
-          </SheetClose>
-          {/* <Button className='text-lg' variant={'link'} asChild>
-            <Link href={'/#blog'}>Blog</Link>
-          </Button> */}
-          <SheetClose asChild>
-            <Button className='text-lg' variant={'link'} asChild>
-              <Link href={'/#contact'}>Contact</Link>
-            </Button>
-          </SheetClose>
-        </div>
-      </SheetContent>
-    </Sheet>
+        {open ? <CgMenuRightAlt size={24} /> : <CgMenu size={24} />}
+      </Button>
+      <div
+        id='drawer'
+        aria-hidden={!open}
+        className={`fixed inset-0 top-[58px] z-50 bg-gray-200/50 backdrop-blur-md ${open ? 'block' : 'hidden'} flex flex-col items-center gap-4 p-4`}
+      >
+        <Button
+          variant='surface'
+          highContrast
+          size='4'
+          className='w-full'
+          onClick={toggleNavbar}
+          asChild
+        >
+          <NextLink href='/#top'>home</NextLink>
+        </Button>
+        <Button
+          variant='surface'
+          highContrast
+          size='4'
+          className='w-full'
+          onClick={toggleNavbar}
+          asChild
+        >
+          <NextLink href='/#experience'>about me</NextLink>
+        </Button>
+        <Button
+          variant='surface'
+          highContrast
+          size='4'
+          className='w-full'
+          onClick={toggleNavbar}
+          asChild
+        >
+          <NextLink href='/#skills'>skills and tech</NextLink>
+        </Button>
+        <Button
+          variant='surface'
+          highContrast
+          size='4'
+          className='w-full'
+          onClick={toggleNavbar}
+          asChild
+        >
+          <NextLink href='/#contact'>contact-me</NextLink>
+        </Button>
+      </div>
+    </>
   );
 }
