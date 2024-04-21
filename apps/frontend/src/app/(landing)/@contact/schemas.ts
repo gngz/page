@@ -1,4 +1,4 @@
-import { wordCount } from '../../../lib/word-count';
+import { wordCount } from '@/lib/utils/word-count';
 import { isValidPhoneNumber } from 'libphonenumber-js/max';
 import { z } from 'zod';
 

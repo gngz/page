@@ -1,4 +1,4 @@
-import { useServerCountry } from '../../../lib/use-server-country';
+import { useServerCountry } from '../../../lib/hooks/use-server-country';
 import { SectionLayout } from '../components/section-layout';
 import { ContactForm } from './contact-form';
 
