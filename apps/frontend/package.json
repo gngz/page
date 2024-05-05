@@ -17,6 +17,7 @@
     "@marsidev/react-turnstile": "^0.6.0",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/themes": "^3.0.2",
+    "backend-client": "workspace:^",
     "clsx": "^2.1.1",
     "highlight.js": "^11.9.0",
     "jsx-email": "^1.12.0",

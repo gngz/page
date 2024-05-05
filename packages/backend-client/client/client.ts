@@ -18,20 +18,24 @@ class APIClient {
   ): Promise<T> {
     const fetchImpl = customFetch ?? fetch;
 
-    const data = await fetchImpl('/api/graphql', {
+    return fetchImpl('/api/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         ...this.generateAuthHeaders(),
       },
       body: JSON.stringify({ query, variables }),
-    }).then((res) => res.json() as unknown as GraphQLResponse<T>);
+    }).then(async (response) => {
+      const parsedResponse: GraphQLResponse<T> = await response.json();
+      if (response.ok) {
+        if (parsedResponse.errors) {
+          throw new GraphQlError(parsedResponse.errors);
+        }
+        return parsedResponse.data;
+      }
 
-    if (data.errors) {
-      throw new GraphQlError(data.errors);
-    }
-
-    return data.data;
+      throw new Error(JSON.stringify(parsedResponse));
+    });
   }
 }
 
