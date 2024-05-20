@@ -10,7 +10,7 @@ steps:
   - name: build-cms
     image: plugins/docker
     settings:
-      repo: ghcr.io/gngz/page-cms
+      repo: ghcr.io/gngz/page/cms
       tags:
         - latest
       dockerfile: ./docker/cms.Dockerfile
