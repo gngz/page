@@ -7,7 +7,11 @@ platform:
   arch: arm64
 
 steps:
-  - name: greeting
-    image: alpine
-    commands:
-      - echo hello world
+  - name: build-cms
+    image: plugins/docker
+    settings:
+      repo: page-cms
+      tags:
+        - latest
+      dockerfile: ./docker/cms.dockerfile
+      context: .
