@@ -1,12 +1,9 @@
 ---
 kind: pipeline
-type: exec
-
-platform:
-  os: linux
-  arch: arm64
+type: docker
 
 steps:
   - name: greeting
+    image: alpine
     commands:
       - echo hello world
