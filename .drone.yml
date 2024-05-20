@@ -10,8 +10,13 @@ steps:
   - name: build-cms
     image: plugins/docker
     settings:
-      repo: page-cms
+      repo: ghcr.io/gngz/page-cms
       tags:
         - latest
       dockerfile: ./docker/cms.Dockerfile
       context: .
+      registry: ghcr.io
+      username:
+        from_secret: REGISTRY_USERNAME
+      password:
+        from_secret: REGISTRY_PASSWORD
