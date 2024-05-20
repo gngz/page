@@ -1,0 +1,22 @@
+---
+kind: pipeline
+type: docker
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: build-cms
+    image: plugins/docker
+    settings:
+      repo: ghcr.io/gngz/page/cms
+      tags:
+        - latest
+      dockerfile: ./docker/cms.Dockerfile
+      context: .
+      registry: ghcr.io
+      username:
+        from_secret: REGISTRY_USERNAME
+      password:
+        from_secret: REGISTRY_PASSWORD
