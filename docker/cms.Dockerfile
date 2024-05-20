@@ -12,7 +12,7 @@ RUN pnpm install
 RUN pnpm build
 
 FROM base as runtime
-LABEL org.opencontainers.image.source=https://github.com/gngz/page
+LABEL org.opencontainers.image.source https://github.com/gngz/page
 ENV NODE_ENV=production
 ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
 
