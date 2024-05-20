@@ -13,5 +13,5 @@ steps:
       repo: page-cms
       tags:
         - latest
-      dockerfile: ./docker/cms.dockerfile
+      dockerfile: ./docker/cms.Dockerfile
       context: .
