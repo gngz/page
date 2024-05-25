@@ -26,6 +26,10 @@ kind: pipeline
 name: hello
 type: exec
 
+platform:
+  os: linux
+  arch: arm64
+
 steps:
   - name: hello world
     commands:
