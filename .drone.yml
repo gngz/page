@@ -34,6 +34,6 @@ steps:
   - name: hello world
     commands:
       - echo "hello world"
-      - echo pwd
+      - pwd
 # depends_on:
 #   - build
