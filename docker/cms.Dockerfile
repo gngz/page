@@ -9,7 +9,7 @@ COPY ./apps/cms/package*.json ./
 COPY pnpm-lock.yaml ./
 
 COPY ./apps/cms .
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store,source=/pnpm/store pnpm install
 RUN pnpm build
 
 FROM base as runtime
@@ -20,7 +20,7 @@ ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
 WORKDIR /home/node/app
 COPY package*.json  ./
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store,source=/pnpm/store pnpm install --prod
 COPY --from=builder /home/node/app/dist ./dist
 COPY --from=builder /home/node/app/build ./build
 
