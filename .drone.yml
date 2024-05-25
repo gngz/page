@@ -29,15 +29,17 @@ type: exec
 platform:
   os: linux
   arch: arm64
-environment:
+
+steps:
+  - name: hello world
+  environment:
   CR_PAT:
     from_secret: REGISTRY_PASSWORD
   CR_USER:
     from_secret: REGISTRY_USERNAME
-steps:
-  - name: hello world
-    commands:
-      - echo $CR_USER
-      - docker login ghcr.io -u "$CR_USER" -p "$CR_PAT"
+  commands:
+    - echo $CR_USER
+    - docker login ghcr.io -u "$CR_USER" -p "$CR_PAT"
+    
 # depends_on:
 #   - build
