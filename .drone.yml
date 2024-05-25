@@ -37,6 +37,6 @@ environment:
 steps:
   - name: hello world
     commands:
-      - docker login ghcr.io -u $CR_USER -p $CR_PAT
+      - docker login ghcr.io -u "$CR_USER" -p "$CR_PAT"
 # depends_on:
 #   - build
