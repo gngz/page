@@ -16,6 +16,7 @@ steps:
       CR_USER:
         from_secret: REGISTRY_USERNAME
     commands:
+      - sleep 5
       - echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
       - docker build -t ghcr.io/gngz/page/cms:latest -f ./docker/cms.Dockerfile .
       - docker push ghcr.io/gngz/page/cms:latest
