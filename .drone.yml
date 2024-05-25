@@ -13,8 +13,8 @@ steps:
     environment:
       DOCKER_BUILDKIT: 1
     volumes:
-    - name: cache
-      path: /pnpm/store
+      - name: cache
+        path: /pnpm/store
     settings:
       repo: ghcr.io/gngz/page/cms
       tags:
@@ -27,9 +27,9 @@ steps:
       password:
         from_secret: REGISTRY_PASSWORD
 volumes:
-- name: cache
-  host:
-    path: /pnpm/store
+  - name: cache
+    host:
+      path: /opt/drone/pnpm/store
 
 ---
 kind: pipeline
