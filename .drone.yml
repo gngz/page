@@ -30,6 +30,5 @@ steps:
   - name: hello world
     commands:
       - echo "hello world"
-
-depends_on:
-  - build
+# depends_on:
+#   - build
