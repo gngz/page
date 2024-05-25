@@ -12,8 +12,8 @@ steps:
     environment:
       DOCKER_BUILDKIT: 1
     volumes:
-      - name: cache
-        path: /tmp/cache
+    - name: cache
+      path: /tmp/cache
     settings:
       repo: ghcr.io/gngz/page/cms
       tags:
