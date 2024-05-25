@@ -8,20 +8,28 @@ platform:
 
 steps:
   - name: build-cms
-    image: plugins/docker
+    image: docker/dind
     environment:
       DOCKER_BUILDKIT: 1
-    settings:
-      repo: ghcr.io/gngz/page/cms
-      tags:
-        - latest
-      dockerfile: ./docker/cms.Dockerfile
-      context: .
-      registry: ghcr.io
-      username:
-        from_secret: REGISTRY_USERNAME
-      password:
+      CR_PAT:
         from_secret: REGISTRY_PASSWORD
+      CR_USER:
+        from_secret: REGISTRY_USERNAME
+    commands:
+      - echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
+      - docker build -t ghcr.io/gngz/page/cms:latest -f ./docker/cms.Dockerfile .
+      - docker push ghcr.io/gngz/page/cms:latest
+    # settings:
+    #   repo: ghcr.io/gngz/page/cms
+    #   tags:
+    #     - latest
+    #   dockerfile: ./docker/cms.Dockerfile
+    #   context: .
+    #   registry: ghcr.io
+    #   username:
+    #     from_secret: REGISTRY_USERNAME
+    #   password:
+    #     from_secret: REGISTRY_PASSWORD
     volumes:
       - name: cache
         path: /pnpm/store
