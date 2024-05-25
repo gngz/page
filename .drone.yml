@@ -11,9 +11,6 @@ steps:
     image: plugins/docker
     environment:
       DOCKER_BUILDKIT: 1
-    volumes:
-      - name: cache
-        path: /pnpm/store
     settings:
       repo: ghcr.io/gngz/page/cms
       tags:
@@ -25,6 +22,9 @@ steps:
         from_secret: REGISTRY_USERNAME
       password:
         from_secret: REGISTRY_PASSWORD
+    volumes:
+      - name: cache
+        path: /pnpm/store
 volumes:
   - name: cache
     host:
