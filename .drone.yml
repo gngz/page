@@ -42,6 +42,6 @@ steps:
         from_secret: REGISTRY_USERNAME
     commands:
       - echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
-      - docker pull ghcr.io/gngz/page/cms:lastest
+      - docker pull ghcr.io/gngz/page/cms:latest
 depends_on:
   - build
