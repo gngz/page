@@ -8,41 +8,25 @@ platform:
 
 steps:
   - name: build-cms
-    image: docker:dind
+    image: plugins/docker
+    privileged: true
     environment:
       DOCKER_BUILDKIT: 1
-      DOCKER_HOST: tcp://docker:2375
-      CR_PAT:
-        from_secret: REGISTRY_PASSWORD
-      CR_USER:
-        from_secret: REGISTRY_USERNAME
-    commands:
-      - sleep 5
-      - echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
-      - docker build -t ghcr.io/gngz/page/cms:latest -f ./docker/cms.Dockerfile .
-      - docker push ghcr.io/gngz/page/cms:latest
-    # settings:
-    #   repo: ghcr.io/gngz/page/cms
-    #   tags:
-    #     - latest
-    #   dockerfile: ./docker/cms.Dockerfile
-    #   context: .
-    #   registry: ghcr.io
-    #   username:
-    #     from_secret: REGISTRY_USERNAME
-    #   password:
-    #     from_secret: REGISTRY_PASSWORD
     volumes:
       - name: cache
         path: /pnpm/store
-services:
-  - name: docker
-    image: docker:dind
-    privileged: true
-
+    settings:
+      repo: ghcr.io/gngz/page/cms
+      tags:
+        - latest
+      dockerfile: ./docker/cms.Dockerfile
+      context: .
+      registry: ghcr.io
+      username:
+        from_secret: REGISTRY_USERNAME
+      password:
+        from_secret: REGISTRY_PASSWORD
 volumes:
-  - name: dockersock
-    temp: {}
   - name: cache
     host:
       path: /pnpm/store
