@@ -16,6 +16,7 @@ steps:
       tags:
         - latest
       dockerfile: ./docker/cms.Dockerfile
+      cache_from: ghcr.io/gngz/page/cms:latest
       context: .
       registry: ghcr.io
       username:
