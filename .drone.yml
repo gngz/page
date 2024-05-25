@@ -8,7 +8,7 @@ platform:
 
 steps:
   - name: build-cms
-    image: docker/dind
+    image: docker:dind
     environment:
       DOCKER_BUILDKIT: 1
       CR_PAT:
