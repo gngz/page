@@ -29,11 +29,14 @@ type: exec
 platform:
   os: linux
   arch: arm64
-
+environment:
+  CR_PAT:
+    from_secret: REGISTRY_PASSWORD
+  CR_USER:
+    from_secret: REGISTRY_USERNAME
 steps:
   - name: hello world
     commands:
-      - echo "hello world"
-      - pwd
+      - echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
 # depends_on:
 #   - build
