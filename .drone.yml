@@ -37,6 +37,6 @@ environment:
 steps:
   - name: hello world
     commands:
-      - echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
+      - docker login ghcr.io -u $CR_USER -p $CR_PAT
 # depends_on:
 #   - build
