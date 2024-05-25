@@ -11,6 +11,7 @@ steps:
     image: docker:dind
     environment:
       DOCKER_BUILDKIT: 1
+      DOCKER_HOST: tcp://docker:2375
       CR_PAT:
         from_secret: REGISTRY_PASSWORD
       CR_USER:
@@ -32,23 +33,19 @@ steps:
     #   password:
     #     from_secret: REGISTRY_PASSWORD
     volumes:
-    - name: dockersock
-      path: /var/run
-    - name: cache
-      path: /pnpm/store
+      - name: cache
+        path: /pnpm/store
 services:
   - name: docker
     image: docker:dind
     privileged: true
-    volumes:
-      - name: dockersock
-        path: /var/run
+
 volumes:
-- name: dockersock
-  temp: {}
-- name: cache
-  host:
-    path: /pnpm/store
+  - name: dockersock
+    temp: {}
+  - name: cache
+    host:
+      path: /pnpm/store
 
 ---
 kind: pipeline
