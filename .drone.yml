@@ -9,6 +9,8 @@ platform:
 steps:
   - name: build-cms
     image: plugins/docker
+    environment:
+      - DOCKER_BUILDKIT=1
     settings:
       repo: ghcr.io/gngz/page/cms
       tags:
