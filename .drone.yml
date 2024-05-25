@@ -31,7 +31,7 @@ platform:
   arch: arm64
 
 steps:
-  - name: hello world
+  - name: update docker image
     environment:
       CR_PAT:
         from_secret: REGISTRY_PASSWORD
@@ -39,5 +39,6 @@ steps:
         from_secret: REGISTRY_USERNAME
     commands:
       - echo $CR_PAT | docker login ghcr.io -u $CR_USER --password-stdin
-# depends_on:
-#   - build
+      - docker pull ghcr.io/gngz/page/cms:lastest
+depends_on:
+  - build
