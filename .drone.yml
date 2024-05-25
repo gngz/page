@@ -33,10 +33,10 @@ steps:
     #   password:
     #     from_secret: REGISTRY_PASSWORD
     volumes:
-      - name: dockersock
-        path: /var/run
-      - name: cache
-        path: /pnpm/store
+    - name: dockersock
+      path: /var/run
+    - name: cache
+      path: /pnpm/store
 services:
   - name: docker
     image: docker:dind
