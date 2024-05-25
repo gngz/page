@@ -23,18 +23,13 @@ steps:
 
 ---
 kind: pipeline
+name: hello
 type: exec
+
 steps:
   - name: hello world
     commands:
-    - echo "hello world"
-
-platform:
-  os: linux
-  arch: arm64
-
-steps:
-
+      - echo "hello world"
 
 depends_on:
   - build
