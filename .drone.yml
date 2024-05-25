@@ -9,9 +9,6 @@ platform:
 steps:
   - name: build-cms
     image: plugins/docker
-    volumes:
-      - name: pnpm-store
-        path: /pnpm/store
     settings:
       repo: ghcr.io/gngz/page/cms
       tags:
